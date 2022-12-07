@@ -1,6 +1,6 @@
 <template>
   <router-view />
 </template>
-<style lang="scss">
+<!-- <style lang="scss">
   @import "../../css/app.scss";
-</style>
+</style> -->

@@ -54,4 +54,4 @@ const router = new createRouter({
     routes: routes,
 });
 
-export default router;
+export default routes;

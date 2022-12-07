@@ -4,82 +4,79 @@ namespace App\Http\Controllers;
 
 use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //get all sections
     public function index()
     {
-        //
+        $sections = Section::all();
+
+        return [
+            'status' => 200,
+            'data' => $sections,
+        ];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //get one section
+    public function show(int $id)
     {
-        //
+        $section = Section::findOrfail($id);
+
+        return [
+            'status' => 200,
+            'data' => $section,
+        ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Store section
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'contain' => 'required|string',
+            'topic_id' => 'exists:topics,id|required|int',
+        ]);
+
+        $newSection = Section::create([
+            'title' => $request->get('title'),
+            'contain' => $request->get('contain'),
+            'topic_id' => $request->get('topic_id'),
+        ]);
+
+        return [
+            'status' => 200,
+            'data' => $newSection,
+            'message' => 'Seciton is store',
+        ];
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Section $section)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Section $section)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
+    //update Section
     public function update(Request $request, Section $section)
     {
-        //
+        $request->validate([
+            'title' => 'string',
+            'contain' => 'string',
+            'topic_id' => 'exists:topics,id|int',
+        ]);
+
+        $section->update($request->all());
+
+        return [
+            'status' => 200,
+            'message' => 'Section has been update successfully',
+        ];
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
+    //delete section
     public function destroy(Section $section)
     {
-        //
+        $section->deleteOrFail();
+
+        return [
+            'status' => 200,
+            'message' => 'Section has been delete successfully',
+        ];
     }
 }

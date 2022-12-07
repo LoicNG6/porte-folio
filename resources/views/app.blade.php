@@ -9,10 +9,10 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body>
+<body class="antialiased">
     <div id="app">
         <v-app>
-            <example-component />
+            <app />
         </v-app>
     </div>
 
