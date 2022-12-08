@@ -1,13 +1,43 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// // Fonts
+// @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
-
+// // Variables
+// @import 'variables';
+@import './node_modules/@mdi/font/scss/materialdesignicons.scss';
 
 body {
-    background-color: burlywood;
+    height: 100vh;
+    background: no-repeat linear-gradient(rgb(111, 75, 62), rgb(62, 39, 35));
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    // background: linear-gradient(#e66465, #9198e5);
+    // next color for the next version 
+    //background: rgb(229, 224, 216);
+}
+
+.text {
+    font-size: large;
+    font-family: "Gill Sans", sans-serif;
+    color: rgb(240, 234, 234);
+
+    .title {
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    .paragraph {
+        text-align: justify;
+    }
+}
+
+.section {
+    .subject {
+        background-color: rgb(64, 31, 19);
+        background-color: #967468;
+    }
+}
+
+.s {
+    border: solid;
 }

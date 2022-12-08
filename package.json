@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@mdi/font": "^7.0.96",
+        "vite-plugin-vuetify": "^1.0.0",
         "vue-loader": "^17.0.1",
         "vue-router": "^4.0.13",
         "vuetify": "^3.0.3",

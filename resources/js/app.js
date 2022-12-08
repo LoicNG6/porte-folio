@@ -1,15 +1,16 @@
 import './bootstrap';
 import { createApp } from "vue/dist/vue.esm-bundler";
 import App from './components/App.vue';
-import routes from './router/index.js';
+import router from '../router';
+
 
 const app = createApp(App);
 
 //auto register vue components
 const components = import.meta.glob('../components/*.vue', { eager: true })
 Object.entries(components).forEach(([path, definition]) => {
-      const componentName = path.split('/').pop().replace(/\.\w+$/, '')
-      vueApp.component(componentName, definition.default)
+    const componentName = path.split('/').pop().replace(/\.\w+$/, '')
+    vueApp.component(componentName, definition.default)
 })
 
 //Vuetify config
@@ -24,6 +25,7 @@ const vuetify = createVuetify({
     ssr: true
 })
 
-app.use(routes);
+
+app.use(router);
 app.use(vuetify);
 app.mount('#app');

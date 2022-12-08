@@ -1,11 +1,11 @@
 <template>
   <v-main
-    class="background-color"
     :style="$route.name == 'Loco' ? 'align-items: center' : ''"
+    style="border:solid"
   >
     <v-top-menu v-if="!['Loco', 'admin'].includes($route.name)"></v-top-menu>
     <v-left-menu v-if="!['Loco', 'admin'].includes($route.name)"></v-left-menu>
-    <v-container v-if="$route.name == 'Loco'" class="title">
+    <v-container v-if="$route.name == 'Loco'" class="text title">
       <v-row justify="center" align-content="center">
         <v-col style="text-align: center" cols="auto" class="px-0 text">
           <span>

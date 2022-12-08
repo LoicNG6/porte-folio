@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineConfig({
     plugins: [
@@ -18,11 +19,18 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+            compilerOptions: {
+                isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+            },
         }),
+        vuetify(),
     ],
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.esm-bundler.js',
+            '@': '/resources/js',
         },
     },
+    // commonjsOptions: {
+    //     esmExternals: true,
+    // },
 });

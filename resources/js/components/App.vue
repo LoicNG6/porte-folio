@@ -1,6 +1,8 @@
 <template>
-  <router-view />
+  <v-app style="border:solid red">
+    <router-view></router-view>
+  </v-app>
 </template>
-<!-- <style lang="scss">
-  @import "../../css/app.scss";
-</style> -->
+<style lang="scss">
+@import "../../sass/app.scss";
+</style>

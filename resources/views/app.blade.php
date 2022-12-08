@@ -4,19 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How To Install Vue 3 in Laravel 9 with Vite</title>
-
-    @vite('resources/sass/app.scss')
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <title>Loïc NGUESSIE</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased">
-    <div id="app">
-        <v-app>
-            <app />
-        </v-app>
-    </div>
+<body style="border: solid blue;">
+    <div id="app" style="border: solid green;">
 
-    @vite('resources/js/app.js')
+        <app />
+
+    </div>
 </body>
 
 </html>
