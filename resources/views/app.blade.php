@@ -9,11 +9,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body style="border: solid blue;">
-    <div id="app" style="border: solid green;">
-
+<body>
+    <div id="app">
         <app />
-
     </div>
 </body>
 

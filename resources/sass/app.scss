@@ -1,19 +1,8 @@
-// // Fonts
-// @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// // Variables
-// @import 'variables';
-@import './node_modules/@mdi/font/scss/materialdesignicons.scss';
-
-body {
-    height: 100vh;
+.app {
     background: no-repeat linear-gradient(rgb(111, 75, 62), rgb(62, 39, 35));
     justify-content: center;
-    align-items: center;
     display: flex;
-    // background: linear-gradient(#e66465, #9198e5);
-    // next color for the next version 
-    //background: rgb(229, 224, 216);
 }
 
 .text {
@@ -22,8 +11,8 @@ body {
     color: rgb(240, 234, 234);
 
     .title {
-        font-size: 4em;
-        font-weight: bold;
+        font-size: 2em;
+        
     }
 
     .paragraph {
