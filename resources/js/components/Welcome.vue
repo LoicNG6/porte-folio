@@ -11,12 +11,7 @@
           <span>
             {{ typeValue }}
           </span>
-          <span
-            v-show="setTypeStatus"
-            class="blinking-cursor"
-            style="border: solid"
-            >|</span
-          >
+          <span v-show="setTypeStatus" class="blinking-cursor">|</span>
           <v-btn
             class="mx-4"
             variant="outlined"
