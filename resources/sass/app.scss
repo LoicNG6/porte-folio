@@ -1,18 +1,16 @@
-
 .app {
     background: no-repeat linear-gradient(rgb(111, 75, 62), rgb(62, 39, 35));
     justify-content: center;
     display: flex;
+    color: rgb(240, 234, 234);
 }
 
 .text {
     font-size: large;
     font-family: "Gill Sans", sans-serif;
     color: rgb(240, 234, 234);
-
     .title {
         font-size: 2em;
-        
     }
 
     .paragraph {
@@ -24,6 +22,7 @@
     .subject {
         background-color: rgb(64, 31, 19);
         background-color: #967468;
+        color: #5d4739;
     }
 }
 

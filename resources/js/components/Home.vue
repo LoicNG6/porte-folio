@@ -1,4 +1,7 @@
 <template>
+  in the home page
+</template>
+<!-- <template>
   <v-container fluid v-if="$route.name == 'home'">
     <v-row>
       <v-col cols="3" v-for="(topic, index) in topics" :key="index">
@@ -66,4 +69,4 @@
       },
     },
   };
-</script>
+</script> -->
