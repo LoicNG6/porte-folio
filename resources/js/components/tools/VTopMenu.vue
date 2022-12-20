@@ -41,22 +41,22 @@
       </v-list-item-group>
     </v-list>
 
-    <v-divider style="position: relative; top: 50%"></v-divider>
+    <v-divider style="position: relative; top: 50%;"></v-divider>
 
     <v-btn
       to="admin"
-      color="#4e382f"
+      color="#80594a"
       rounded
       height="80"
       x-large
       elevation="4"
-      style="position: relative; top: 55%; left: 12%"
+      style="position: relative; top: 53%; left: 15%"
     >
-      <v-row align="center">
+      <v-row align="center" class="text" justify="space-around">
         <v-col cols="auto">
           <v-icon dark x-large>mdi-account-circle</v-icon>
         </v-col>
-        <v-col cols="6"> Admin </v-col>
+        <v-col cols="auto"> Admin </v-col>
       </v-row>
     </v-btn>
   </v-navigation-drawer>
