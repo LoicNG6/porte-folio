@@ -17,7 +17,7 @@ class TopicController extends Controller
     public function index()
     {
         $topics = Topic::all();
-
+        
         return [
             'status' => 200,
             'data' => $topics,

@@ -1,7 +1,7 @@
-<template>
-  in the home page
-</template>
 <!-- <template>
+  in the home page
+</template> -->
+<template>
   <v-container fluid v-if="$route.name == 'home'">
     <v-row>
       <v-col cols="3" v-for="(topic, index) in topics" :key="index">
@@ -38,35 +38,37 @@
   <router-view v-else />
 </template>
 <script>
-  export default {
-    data: () => {
-      return {
-        topics: null,
-      };
-    },
-    mounted() {
-      this.getTopics();
-    },
-    methods: {
-      getTopics() {
-        this.$axios
-          .get("/api/topics")
-          .then((res) => {
-            this.topics = res.data.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      },
-      goToSection(topic) {
-        this.$router.push({
-          name: "section",
-          params: {
-            id: topic.id,
-            topic_title: topic.title,
-          },
+export default {
+  data: () => {
+    return {
+      topics: null,
+    };
+  },
+  mounted() {
+    this.getTopics();
+  },
+  methods: {
+    getTopics() {
+      // console.log("hello home");
+      axios
+        .get("/api/topics")
+        .then((res) => {
+          console.log("hello axios home");
+          this.topics = res.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      },
     },
-  };
-</script> -->
+    goToSection(topic) {
+      this.$router.push({
+        name: "section",
+        params: {
+          id: topic.id,
+          topic_title: topic.title,
+        },
+      });
+    },
+  },
+};
+</script>

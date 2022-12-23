@@ -68,14 +68,14 @@ export default {
   methods: {
     getSections() {
       console.log("hello getSections");
-      this.$axios
-        .get("/api/sections/" + this.id)
-        .then((res) => {
-          this.sections = res.data.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // this.$axios
+      //   .get("/api/sections/" + this.id)
+      //   .then((res) => {
+      //     this.sections = res.data.data;
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     },
   },
   watch: {
