@@ -1,6 +1,3 @@
-<!-- <template>
-  in the home page
-</template> -->
 <template>
   <v-container fluid v-if="$route.name == 'home'">
     <v-row>
@@ -49,7 +46,6 @@ export default {
   },
   methods: {
     getTopics() {
-      // console.log("hello home");
       axios
         .get("/api/topics")
         .then((res) => {
