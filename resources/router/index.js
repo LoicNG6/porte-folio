@@ -9,7 +9,7 @@ import Admin from "../js/components/Admin.vue";
 const routes = [
     {
         path: "/",
-        redirect: "/NGUESSIE-Loic",
+        redirect: { name: "Loco" },
     },
     {
         path: "/NGUESSIE-Loic",
@@ -26,7 +26,7 @@ const routes = [
                         path: "section/:id",
                         name: "section",
                         component: Section,
-                        props:true,
+                        props: true,
                     },
                 ]
             },
