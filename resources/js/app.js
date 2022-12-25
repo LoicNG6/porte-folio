@@ -7,6 +7,9 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 const app = createApp(App);
 
+//global variables
+app.provide('curr_language', 'fr');
+
 //auto register vue components
 const components = import.meta.glob('../components/*.vue', { eager: true })
 Object.entries(components).forEach(([path, definition]) => {
