@@ -4,7 +4,6 @@
     class="app"
   >
     <v-top-menu v-if="!['Loco', 'admin'].includes($route.name)"></v-top-menu>
-    <!-- <v-left-menu v-if="!['Loco', 'admin'].includes($route.name)"></v-left-menu> -->
     <v-container v-if="$route.name == 'Loco'" class="text">
       <v-row justify="center" align-content="center">
         <v-col style="text-align: center" cols="auto" class="px-0 title">
@@ -47,19 +46,17 @@
 
 <script>
 import VTopMenu from "./tools/VTopMenu.vue";
-import VLeftMenu from "./tools/VLeftMenu.vue";
 export default {
   components: {
     VTopMenu,
-    VLeftMenu,
   },
   data: () => {
     return {
       typeValue: "",
       typeStatus: true,
       displayTextArray: ["Hi,", " I'm Loco,", " welcome to my page !"],
-      typingSpeed: 100,
-      newTextDelay: 2000,
+      typingSpeed: 120,
+      newTextDelay: 1700,
       displayTextArrayIndex: 0,
       charIndex: 0,
       endTyping: false,

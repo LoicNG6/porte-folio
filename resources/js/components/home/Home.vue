@@ -87,9 +87,7 @@ export default {
         : presentation.en.introduction;
 
     this.tips =
-      this.curr_language === "fr"
-        ? presentation.fr.tips
-        : presentation.en.tips;
+      this.curr_language === "fr" ? presentation.fr.tips : presentation.en.tips;
   },
   methods: {
     getTopics() {
@@ -110,6 +108,12 @@ export default {
           topic_title: topic.title,
         },
       });
+    },
+  },
+  watch: {
+    curr_language() {
+      console.log("in home curr_language = ", this.curr_language);
+      this.$forceUpdate();
     },
   },
 };
