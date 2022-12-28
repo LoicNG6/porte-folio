@@ -3,12 +3,27 @@ import { createApp } from "vue/dist/vue.esm-bundler";
 import App from './components/App.vue';
 import router from '../router';
 import axios from 'axios';
+import { createI18n } from 'vue-i18n';
+import fr from './translation/fr';
+import en from './translation/en.json';
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000';
+//create app
 const app = createApp(App);
 
-//global variables
-app.provide('curr_language', 'french');
+// api with axios
+axios.defaults.baseURL = 'http://127.0.0.1:8000';
+
+
+// translation of app
+const i18n = createI18n({
+    locale: 'fr',
+    messages: {
+        en: en,
+        fr: fr,
+    },
+});
+app.config.globalProperties.$i18n = i18n;
+app.provide('curr_language', i18n.global.locale);
 
 //auto register vue components
 const components = import.meta.glob('../components/*.vue', { eager: true })
@@ -16,6 +31,7 @@ Object.entries(components).forEach(([path, definition]) => {
     const componentName = path.split('/').pop().replace(/\.\w+$/, '')
     vueApp.component(componentName, definition.default)
 })
+
 
 //Vuetify config
 import '@mdi/font/css/materialdesignicons.css';
@@ -30,6 +46,7 @@ const vuetify = createVuetify({
 })
 
 // app.use(axios,{ baseUrl: 'http://127.0.0.1:8000/api/'})
+app.use(i18n);
 app.use(router);
 app.use(vuetify);
 app.mount('#app');

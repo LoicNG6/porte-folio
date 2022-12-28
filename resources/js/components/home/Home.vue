@@ -10,9 +10,7 @@
           style="width: 320px; border: solid 0.3em; border-color: #52362a"
         >
           <v-container>
-            <v-row class="text">
-              {{ intro }}
-            </v-row>
+            <v-row class="text">{{ $t("introduction") }}</v-row>
           </v-container>
         </v-card>
       </v-col>
@@ -25,9 +23,7 @@
           style="width: 320px; border: solid 0.3em; border-color: #52362a"
         >
           <v-container>
-            <v-row class="text">
-              {{ tips }}
-            </v-row>
+            <v-row class="text">{{ $t("tips") }}</v-row>
           </v-container>
         </v-card>
       </v-col>
@@ -80,14 +76,6 @@ export default {
   },
   mounted() {
     this.getTopics();
-
-    this.intro =
-      this.curr_language === "fr"
-        ? presentation.fr.introduction
-        : presentation.en.introduction;
-
-    this.tips =
-      this.curr_language === "fr" ? presentation.fr.tips : presentation.en.tips;
   },
   methods: {
     getTopics() {
@@ -111,7 +99,7 @@ export default {
     },
   },
   watch: {
-    curr_language() {
+    "$i18n.locale": function () {
       console.log("in home curr_language = ", this.curr_language);
       this.$forceUpdate();
     },

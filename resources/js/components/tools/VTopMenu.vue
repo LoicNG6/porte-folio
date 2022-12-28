@@ -10,7 +10,7 @@
     <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
 
     <v-spacer style="width: 60%"></v-spacer>
-
+    
     <v-img
       :src="imageSrc"
       height="40px"
@@ -74,12 +74,11 @@
 .test:hover {
   background-color: rgba(240, 248, 255, 0.1);
 }
-
 </style>
 <script>
 export default {
   name: "v-top-menu",
-  inject:["curr_language"],
+  inject: ["curr_language"],
   data: () => {
     return {
       image_trad_path: "",
@@ -109,7 +108,8 @@ export default {
     };
   },
   mounted() {
-    this.image_trad_path = "../../../sass/assets/" + this.curr_language + ".svg";
+    this.image_trad_path =
+      "../../../sass/assets/" + this.curr_language + ".svg";
   },
   computed: {
     imageSrc() {
@@ -123,17 +123,14 @@ export default {
       this.$router.push({ name: route });
     },
     setLanguage() {
-      console.log("begining =   ", this.curr_language);
+      
+      if (this.$i18n.locale === "en") this.$i18n.locale = "fr";
+      else this.$i18n.locale = "en";
 
-      if (this.curr_language === "english") this.curr_language = "french";
-      else this.curr_language = "english";
-
-      this.image_trad_path = "../../../sass/assets/" + this.curr_language + ".svg";
+      this.image_trad_path =
+        "../../../sass/assets/" + this.curr_language + ".svg";
       this.$forceUpdate();
-      console.log(this.curr_language);
-      //Si je ne trouve pas le moyen d'appeler le composant "Home",
-      //je vais devoir faire les appelles api d'ici malheureusement.
-    }
+    },
   },
 };
 </script>
