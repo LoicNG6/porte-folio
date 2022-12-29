@@ -22,8 +22,8 @@ class SectionController extends Controller
     //get one section
     public function show(int $id)
     {
-        $section = Section::findOrfail($id);
-
+        $section = Section::where("topic_id", $id)->get();
+        
         return [
             'status' => 200,
             'data' => $section,

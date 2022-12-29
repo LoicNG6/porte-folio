@@ -43,7 +43,7 @@
         </v-row>
       </v-col>
     </v-row>
-    <Subjects></Subjects>
+    <!-- <Subjects></Subjects> -->
   </v-container>
 </template>
 <script>
@@ -62,25 +62,18 @@ export default {
     };
   },
   mounted() {
-    console.log("on the section ", this.id);
     this.getSections();
   },
   methods: {
     getSections() {
-      console.log("hello getSections");
-      // axios
-      //   .get("/api/sections/" + this.id)
-      //   .then((res) => {
-      //     this.sections = res.data.data;
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-    },
-  },
-  watch: {
-    showSection: function () {
-      this.dialog = this.showSection;
+      axios
+        .get("/api/sections/" + this.id)
+        .then((res) => {
+          this.sections = res.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

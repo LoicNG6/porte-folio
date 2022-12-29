@@ -70,12 +70,12 @@
             >
               <v-container fluid>
                 <v-row justify="center">
-                  <v-col cols="auto" class="text ">
+                  <v-col cols="auto" class="text">
                     {{ topic.title[$i18n.locale] }}
                   </v-col>
                 </v-row>
                 <v-row><v-divider color="white"></v-divider></v-row>
-                <v-row justify="center" style="height:100px;" class="my-4">
+                <v-row justify="center" style="height: 100px" class="my-4">
                   <v-col cols="12">
                     {{ topic.description[$i18n.locale] }}
                   </v-col>
@@ -83,7 +83,7 @@
                 <v-row justify="center">
                   <v-col cols="8" justify-center style="text-align: center">
                     <v-btn
-                      @click="goToSection(topic)"
+                      @click="goToSection(topic.id, topic.title[$i18n.locale])"
                       width="130"
                       color="#6f4b3ecd"
                     >
@@ -136,12 +136,14 @@ export default {
           console.log(error);
         });
     },
-    goToSection(topic) {
+    goToSection(topic_id, topic_name) {
+      console.log(topic_name);
+      console.log(topic_id);
       this.$router.push({
         name: "section",
         params: {
-          id: topic.id,
-          topic_title: topic.title,
+          id: topic_id,
+          topic_title: topic_name,
         },
       });
     },
