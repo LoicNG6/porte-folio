@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyIntoSectionsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class AddForeignKeyIntoSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->foreign('topic_id')
-                ->references('id')
-                ->change()
+            $table->foreignId('topic_id')
+                ->constrained('topics')
                 ->on('topics')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
     }
@@ -33,4 +33,4 @@ class AddForeignKeyIntoSectionsTable extends Migration
             $table->dropForeign('topic_id');
         });
     }
-}
+};

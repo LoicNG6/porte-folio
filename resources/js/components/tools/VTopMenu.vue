@@ -9,8 +9,9 @@
     ></v-app-bar-nav-icon>
     <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
 
-    <v-spacer style="width: 60%"></v-spacer>
-    
+    <v-spacer
+      style="width: 60%"
+    ></v-spacer>
     <v-img
       :src="imageSrc"
       height="40px"
@@ -78,7 +79,6 @@
 <script>
 export default {
   name: "v-top-menu",
-  inject: ["curr_language"],
   data: () => {
     return {
       image_trad_path: "",
@@ -109,7 +109,8 @@ export default {
   },
   mounted() {
     this.image_trad_path =
-      "../../../sass/assets/" + this.curr_language + ".svg";
+      "../../../sass/assets/" + this.$i18n.locale + ".svg";
+    
   },
   computed: {
     imageSrc() {
@@ -128,7 +129,7 @@ export default {
       else this.$i18n.locale = "en";
 
       this.image_trad_path =
-        "../../../sass/assets/" + this.curr_language + ".svg";
+        "../../../sass/assets/" + this.$i18n.locale + ".svg";
       this.$forceUpdate();
     },
   },

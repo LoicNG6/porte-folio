@@ -17,7 +17,13 @@ class TopicController extends Controller
     public function index()
     {
         $topics = Topic::all();
-        
+
+        //convert string object from db to object
+        foreach ($topics as $topic) {
+            $topic->title = json_decode($topic->title);
+            $topic->description = json_decode($topic->description);
+        }
+
         return [
             'status' => 200,
             'data' => $topics,

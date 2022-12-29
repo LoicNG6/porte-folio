@@ -1,5 +1,10 @@
+.background {
+    background: no-repeat linear-gradient(rgb(107, 74, 61), rgb(68, 42, 38));
+}
+
 .app {
-    background: no-repeat linear-gradient(rgb(111, 75, 62), rgb(62, 39, 35));
+    // background: no-repeat linear-gradient(rgb(111, 75, 62), rgb(62, 39, 35));
+    background: no-repeat linear-gradient(rgb(107, 74, 61), rgb(68, 42, 38));
     justify-content: center;
     display: flex;
     color: rgb(240, 234, 234);
@@ -9,8 +14,14 @@
     font-size: large;
     font-family: "Gill Sans", sans-serif;
     color: rgb(240, 234, 234);
+
     .title {
         font-size: 2em;
+    }
+
+    .middle-title {
+        font-size: 1em;
+        font-weight: bold;
     }
 
     .paragraph {
@@ -28,5 +39,5 @@
 
 .s {
     border: solid red;
-    color: #ffffff00;
+    color: #6f4b3ecd;
 }

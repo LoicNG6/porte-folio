@@ -1,15 +1,37 @@
 INSERT INTO
       sections (
-            title_fr,
-            contain_fr,
-            topic_id,
-            title_en,
-            contain_en
+            title,
+            contain,
+            topic_id
       )
 VALUES
-      ("Collège", "", 2, "Middle School", ""),
-      ("Lycée", "", 2, "High School", ""),
-      ("Université", "", 2, "University", ""),
-      ("Jobs étudiants", "", 3, "Jobs", ""),
-      ("Stages", "", 3, "Intership", ""),
-      ("Alternances", "", 3, "Work-Studies", "");
+      (
+            '{"fr":"Collège","en":"Middle School"}',
+            '',
+            39
+      ),
+      (
+            '{"fr":"Lycée","en":"High School"}',
+            '',
+            39
+      ),
+      (
+            '{"fr":"Université","en":"University"}',
+            '',
+            39
+      ),
+      (
+            '{"fr":"Jobs étudiants","en":"Student jobs"}',
+            '',
+            40
+      ),
+      (
+            '{"fr":"Stages", "en":"Internship"}',
+            '',
+            40
+      ),
+      (
+            '{"fr":"Alternances", "en":"Apprentiship"}',
+            '',
+            40
+      );

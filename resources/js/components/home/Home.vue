@@ -1,6 +1,6 @@
 <template>
   <v-container fluid v-if="$route.name == 'home'">
-    <v-row justify="center">
+    <v-row justify="center" class="my-8">
       <v-col cols="auto">
         <v-card
           rounded="xl"
@@ -48,11 +48,10 @@
         </v-card>
       </v-col>
     </v-row>
-
-    <v-row align-content="center" justify="center">
+    <v-row align-content="center" justify="center" class="text my-8">
       <v-sheet class="mx-auto" max-width="970" color="#ffffff00">
         <v-slide-group
-          style="color:white;"
+          style="color: white"
           v-model="model"
           class="pa-4"
           prev-icon="mdi-arrow-left-bold"
@@ -61,28 +60,24 @@
         >
           <v-slide-group-item v-for="(topic, index) in topics" :key="index">
             <v-card
-              class="mx-4"
+              class="mx-4 text"
               width="250"
-              color="#392820"
+              color="#6f4b3e80"
               elevation="8"
               rounded="lg"
-              height="300"
+              height="250"
+              style="color: rgb(240, 234, 234)"
             >
-              <v-container>
+              <v-container fluid>
                 <v-row justify="center">
-                  <v-col cols="auto">
-                    {{ topic.img }}
+                  <v-col cols="auto" class="text ">
+                    {{ topic.title[$i18n.locale] }}
                   </v-col>
                 </v-row>
-                <v-row justify="center">
-                  <v-col cols="auto">
-                    {{ topic.title }}
-                  </v-col>
-                </v-row>
-                <v-row><v-divider dark></v-divider></v-row>
-                <v-row justify="center">
+                <v-row><v-divider color="white"></v-divider></v-row>
+                <v-row justify="center" style="height:100px;" class="my-4">
                   <v-col cols="12">
-                    {{ topic.description }}
+                    {{ topic.description[$i18n.locale] }}
                   </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -90,7 +85,7 @@
                     <v-btn
                       @click="goToSection(topic)"
                       width="130"
-                      color="#4e382f"
+                      color="#6f4b3ecd"
                     >
                       <v-icon light> mdi-eye-outline </v-icon>
                     </v-btn>
@@ -106,9 +101,7 @@
   <router-view v-else />
 </template>
 <script>
-import presentation from "./presentation.js";
 export default {
-  inject: ["curr_language"],
   data: () => {
     return {
       topics: null,
@@ -119,6 +112,18 @@ export default {
   },
   mounted() {
     this.getTopics();
+  },
+  computed: {
+    imageSrc() {
+      const image_paths = [];
+      this.topics.map((t) => {
+        image_paths.push({
+          section: t.title["fr"],
+          path: new URL(t.image, import.meta.url).href,
+        });
+      });
+      return image_paths;
+    },
   },
   methods: {
     getTopics() {
@@ -143,7 +148,7 @@ export default {
   },
   watch: {
     "$i18n.locale": function () {
-      console.log("in home curr_language = ", this.curr_language);
+      console.log("in home this.$i18n.locale = ", this.$i18n.locale);
       this.$forceUpdate();
     },
   },
