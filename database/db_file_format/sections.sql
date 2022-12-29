@@ -8,30 +8,30 @@ VALUES
       (
             '{"fr":"Collège","en":"Middle School"}',
             '',
-            39
+            43
       ),
       (
             '{"fr":"Lycée","en":"High School"}',
             '',
-            39
+            43
       ),
       (
             '{"fr":"Université","en":"University"}',
             '',
-            39
+            43
       ),
       (
             '{"fr":"Jobs étudiants","en":"Student jobs"}',
             '',
-            40
+            44
       ),
       (
             '{"fr":"Stages", "en":"Internship"}',
             '',
-            40
+            44
       ),
       (
             '{"fr":"Alternances", "en":"Apprentiship"}',
             '',
-            40
+            44
       );
