@@ -6,7 +6,7 @@ import axios from 'axios';
 import { createI18n } from 'vue-i18n';
 import fr from './translation/fr';
 import en from './translation/en.json';
-import { useDisplay } from 'vuetify';
+// import { useDisplay } from 'vuetify'
 
 //create app
 const app = createApp(App);
@@ -24,10 +24,10 @@ const i18n = createI18n({
     },
 });
 app.config.globalProperties.$i18n = i18n;
-app.provide('curr_language', i18n.global.locale);
 
-//for responsive acitvity
-app.config.globalProperties.$display = useDisplay;
+
+// console.log(useDisplay);
+// app.config.globalProperties.$display = useDisplay;
 
 //auto register vue components
 const components = import.meta.glob('../components/*.vue', { eager: true })

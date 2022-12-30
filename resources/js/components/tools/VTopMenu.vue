@@ -10,7 +10,8 @@
     <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
 
     <v-spacer
-      style="width: 60%"
+      style="border:solid"
+      :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 60%'"
     ></v-spacer>
     <v-img
       :src="imageSrc"
@@ -108,9 +109,7 @@ export default {
     };
   },
   mounted() {
-    this.image_trad_path =
-      "../../../sass/assets/" + this.$i18n.locale + ".svg";
-    
+    this.image_trad_path = "../../../sass/assets/" + this.$i18n.locale + ".svg";
   },
   computed: {
     imageSrc() {
@@ -124,7 +123,6 @@ export default {
       this.$router.push({ name: route });
     },
     setLanguage() {
-      
       if (this.$i18n.locale === "en") this.$i18n.locale = "fr";
       else this.$i18n.locale = "en";
 

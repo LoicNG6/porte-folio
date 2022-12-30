@@ -112,6 +112,7 @@ export default {
   },
   mounted() {
     this.getTopics();
+    console.log(this.$vuetify.display.sm);
   },
   computed: {
     imageSrc() {

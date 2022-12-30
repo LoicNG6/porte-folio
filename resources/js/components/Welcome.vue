@@ -72,9 +72,6 @@ export default {
       },
     },
   },
-  mounted() {
-    console.log("component mounted");
-  },
   created() {
     setTimeout(this.typeText, this.newTextDelay + 200);
   },
