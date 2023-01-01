@@ -9,8 +9,11 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body style="background-color:rgb(68, 42, 38); border:solid yellow;">
-    <div id="app" style="border:solid red">
+
+<body
+    style="background-color:rgb(68, 42, 38);"
+>
+    <div id="app">
         <app />
     </div>
     @vite('resources/js/app.js')

@@ -6,7 +6,6 @@ import axios from 'axios';
 import { createI18n } from 'vue-i18n';
 import fr from './translation/fr';
 import en from './translation/en.json';
-// import { useDisplay } from 'vuetify'
 
 //create app
 const app = createApp(App);
@@ -49,7 +48,6 @@ const vuetify = createVuetify({
     ssr: true
 })
 
-// app.use(axios,{ baseUrl: 'http://127.0.0.1:8000/api/'})
 app.use(i18n);
 app.use(router);
 app.use(vuetify);

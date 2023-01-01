@@ -10,7 +10,6 @@
     <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
 
     <v-spacer
-      style="border:solid"
       :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 60%'"
     ></v-spacer>
     <v-img
