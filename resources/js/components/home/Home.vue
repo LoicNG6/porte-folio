@@ -112,7 +112,7 @@ export default {
   },
   mounted() {
     this.getTopics();
-    console.log(this.$vuetify.display.sm);
+    // console.log(this.$vuetify.display.sm);
   },
   computed: {
     imageSrc() {
@@ -138,14 +138,12 @@ export default {
         });
     },
     goToSection(topic_id, topic_name) {
-      console.log(topic_name);
-      console.log(topic_id);
       this.$router.push({
         name: "section",
-        params: {
-          id: topic_id,
+        params: {id: topic_id,},
+        query:{
           topic_title: topic_name,
-        },
+        }
       });
     },
   },

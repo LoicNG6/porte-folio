@@ -2,7 +2,25 @@
   <v-container class="text">
     <v-row class="my-8">
       <v-col style="text-align: center">
-        <span style="font-size: 3em; font-weight: bold">Section title</span>
+        <span style="font-size: 3em; font-weight: bold">{{
+          $route.query.topic_title
+        }}</span>
+        {{
+          $t(
+            "section.description." +
+              $route.query.topic_title.substring(
+                0,
+                $route.query.topic_title.indexOf(".")
+              )
+          )
+        }}
+        élément 0 =
+        {{
+          $route.query.topic_title.substring(
+            0,
+            $route.query.topic_title.indexOf(".")
+          )
+        }}
       </v-col>
     </v-row>
     <v-row justify="space-around">
@@ -53,8 +71,7 @@ export default {
     Subjects,
   },
   props: {
-    id: String,
-    topic_title: String,
+    id: [Number, String],
   },
   data: () => {
     return {
