@@ -1,10 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Welcome from "../js/components/Welcome.vue";
 import Home from "../js/components/home/Home.vue";
-import Section from "../js/components/Sections.vue";
-import ContactMe from "../js/components/ContactMe.vue";
-import About from "../js/components/About.vue";
-import Admin from "../js/components/Admin.vue";
+import Section from "../js/components/section/Sections.vue";
+import ContactMe from "../js/components/contact_me/ContactMe.vue";
+import About from "../js/components/about/About.vue";
+import Admin from "../js/components/admin/Admin.vue";
 
 const routes = [
     {
