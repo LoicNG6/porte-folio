@@ -83,9 +83,7 @@
                 <v-row justify="center">
                   <v-col cols="8" justify-center style="text-align: center">
                     <v-btn
-                      @click="
-                        goToSection(topic.id, topic.title[$i18n.locale])
-                      "
+                      @click="goToSection(topic.id, topic.title[$i18n.locale])"
                       width="130"
                       color="#6f4b3ecd"
                     >
@@ -99,27 +97,20 @@
         </v-slide-group>
       </v-sheet>
     </v-row>
-    <sections></sections>
   </v-container>
   <router-view v-else />
 </template>
 <script>
-import Sections from "../section/Sections.vue";
 export default {
-  components: {
-    Sections,
-  },
   data: () => {
     return {
       topics: null,
       model: null,
       intro: null,
       tips: null,
-      active_section_dialog: false,
     };
   },
   mounted() {
-    
     this.getTopics();
     // console.log(this.$vuetify.display.sm);
   },

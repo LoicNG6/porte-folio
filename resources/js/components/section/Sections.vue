@@ -1,13 +1,11 @@
 <template>
-  <v-dialog v-model="active">
-    <v-card>
-      <v-container class="text" style="border: solid">
-        <v-row class="my-8">
-          <v-col style="text-align: center">
-            <span style="font-size: 3em; font-weight: bold">
-              {{ $route.query.topic_title }}</span
-            >
-            <!-- {{
+  <v-container class="text">
+    <!-- title of the page -->
+    <v-row>
+      <v-col cols="auto">
+        <span style="font-size: 1.5em"> {{ $route.query.topic_title }}</span>
+        <!-- for the traduction -->
+        <!-- {{
             $t(
               "section.description." +
                 $route.query.topic_title.substring(
@@ -23,59 +21,53 @@
               $route.query.topic_title.indexOf(".")
             )
           }} -->
-          </v-col>
-        </v-row>
-        <v-row justify="space-around">
-          <v-col cols="auto">
-            <v-card
-              color="transparent"
-              height="500"
-              width="400"
-              rounded="xl"
-              class="px-4 paragraph"
-              elevation="5"
-            >
-              <v-card-title class="text">Section description :</v-card-title>
-            </v-card>
-          </v-col>
-          <v-col cols="5">
-            <v-row justify="space-around">
-              <v-col cols="auto">
-                <v-hover v-slot="{ hover }">
-                  <v-card
-                    color="#401F13"
-                    :height="hover ? 210 : 200"
-                    rounded="xl"
-                    :width="hover ? 210 : 200"
-                    :elevation="hover ? 20 : 10"
-                    style="text-align: center; cursor: pointer"
-                    :style="
-                      hover ? 'background-color: rgba(64, 31, 19, 0.5)' : ''
-                    "
-                    to="subject"
-                  >
-                    <v-container class="text">
-                      <v-row justify="center">
-                        <v-col> subject log/img </v-col>
-                      </v-row>
-                    </v-container>
-                  </v-card>
-                </v-hover>
-              </v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-        <!-- <Subjects></Subjects> -->
-      </v-container>
-    </v-card>
-  </v-dialog>
+      </v-col>
+    </v-row>
+
+    <!-- Contain of the page -->
+    <v-row>
+      <v-col cols="auto">
+        <v-card
+          color="transparent"
+          height="400"
+          width="500"
+          rounded="sm"
+          class="px-4 paragraph"
+          elevation="5"
+        >
+          <v-card-title class="text"
+            >Section image (to delete after)</v-card-title
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        section main information (to delete after)
+        <v-list
+          bg-color="transparent"
+          active-color="blue"
+          style="border-left: solid"
+        >
+          <v-list-item
+            v-for="information in sections_information"
+            :key="information.title"
+          >
+            {{ information.title }} : {{ information.value }}
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
+    <v-row justify="space-around">
+      <v-col cols="auto" style="border: solid">
+        <div>Section description (to delete after)</div>
+      </v-col>
+      <v-col cols="auto">
+        What I learned during this section (to delete)
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
-import Subjects from "../subject/Subjects.vue";
 export default {
-  components: {
-    Subjects,
-  },
   props: {
     id: [Number, String],
     dialog: Boolean,
@@ -83,6 +75,12 @@ export default {
   data: () => {
     return {
       sections: null,
+      sections_information: [
+        { title: "Date", value: null },
+        { title: "Location", value: null },
+        { title: "Context", value: null },
+        { title: "Team", value: null },
+      ],
     };
   },
   computed: {
