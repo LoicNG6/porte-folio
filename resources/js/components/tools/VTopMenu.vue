@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    color="#6f4b3e"
+    color="#805543"
     style="font-family: Gill Sans, sans-serif; color: rgb(240, 234, 234)"
   >
     <v-app-bar-nav-icon
@@ -21,7 +21,7 @@
       style="cursor: pointer"
     ></v-img>
   </v-app-bar>
-  <v-navigation-drawer width="230" color="#6f4b3e" v-model="drawer" temporary>
+  <v-navigation-drawer width="230" color="#805543" v-model="drawer" temporary>
     <v-list dense nav class="pa-0">
       <v-list-item-group v-model="selectedMenu">
         <v-list-item

@@ -36,17 +36,9 @@
           elevation="5"
         >
           <v-card-title class="text">
-            Section image (to delete after)
             <v-img
-              lazy-src="https://picsum.photos/id/11/10/6"
-              max-height="150"
-              max-width="250"
-              src="https://picsum.photos/id/11/500/300"
-            ></v-img>
-            <v-img
-              
-              max-height="150"
-              max-width="250"
+              min-height="200"
+              min-width="250"
               src="images/school.jpg"
             ></v-img>
           </v-card-title>
@@ -68,12 +60,16 @@
         </v-list>
       </v-col>
     </v-row>
-    <v-row justify="space-around">
-      <v-col cols="auto" style="border: solid">
-        <div>Section description (to delete after)</div>
+    <v-row justify="space-between" style="border: solid">
+      <v-col cols="5" style="border: solid">
+        <div style="text-align: justify; border: solid">
+          Section description (to delete after)
+        </div>
       </v-col>
-      <v-col cols="auto">
-        What I learned during this section (to delete)
+      <v-col cols="5" style="text-align: justify; border: solid">
+        <div style="border: solid">
+          I learned during this section (to delete)
+        </div>
       </v-col>
     </v-row>
   </v-container>
