@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table("sections", function (Blueprint $table) {
-            $table->renameColumn("contain", "description");
+            $table->text("description")->nullable();
+            $table->string("image")->nullable();
+            $table->text("learned")->nullable();
         });
     }
 
@@ -26,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table("sections", function (Blueprint $table) {
-            $table->dropColumn("description");
+            $table->dropColumn(["description", "image", "learned"]);
         });
     }
 };
