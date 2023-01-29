@@ -3,9 +3,7 @@ import { createApp } from "vue/dist/vue.esm-bundler";
 import App from './components/App.vue';
 import router from '../router';
 import axios from 'axios';
-import { createI18n } from 'vue-i18n';
-import fr from './translation/fr';
-import en from './translation/en.json';
+import i18n from './i18n';
 
 //create app
 const app = createApp(App);
@@ -13,17 +11,8 @@ const app = createApp(App);
 // api with axios
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 
-
-// translation of app
-const i18n = createI18n({
-    locale: 'fr',
-    messages: {
-        en: en,
-        fr: fr,
-    },
-});
+//make translation variable globale
 app.config.globalProperties.$i18n = i18n;
-
 
 // console.log(useDisplay);
 // app.config.globalProperties.$display = useDisplay;
