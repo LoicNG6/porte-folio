@@ -1,14 +1,14 @@
 <template>
   <v-container fluid v-if="$route.name == 'home'">
-    <v-row justify="center" class="my-8 s">
-      <v-col cols="4" class="s">
+    <v-row justify="center" class="my-8">
+      <v-col cols="4">
         <v-row justify="center" >
           <v-col cols="auto" >
             <v-card
               rounded="md"
               height="280"
               class="text"
-              style="width: 320px; background-color: #431e0f; color: white"
+              style="width: 320px; background-color: #320F08; color: white"
             >
               <v-card-title>{{ $t("introduction_title") }} </v-card-title>
               <v-divider color="#c8b4b4"></v-divider>
@@ -28,7 +28,7 @@
           rounded="xl"
           height="280"
           variant="outlined"
-          style="width: 320px; border: solid 0.3em; border-color: #52362a"
+          style="width: 320px; border: 0.3em; border-color: #52362a"
         >
           <v-card-title>
             <v-row justify="space-between">
