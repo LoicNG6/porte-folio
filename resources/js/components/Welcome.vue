@@ -6,7 +6,7 @@
     <v-top-menu v-if="!['Loco', 'admin'].includes($route.name)"></v-top-menu>
     <v-container v-if="$route.name == 'Loco'" class="text">
       <v-row justify="center" align-content="center">
-        <v-col :cols="$i18n.locale == 'fr' ? 7:6" class="title ">
+        <v-col :cols="$i18n.locale == 'fr' ? 7 : 6" class="title">
           <v-card
             color="#320F08"
             height="73"
@@ -30,7 +30,10 @@
               rounded="circle"
             >
             </v-sheet>
-            <div style="margin: auto; width: 80%">
+            <div
+              style="margin: auto; width: 90%"
+              :style="endTyping == true ? 'text-align:center' : ''"
+            >
               <span>
                 {{ typeValue }}
               </span>
@@ -112,8 +115,6 @@ export default {
         this.typeStatus = false;
       },
     },
-
-    //
   },
   created() {
     setTimeout(this.typeText, this.newTextDelay + 200);
@@ -136,7 +137,10 @@ export default {
         this.charIndex = 0;
         this.displayTextArrayIndex += 1;
 
-        if (this.displayTextArray[this.$i18n.locale].join("").length == this.typeValue.length) {
+        if (
+          this.displayTextArray[this.$i18n.locale].join("").length ==
+          this.typeValue.length
+        ) {
           setTimeout(this.modifyEndTyping, 3000);
           return;
         }
