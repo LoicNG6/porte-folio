@@ -4,5 +4,5 @@
   </v-app>
 </template>
 <style lang="scss">
-@import "../../sass/app.scss";
+@import "@/sass/app.scss";
 </style>

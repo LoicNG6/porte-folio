@@ -27,10 +27,13 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/resources/js',
+            '@': '/resources',
         },
     },
-    // commonjsOptions: {
-    //     esmExternals: true,
-    // },
+    commonjsOptions: {
+        esmExternals: true,
+    },
+    build: {
+        chunkSizeWarningLimit: 1600,
+    },
 });
