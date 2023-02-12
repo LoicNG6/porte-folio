@@ -38,7 +38,7 @@
       </information-card-tool>
     </v-row>
     <v-row align-content="center" justify="center" class="text my-8">
-      <v-sheet class="mx-auto" max-width="970" color="#ffffff00">
+      <v-sheet class="mx-auto" max-width="1050" color="#ffffff00">
         <v-slide-group
           style="color: white"
           v-model="model"
@@ -50,10 +50,9 @@
           <v-slide-group-item v-for="(topic, index) in topics" :key="index">
             <v-card
               class="mx-4 text"
-              width="250"
-              color="#6f4b3e80"
-              elevation="8"
-              rounded="lg"
+              width="270"
+              color="#320f08"
+              rounded="xl"
               height="250"
               style="color: rgb(240, 234, 234)"
             >
@@ -73,10 +72,13 @@
                   <v-col cols="8" justify-center style="text-align: center">
                     <v-btn
                       @click="goToSection(topic.id, topic.title[$i18n.locale])"
-                      width="130"
-                      color="#6f4b3ecd"
+                      width="100"
+                      rounded="pill"
+                      color="#eed2c1ec"
                     >
-                      <v-icon light> mdi-eye-outline </v-icon>
+                      <v-icon light color="#320f08" size="large">
+                        mdi-eye-outline
+                      </v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
