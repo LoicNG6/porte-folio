@@ -17,8 +17,7 @@
         <v-card
           rounded="md"
           height="280"
-          class="text"
-          color="#320f08"
+          class="card-bg text"
           style="width: 320px;"
         >
           <slot name="card-content"></slot>

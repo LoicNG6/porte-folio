@@ -49,12 +49,10 @@
         >
           <v-slide-group-item v-for="(topic, index) in topics" :key="index">
             <v-card
-              class="mx-4 text"
+              class="mx-4 text card-bg"
               width="270"
-              color="#320f08"
               rounded="xl"
               height="250"
-              style="color: rgb(240, 234, 234)"
             >
               <v-container fluid>
                 <v-row justify="center">
@@ -74,9 +72,9 @@
                       @click="goToSection(topic.id, topic.title[$i18n.locale])"
                       width="100"
                       rounded="pill"
-                      color="#eed2c1ec"
+                      class="btn-bg"
                     >
-                      <v-icon light color="#320f08" size="large">
+                      <v-icon class="btn-text" size="x-large">
                         mdi-eye-outline
                       </v-icon>
                     </v-btn>
