@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    color="#320F08"
+    color="#270a04"
     style="font-family: Gill Sans, sans-serif; color: rgb(240, 234, 234)"
   >
     <v-app-bar-nav-icon
@@ -8,7 +8,6 @@
       @click="drawer = !drawer"
     ></v-app-bar-nav-icon>
     <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
-
     <v-spacer
       :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 60%'"
     ></v-spacer>

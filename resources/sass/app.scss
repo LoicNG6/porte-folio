@@ -1,32 +1,34 @@
 .background {
     background: no-repeat linear-gradient(rgb(107, 74, 61), rgb(68, 42, 38));
     background: no-repeat linear-gradient(rgb(128, 85, 67), rgb(60, 38, 35));
-    
-    color:"#320f08";
-    
+
+    color: #f4e0d4;
+
 }
 
 .btn-bg {
     background: #fceee5;
-    .btn-text{
-        color:#50251c;
+
+    .btn-text {
+        color: #50251c;
     }
 }
 
-.btn-bg:hover{
+.btn-bg:hover {
     background: linear-gradient(to right, #2e0e07, #42130b);
-    .btn-text{
-        color:#fceee5;
+
+    .btn-text {
+        color: #fceee5;
     }
 }
 
-.card-bg{
+.card-bg {
     background: linear-gradient(to right bottom, #2e0e07, #48140b);
 }
 
 .app {
-    background-image: url("../../public/images/background/bg0.png");
-    background-size: 100%;
+    // background-image: url("../../public/images/background/bg0.png");
+    background: linear-gradient(0.5turn, #260a06, #321008) 100%;
     justify-content: center;
     display: flex;
     color: rgb(240, 234, 234);

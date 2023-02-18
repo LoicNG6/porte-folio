@@ -8,25 +8,25 @@
       <v-row justify="center" align-content="center">
         <v-col :cols="$i18n.locale == 'fr' ? 7 : 6" class="title">
           <v-card
-            color="#320F08"
+            color="#f4e0d4"
             height="73"
             rounded="xl"
             class="pt-3 px-2"
-            style="width: 100%; color: #f0eaea"
+            style="width: 100%; color: #48140b"
           >
             <v-sheet
-              color="#BF8125"
+              color="#48140b"
               style="position: relative; float: left; top: 28%"
-              height="20"
-              width="20"
+              height="15"
+              width="15"
               rounded="circle"
             >
             </v-sheet>
             <v-sheet
-              color="#BF8125"
+              color="#48140b"
               style="position: relative; float: right; top: 28%"
-              height="20"
-              width="20"
+              height="15"
+              width="15"
               rounded="circle"
             >
             </v-sheet>
@@ -46,11 +46,11 @@
             class="mx-4 mt-3 btn-hover"
             :to="{ name: 'home' }"
             icon
-            color="#320F08"
+            
             v-show="endTyping"
             transition="slide-x-transition"
           >
-            <v-icon size="x-large" color="white"> mdi-arrow-right </v-icon>
+            <v-icon size="x-large" color="48140b"> mdi-arrow-right </v-icon>
           </v-btn>
         </v-col>
       </v-row>
@@ -74,8 +74,16 @@
 }
 
 .btn-hover:hover {
+  width: 53px;
+  height: 53px;
+  color: #f4e0d4;
+  background-color: #48140b;
+}
+.btn-hover{
   width: 50px;
   height: 50px;
+  color: #48140b;
+  background-color: #f4e0d4;
 }
 </style>
 
