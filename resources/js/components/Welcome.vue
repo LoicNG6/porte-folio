@@ -83,6 +83,7 @@
   width: 50px;
   height: 50px;
   color: #48140b;
+  
   background-color: #f4e0d4;
 }
 </style>
