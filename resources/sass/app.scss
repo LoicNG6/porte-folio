@@ -1,9 +1,7 @@
 .background {
     background: no-repeat linear-gradient(rgb(107, 74, 61), rgb(68, 42, 38));
     background: no-repeat linear-gradient(rgb(128, 85, 67), rgb(60, 38, 35));
-
     color: #f4e0d4;
-
 }
 
 .btn-bg {
@@ -27,7 +25,6 @@
 }
 
 .app {
-    // background-image: url("../../public/images/background/bg0.png");
     background: linear-gradient(0.5turn, #260a06, #321008) 100%;
     justify-content: center;
     display: flex;
@@ -54,6 +51,12 @@
     }
 }
 
+.logo {
+    font-size: 2em;
+    font-family: "Chalkduster", fantasy;
+    font-style: italic;
+}
+
 .section {
     .subject {
         background-color: rgb(64, 31, 19);
@@ -62,6 +65,14 @@
     }
 }
 
+.menu{
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.menu:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .bs {
-    border: solid red;
+    border: solid;
 }

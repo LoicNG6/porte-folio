@@ -46,7 +46,6 @@
             class="mx-4 mt-3 btn-hover"
             :to="{ name: 'home' }"
             icon
-            
             v-show="endTyping"
             transition="slide-x-transition"
           >
@@ -72,7 +71,6 @@
     color: white;
   }
 }
-
 .btn-hover:hover {
   width: 53px;
   height: 53px;
@@ -83,7 +81,6 @@
   width: 50px;
   height: 50px;
   color: #48140b;
-  
   background-color: #f4e0d4;
 }
 </style>
@@ -109,8 +106,6 @@ export default {
       current_language: i18n.global.locale,
       typingSpeed: 120,
       newTextDelay: 1700,
-      // language: $i18n.locale,
-
       charIndex: 0,
       endTyping: false,
     };

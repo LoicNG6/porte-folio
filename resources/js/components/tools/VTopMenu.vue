@@ -1,74 +1,43 @@
 <template>
   <v-app-bar
+    :elevation="0"
     color="#270a04"
+    class="pl-4"
+    height="70"
     style="font-family: Gill Sans, sans-serif; color: rgb(240, 234, 234)"
   >
-    <v-app-bar-nav-icon
-      variant="text"
-      @click="drawer = !drawer"
-    ></v-app-bar-nav-icon>
-    <v-toolbar-title style="font-size: 1.5em"> NGUESSIE Loïc </v-toolbar-title>
+    <v-toolbar-title class="logo"> NGUESSIE Loïc </v-toolbar-title>
     <v-spacer
-      :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 60%'"
+      :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 10%'"
     ></v-spacer>
-    <v-img
+    <v-row style="width: 3%" justify="space-around" class="ml-8">
+      <v-col
+        @click="changeMenu(menu.to)"
+        v-for="(menu, m) in menus"
+        :key="m"
+        cols="auto"
+      >
+        <span
+          :style="
+            menu.title == $route.name
+              ? 'font-weight:bold; pointer-events: none; text-decoration: underline'
+              : ''
+          "
+          class="menu"
+          >{{ menu.title }}</span
+        >
+      </v-col>
+    </v-row>
+
+    <img
+      class="bs"
       :src="imageSrc"
-      height="40px"
-      width="10px"
-      class="img_tra"
       @click="setLanguage()"
       style="cursor: pointer"
-    ></v-img>
+    />
+
+    <v-icon dark xx-large class="bs">mdi-account-circle</v-icon>
   </v-app-bar>
-  <v-navigation-drawer width="230" color="#320F08" v-model="drawer" temporary>
-    <v-list dense nav class="pa-0">
-      <v-list-item-group v-model="selectedMenu">
-        <v-list-item
-          link
-          v-for="(menu, m) in menus"
-          :key="m"
-          @click="changeMenu(menu.to)"
-          :disabled="m == selectedMenu"
-          class="px-5 test"
-          style="height: 70px"
-        >
-          <v-list-item-icon style="position: relative; top: 20%">
-            <v-icon color="white"> {{ menu.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content class="mx-4">
-            <span
-              :style="
-                m == selectedMenu
-                  ? 'font-weight:bold; pointer-events: none'
-                  : ''
-              "
-              class="text"
-              >{{ menu.title }}</span
-            >
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-
-    <v-divider style="position: relative; top: 50%"></v-divider>
-
-    <v-btn
-      to="admin"
-      color="#80594a"
-      rounded
-      height="80"
-      x-large
-      elevation="4"
-      style="position: relative; top: 53%; left: 15%"
-    >
-      <v-row align="center" class="text" justify="space-around">
-        <v-col cols="auto">
-          <v-icon dark x-large>mdi-account-circle</v-icon>
-        </v-col>
-        <v-col cols="auto"> Admin </v-col>
-      </v-row>
-    </v-btn>
-  </v-navigation-drawer>
 </template>
 <style lang="scss" scoped>
 .test:hover {
@@ -86,19 +55,19 @@ export default {
       menus: [
         {
           positon: 0,
-          title: "Home",
+          title: "home",
           icon: "mdi-home",
           to: "home",
         },
         {
           positon: 1,
-          title: "Contact me",
+          title: "contact me",
           icon: "mdi-message-text",
-          to: "contact-me",
+          to: "contact me",
         },
         {
           positon: 2,
-          title: "About",
+          title: "about",
           icon: "mdi-information-outline",
           to: "about",
         },
@@ -117,7 +86,6 @@ export default {
   methods: {
     changeMenu(route) {
       console.log(route);
-      this.drawer = !this.drawer;
       this.$router.push({ name: route });
     },
     setLanguage() {
