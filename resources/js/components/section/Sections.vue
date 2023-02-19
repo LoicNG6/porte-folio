@@ -25,51 +25,43 @@
     </v-row>
 
     <!-- Contain of the page -->
-    <v-row>
+    <v-row justify="start">
       <v-col cols="auto">
         <v-card
-          color="transparent"
+          class="card-bg"
           height="400"
           width="500"
-          rounded="sm"
-          class="px-4 paragraph"
+          rounded="md"
           elevation="5"
         >
-          <v-card-title class="text">
-            <v-img
-              min-height="200"
-              min-width="250"
-              src="images/school.jpg"
-            ></v-img>
-          </v-card-title>
+          <img style="height: 50%; width: 50%" src="images/me/2001.jpg" />
+          <img style="height: 50%; width: 50%" src="images/me/java_code.png" />
+          <img style="height: 50%; width: 50%" src="images/me/lecture.jpg" />
+          <img style="height: 50%; width: 50%" src="images/me/travel.jpeg" />
         </v-card>
       </v-col>
-      <v-col cols="6">
-        section main information (to delete after)
-        <v-list
-          bg-color="transparent"
-          active-color="blue"
-          style="border-left: solid"
-        >
+      <v-col cols="2">
+        <v-list class="pa-0" bg-color="transparent">
           <v-list-item
             v-for="information in sections_information"
             :key="information.title"
+            style="border-left: solid 0.01em #ffffff85;"
+            min-height="40px"
           >
             {{ information.title }} : {{ information.value }}
           </v-list-item>
         </v-list>
       </v-col>
     </v-row>
-    <v-row justify="space-between" style="border: solid">
-      <v-col cols="5" style="border: solid">
+
+    <v-row justify="center" class="bs">
+      <v-col cols="7">
         <div style="text-align: justify; border: solid">
           Section description (to delete after)
         </div>
       </v-col>
       <v-col cols="5" style="text-align: justify; border: solid">
-        <div style="border: solid">
-          I learned during this section (to delete)
-        </div>
+        <div>I learned during this section (to delete)</div>
       </v-col>
     </v-row>
   </v-container>
