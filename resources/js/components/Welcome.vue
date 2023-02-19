@@ -8,7 +8,7 @@
       <v-row justify="center" align-content="center">
         <v-col :cols="$i18n.locale == 'fr' ? 7 : 6" class="title">
           <v-card
-            color="#f4e0d4"
+            color="#fef0d8"
             height="73"
             rounded="xl"
             class="pt-3 px-2"
@@ -74,14 +74,14 @@
 .btn-hover:hover {
   width: 53px;
   height: 53px;
-  color: #f4e0d4;
+  color: #fef0d8;
   background-color: #48140b;
 }
 .btn-hover{
   width: 50px;
   height: 50px;
   color: #48140b;
-  background-color: #f4e0d4;
+  background-color: #fef0d8;
 }
 </style>
 
