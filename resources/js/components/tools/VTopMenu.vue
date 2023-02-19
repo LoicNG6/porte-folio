@@ -2,41 +2,53 @@
   <v-app-bar
     :elevation="0"
     color="#270a04"
-    class="pl-4"
-    height="70"
-    style="font-family: Gill Sans, sans-serif; color: rgb(240, 234, 234)"
+    class="px-6"
+    height="65"
+    style="font-family: Gill Sans, sans-serif; color: #fceee5"
   >
-    <v-toolbar-title class="logo"> NGUESSIE Loïc </v-toolbar-title>
+    <v-toolbar-title class="logo">NGUESSIE Loïc</v-toolbar-title>
+
     <v-spacer
       :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 10%'"
     ></v-spacer>
-    <v-row style="width: 3%" justify="space-around" class="ml-8">
+
+    <v-row style="width: 10%" justify="space-around">
       <v-col
         @click="changeMenu(menu.to)"
         v-for="(menu, m) in menus"
         :key="m"
         cols="auto"
+        class="mr-4"
       >
         <span
           :style="
             menu.title == $route.name
-              ? 'font-weight:bold; pointer-events: none; text-decoration: underline'
+              ? 'font-weight:bold; pointer-events: none;'
               : ''
           "
           class="menu"
           >{{ menu.title }}</span
         >
       </v-col>
+      <v-col class="pa-0 ml-4" cols="auto">
+        <img
+          class="my-3"
+          :src="imageSrc"
+          @click="setLanguage()"
+          style="cursor: pointer"
+        />
+      </v-col>
+      <v-col cols="auto" class="px-0">
+        <v-icon
+          dark
+          xx-large
+          class="admin-icon"
+          @click="$router.push({ name: 'admin' })"
+          style="font-size: 1.9em"
+          >mdi-account-circle-outline</v-icon
+        >
+      </v-col>
     </v-row>
-
-    <img
-      class="bs"
-      :src="imageSrc"
-      @click="setLanguage()"
-      style="cursor: pointer"
-    />
-
-    <v-icon dark xx-large class="bs">mdi-account-circle</v-icon>
   </v-app-bar>
 </template>
 <style lang="scss" scoped>

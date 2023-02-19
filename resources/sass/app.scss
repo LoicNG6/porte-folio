@@ -1,8 +1,9 @@
-.background {
-    background: no-repeat linear-gradient(rgb(107, 74, 61), rgb(68, 42, 38));
-    background: no-repeat linear-gradient(rgb(128, 85, 67), rgb(60, 38, 35));
+.style-test {
     color: #fef0d8;
-    
+}
+
+.bs {
+    border: solid;
 }
 
 .btn-bg {
@@ -35,11 +36,11 @@
 .text {
     font-size: large;
     font-family: "Gill Sans", sans-serif;
-    color: #f3eae5ec;
+    color: #fceee5;
 
     .title {
         font-size: 1.8em;
-        color: #f0eaea;
+        color: #fceee5;
     }
 
     .middle-title {
@@ -56,6 +57,7 @@
     font-size: 2em;
     font-family: "Chalkduster", fantasy;
     font-style: italic;
+    color: #ffefe6ec;
 }
 
 .section {
@@ -66,14 +68,20 @@
     }
 }
 
-.menu{
+.menu {
     text-transform: uppercase;
     font-size: 0.9em;
 }
-.menu:hover{
+
+.menu:hover {
     cursor: pointer;
     text-decoration: underline;
 }
-.bs {
-    border: solid;
+
+.admin-icon{
+    color: #fceee5;
+}
+.admin-icon:hover {
+    color: #50251c;
+    cursor: pointer;
 }
