@@ -3,10 +3,15 @@
     :elevation="0"
     color="#270a04"
     class="px-6"
-    height="65"
+    height="75"
     style="font-family: Gill Sans, sans-serif; color: #fceee5"
   >
-    <v-toolbar-title class="logo">NGUESSIE Loïc</v-toolbar-title>
+    <v-toolbar-title
+      style="cursor: pointer"
+      class="logo"
+      @click="$router.push({ name: 'home' })"
+      >NGUESSIE Loïc</v-toolbar-title
+    >
 
     <v-spacer
       :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 10%'"
