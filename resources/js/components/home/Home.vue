@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid v-if="$route.name == 'home'">
+  <v-container fluid v-if="$route.name == 'home'" class="pa-0">
     <v-row justify="center" class="my-4">
       <information-card-tool style="color: whitesmoke">
         <template v-slot:card-content>
@@ -38,7 +38,7 @@
       </information-card-tool>
     </v-row>
     <v-row align-content="center" justify="center" class="text my-8">
-      <v-sheet class="mx-auto" max-width="1050" color="#ffffff00">
+      <v-sheet class="mx-auto" max-width="1100" color="#ffffff00">
         <v-slide-group
           style="color: white"
           v-model="model"
@@ -49,7 +49,7 @@
         >
           <v-slide-group-item v-for="(topic, index) in topics" :key="index">
             <v-card
-              class="mx-4 text card-bg"
+              class="mx-6 text card-bg"
               width="270"
               rounded="xl"
               height="250"
