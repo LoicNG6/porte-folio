@@ -51,11 +51,6 @@
     </v-row>
   </v-app-bar>
 </template>
-<style lang="scss" scoped>
-.test:hover {
-  background-color: rgba(240, 248, 255, 0.1);
-}
-</style>
 <script>
 export default {
   name: "v-top-menu",
@@ -84,11 +79,13 @@ export default {
           to: "about",
         },
       ],
-      selectedMenu: null,
     };
   },
   mounted() {
-    this.image_trad_path = "../../../sass/assets/" + this.$i18n.locale + ".svg";
+    this.image_trad_path =
+      this.$i18n.locale == "fr"
+        ? "../../../sass/assets/en.svg"
+        : "../../../sass/assets/fr.svg";
   },
   computed: {
     imageSrc() {
@@ -105,7 +102,9 @@ export default {
       else this.$i18n.locale = "en";
 
       this.image_trad_path =
-        "../../../sass/assets/" + this.$i18n.locale + ".svg";
+        this.$i18n.locale == "fr"
+          ? "../../../sass/assets/en.svg"
+          : "../../../sass/assets/fr.svg";
       this.$forceUpdate();
     },
   },
