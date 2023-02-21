@@ -61,6 +61,7 @@
 <style scoped>
 .blinking-cursor {
   -webkit-animation: 1s blink step-end infinite;
+  color: #48140b;
 }
 @keyframes blink {
   from,
@@ -68,7 +69,7 @@
     color: transparent;
   }
   50% {
-    color: white;
+    color: #48140b;
   }
 }
 .btn-hover:hover {
