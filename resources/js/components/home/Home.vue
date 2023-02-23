@@ -161,7 +161,6 @@ export default {
                 params: { id: topic_id },
                 query: {
                     topic_title: topic_name,
-                    dialog: !this.active_section_dialog,
                 },
             });
         },

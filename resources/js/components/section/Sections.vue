@@ -68,13 +68,26 @@
             </v-col>
         </v-row>
         <v-row justify="center">
-            <v-col cols="6" class="bs" style="text-align: justify">
+            <v-col cols="6" style="text-align: justify">
                 <span>Title</span>
                 <span>Contain</span>
             </v-col>
-            <v-col cols="6" class="bs" style="text-align: justify">
+            <v-col cols="6" style="text-align: justify">
                 <div>What I learned</div>
             </v-col>
+        </v-row>
+        <v-row
+            justify="space-between"
+            align-content="end"
+            class="my-8"
+            style="height: 20%"
+        >
+            <v-col cols="auto"
+                ><v-btn variant="outlined">previous section</v-btn></v-col
+            >
+            <v-col cols="auto"
+                ><v-btn variant="outlined">next section</v-btn></v-col
+            >
         </v-row>
     </v-container>
 </template>
@@ -82,7 +95,6 @@
 export default {
     props: {
         id: [Number, String],
-        dialog: Boolean,
     },
     data: () => {
         return {
