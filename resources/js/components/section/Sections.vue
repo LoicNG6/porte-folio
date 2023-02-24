@@ -1,32 +1,10 @@
 <template>
     <v-container class="text">
-        <!-- title of the page -->
         <v-row>
             <v-col cols="auto">
-                <span style="font-size: 1.5em">
-                    {{ $route.query.topic_title }}</span
-                >
-                <!-- for the traduction -->
-                <!-- {{
-						$t(
-							"section.description." +
-								$route.query.topic_title.substring(
-									0,
-									$route.query.topic_title.indexOf(".")
-								)
-						)
-					}}
-					élément 0 =
-					{{
-						$route.query.topic_title.substring(
-							0,
-							$route.query.topic_title.indexOf(".")
-						)
-					}} -->
+                <span style="font-size: 1.5em">{{ topic_name[$i18n.locale] }}</span>
             </v-col>
         </v-row>
-
-        <!-- Contain of the page -->
         <v-row justify="start">
             <v-col cols="auto">
                 <v-card
@@ -62,7 +40,8 @@
                         style="border-left: solid 0.01em #ffffff85"
                         min-height="30px"
                     >
-                        {{ information.title }} : {{ information.value }}
+                        {{ information.title[$i18n.locale] }} :
+                        {{ information.value }}
                     </v-list-item>
                 </v-list>
             </v-col>
@@ -99,11 +78,36 @@ export default {
     data: () => {
         return {
             sections: null,
+            topic_name: {},
             sections_information: [
-                { title: "Date", value: null },
-                { title: "Location", value: null },
-                { title: "Context", value: null },
-                { title: "Team", value: null },
+                {
+                    title: {
+                        en: "Date",
+                        fr: "Date",
+                    },
+                    value: null,
+                },
+                {
+                    title: {
+                        en: "Location",
+                        fr: "Lieux",
+                    },
+                    value: null,
+                },
+                {
+                    title: {
+                        en: "Context",
+                        fr: "Contexte",
+                    },
+                    value: null,
+                },
+                {
+                    title: {
+                        en: "Team",
+                        fr: "Equipe",
+                    },
+                    value: null,
+                },
             ],
         };
     },
@@ -122,6 +126,7 @@ export default {
             axios
                 .get("/api/sections/" + this.id)
                 .then((res) => {
+                    this.topic_name = JSON.parse(res.data.topic_name[0].title);
                     this.sections = res.data.data;
                 })
                 .catch((error) => {

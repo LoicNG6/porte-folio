@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Section;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class SectionController extends Controller
 {
-    //get all sections
     public function index()
     {
         $sections = Section::all();
@@ -19,18 +19,18 @@ class SectionController extends Controller
         ];
     }
 
-    //get one section
     public function show(int $id)
     {
         $section = Section::where("topic_id", $id)->get();
-        
+        $topicName = Topic::where("id", $id)->get("title");
+
         return [
             'status' => 200,
             'data' => $section,
+            'topic_name' => $topicName
         ];
     }
-
-    //Store section
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -52,7 +52,6 @@ class SectionController extends Controller
         ];
     }
 
-    //update Section
     public function update(Request $request, Section $section)
     {
         $request->validate([
@@ -69,7 +68,6 @@ class SectionController extends Controller
         ];
     }
 
-    //delete section
     public function destroy(Section $section)
     {
         $section->deleteOrFail();

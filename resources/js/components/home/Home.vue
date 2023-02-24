@@ -159,9 +159,6 @@ export default {
             this.$router.push({
                 name: "section",
                 params: { id: topic_id },
-                query: {
-                    topic_title: topic_name,
-                },
             });
         },
     },
