@@ -32,7 +32,7 @@
                             : ''
                     "
                     class="menu"
-                    >{{ menu.title.$i18n.locale }}</span
+                    >{{ menu.title[$i18n.locale] }}</span
                 >
             </v-col>
             <v-col class="pa-0 ml-4" cols="auto">
