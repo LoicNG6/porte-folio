@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Welcome from "../js/components/Welcome.vue";
 import Home from "../js/components/home/Home.vue";
 import Section from "../js/components/section/Sections.vue";
