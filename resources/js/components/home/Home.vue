@@ -155,7 +155,7 @@ export default {
                     console.log(error);
                 });
         },
-        goToSection(topic_id, topic_name) {
+        goToSection(topic_id) {
             this.$router.push({
                 name: "section",
                 params: { id: topic_id },

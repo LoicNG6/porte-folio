@@ -1,8 +1,21 @@
 <template>
+    <v-btn
+        class="previous-secion"
+        variant="outlined"
+        rounded="circle"
+        height="63"
+        width="30"
+        @click="getPreviousSection()"
+        v-if="id > 42"
+    >
+        <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
+    </v-btn>
     <v-container class="text">
         <v-row>
             <v-col cols="auto">
-                <span style="font-size: 1.5em">{{ topic_name[$i18n.locale] }}</span>
+                <span style="font-size: 1.5em">{{
+                    topic_name[$i18n.locale]
+                }}</span>
             </v-col>
         </v-row>
         <v-row justify="start">
@@ -55,21 +68,35 @@
                 <div>What I learned</div>
             </v-col>
         </v-row>
-        <v-row
-            justify="space-between"
-            align-content="end"
-            class="my-8"
-            style="height: 20%"
-        >
-            <v-col cols="auto"
-                ><v-btn variant="outlined">previous section</v-btn></v-col
-            >
-            <v-col cols="auto"
-                ><v-btn variant="outlined">next section</v-btn></v-col
-            >
-        </v-row>
     </v-container>
+    <v-btn
+        class="next-section"
+        variant="outlined"
+        rounded="circle"
+        height="63"
+        width="30"
+        @click="getNextSection()"
+        v-if="id < 45"
+    >
+        <v-icon class="btn-text" size="28"> mdi-arrow-right </v-icon>
+    </v-btn>
 </template>
+<style scoped>
+.previous-secion {
+    border: none;
+    position: absolute;
+    top: 40%;
+    left: 2%;
+    float: left;
+}
+.next-section {
+    border: none;
+    position: absolute;
+    top: 40%;
+    float: right;
+    right: 2%;
+}
+</style>
 <script>
 export default {
     props: {
@@ -132,6 +159,28 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 });
+        },
+        getNextSection() {
+            var next_topic_id = parseInt(this.id) + 1;
+
+            this.$router.push({
+                name: "section",
+                params: { id: next_topic_id },
+            });
+            setTimeout(() => {
+                document.location.reload();
+            }, 30);
+        },
+        getPreviousSection() {
+            var previous_topic_id = parseInt(this.id) - 1;
+
+            this.$router.push({
+                name: "section",
+                params: { id: previous_topic_id },
+            });
+            setTimeout(() => {
+                document.location.reload();
+            }, 30);
         },
     },
 };
