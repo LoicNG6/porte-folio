@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('main_information', function (Blueprint $table) {
-            $table->unsignedBigInteger("section_id", false)->primary();
-            $table->string("started_date");
-            $table->string("ended_date");
+        Schema::create('subjects', function (Blueprint $table) {
+            $table->unsignedBigInteger("id", false);
+            $table->unsignedBigInteger("section_id", false);
+            $table->date("started_at");
+            $table->date("ended_at");
             $table->string("location");
-            $table->string("context");
             $table->string("team");
-            $table->timestamps();
+            $table->string("description");
 
+            $table->primary("id", "section_id");
             $table->foreign('section_id')->references('id')->on('sections');
-            
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_information');
+        Schema::dropIfExists('subjects');
     }
 };

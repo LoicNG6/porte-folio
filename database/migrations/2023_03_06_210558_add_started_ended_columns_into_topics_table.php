@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->string("image")->nullable();
+        Schema::table("topics", function (Blueprint $table) {
+            $table->date("started_at")->nullable();
+            $table->date("ended_at")->nullable();
         });
     }
 
@@ -25,8 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('image');
+        Schema::table("topics", function (Blueprint $table) {
+            $table->dropColumn(["started_at", "ended_at"]);
         });
     }
 };
