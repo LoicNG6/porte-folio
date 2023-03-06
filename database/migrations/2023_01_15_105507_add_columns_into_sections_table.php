@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table("sections", function (Blueprint $table) {
             $table->text("description")->nullable();
-            $table->string("image")->nullable();
             $table->text("learned")->nullable();
         });
     }
@@ -28,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table("sections", function (Blueprint $table) {
-            $table->dropColumn(["description", "image", "learned"]);
+            $table->dropColumn(["description", "learned"]);
         });
     }
 };

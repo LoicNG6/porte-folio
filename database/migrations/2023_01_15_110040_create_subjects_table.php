@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->unsignedBigInteger("id", false);
             $table->unsignedBigInteger("section_id", false);
-            $table->date("started_at");
-            $table->date("ended_at");
+            $table->string("started_at");
+            $table->string("ended_at");
             $table->string("location");
             $table->string("team");
             $table->string("description");
