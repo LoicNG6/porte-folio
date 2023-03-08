@@ -15,15 +15,17 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->unsignedBigInteger("id", false);
-            $table->unsignedBigInteger("section_id", false);
-            $table->string("started_at");
-            $table->string("ended_at");
-            $table->string("location");
-            $table->string("team");
-            $table->string("description");
+            $table->foreignId('section_id')
+                ->constrained('sections')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string("started_at")->nullable();
+            $table->string("ended_at")->nullable();
+            $table->string("location")->nullable();
+            $table->string("team")->nullable();
+            $table->text("description")->nullable();
 
             $table->primary("id", "section_id");
-            $table->foreign('section_id')->references('id')->on('sections');
         });
     }
 
