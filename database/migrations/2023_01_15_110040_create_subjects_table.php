@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string("ended_at")->nullable();
             $table->string("location")->nullable();
             $table->string("team")->nullable();
-            $table->text("description")->nullable();
 
             $table->primary("id", "section_id");
         });

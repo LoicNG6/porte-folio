@@ -20,8 +20,6 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->text('what_i_learned')->nullable();
 
             $table->primary("id","topic_id");
         });

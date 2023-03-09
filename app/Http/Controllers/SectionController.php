@@ -13,6 +13,12 @@ class SectionController extends Controller
     {
         $sections = Section::all();
 
+        foreach ($sections as $section) {
+            $section->description = json_decode($section->description);
+            $section->title = json_decode($section->title);
+            $section->what_i_learned = json_decode($section->what_i_learned);
+        }
+
         return [
             'status' => 200,
             'data' => $sections,
@@ -24,13 +30,18 @@ class SectionController extends Controller
         $section = Section::where("topic_id", $id)->get();
         $topicName = Topic::where("id", $id)->get("title");
 
+        foreach ($section as $section_field) {
+            $section_field->title = json_decode($section_field->title);
+            $section_field->what_i_learned = json_decode($section_field->what_i_learned);
+        }
+
         return [
             'status' => 200,
             'data' => $section,
             'topic_name' => $topicName
         ];
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
