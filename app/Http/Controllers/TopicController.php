@@ -21,7 +21,9 @@ class TopicController extends Controller
         //convert string object from db to object
         foreach ($topics as $topic) {
             $topic->title = json_decode($topic->title);
-            $topic->description = json_decode($topic->description);
+            $topic->image = json_decode($topic->image);
+            $topic->started_at = json_decode($topic->started_at);
+            $topic->ended_at = json_decode($topic->ended_at);
         }
 
         return [

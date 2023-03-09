@@ -75,9 +75,9 @@
                                     style="height: 100px"
                                     class="my-4"
                                 >
-                                    <v-col cols="12">
+                                    <!-- <v-col cols="12">
                                         {{ topic.description[$i18n.locale] }}
-                                    </v-col>
+                                    </v-col> -->
                                 </v-row>
                                 <v-row justify="center">
                                     <v-col
@@ -131,18 +131,6 @@ export default {
     mounted() {
         this.getTopics();
         // console.log(this.$vuetify.display.sm);
-    },
-    computed: {
-        imageSrc() {
-            const image_paths = [];
-            this.topics.map((t) => {
-                image_paths.push({
-                    section: t.title["fr"],
-                    path: new URL(t.image, import.meta.url).href,
-                });
-            });
-            return image_paths;
-        },
     },
     methods: {
         getTopics() {
