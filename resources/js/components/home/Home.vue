@@ -75,9 +75,9 @@
                                     style="height: 100px"
                                     class="my-4"
                                 >
-                                    <!-- <v-col cols="12">
-                                        {{ topic.description[$i18n.locale] }}
-                                    </v-col> -->
+                                    <v-col cols="12">
+                                        {{ topic.teaser[$i18n.locale] }}
+                                    </v-col>
                                 </v-row>
                                 <v-row justify="center">
                                     <v-col
@@ -130,7 +130,6 @@ export default {
     },
     mounted() {
         this.getTopics();
-        // console.log(this.$vuetify.display.sm);
     },
     methods: {
         getTopics() {

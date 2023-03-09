@@ -24,6 +24,7 @@ class TopicController extends Controller
             $topic->image = json_decode($topic->image);
             $topic->started_at = json_decode($topic->started_at);
             $topic->ended_at = json_decode($topic->ended_at);
+            $topic->teaser = json_decode($topic->teaser);
         }
 
         return [
