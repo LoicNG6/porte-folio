@@ -24,7 +24,7 @@ VALUES
       (
             '{"fr":"III. Le monde professionnel","en":"III. The professional world"}',
             '{"fr":"Mes permiers pas en pro. Les choix professionnels, stages, alternances, jobs","en":"First steps as a developer. Professsional choices, interships, work-study, jobs"}',
-            '{"ab_science":"ab-science.png","presti_web: presti-web.jpeg","reality_academy":"reality-academy.png","axa":"axa.png"}',
+            '{"ab_science":"ab-science.png","presti_web":"presti-web.jpeg","reality_academy":"reality-academy.png","axa":"axa.png"}',
             '{"fr":"2018-06-01","en":"2018-01-06"}',
             '{"fr":"2023-09-15","en":"2018-15-09"}'
       ),

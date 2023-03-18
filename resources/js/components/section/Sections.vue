@@ -147,8 +147,19 @@ export default {
     },
     mounted() {
         this.getSections();
+        this.testControllerX();
     },
     methods: {
+        testControllerX() {
+            axios
+                .get("api/subject_contents/")
+                .then((res) => {
+                    console.log("success" + res);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
         getSections() {
             axios
                 .get("/api/sections/" + this.id)
