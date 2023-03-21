@@ -5,8 +5,8 @@
         rounded="circle"
         height="63"
         width="30"
-        @click="getPreviousSection()"
-        v-if="id > 42"
+        @click="changeSection('previous')"
+        v-if="1 < id"
     >
         <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
     </v-btn>
@@ -75,8 +75,8 @@
         rounded="circle"
         height="63"
         width="30"
-        @click="getNextSection()"
-        v-if="id < 45"
+        @click="changeSection()"
+        v-if="id < 4"
     >
         <v-icon class="btn-text" size="28"> mdi-arrow-right </v-icon>
     </v-btn>
@@ -171,27 +171,21 @@ export default {
                     console.log(error);
                 });
         },
-        getNextSection() {
-            var next_topic_id = parseInt(this.id) + 1;
+        changeSection(direction) {
+            if (1 < this.id < 4) {
+                var new_topic_id =
+                    direction == "previous"
+                        ? parseInt(this.id) - 1
+                        : parseInt(this.id) + 1;
 
-            this.$router.push({
-                name: "section",
-                params: { id: next_topic_id },
-            });
-            setTimeout(() => {
-                document.location.reload();
-            }, 30);
-        },
-        getPreviousSection() {
-            var previous_topic_id = parseInt(this.id) - 1;
-
-            this.$router.push({
-                name: "section",
-                params: { id: previous_topic_id },
-            });
-            setTimeout(() => {
-                document.location.reload();
-            }, 30);
+                this.$router.push({
+                    name: "section",
+                    params: { id: new_topic_id },
+                });
+                setTimeout(() => {
+                    document.location.reload();
+                }, 30);
+            }
         },
     },
 };
