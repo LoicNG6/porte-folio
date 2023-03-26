@@ -42,7 +42,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col cols="">
+            <v-col>
                 <v-list class="pa-0" bg-color="transparent">
                     <v-list-item
                         style="border-left: solid 0.01em #ffffff85"
@@ -65,12 +65,11 @@
             </v-col>
         </v-row>
         <v-row justify="center">
-            <v-col cols="6" style="text-align: justify">
-                <span>Title</span>
-                <span>Contain</span>
+            <v-col cols="12" style="text-align: justify">
+                <div>{{ topic_description }}</div>
             </v-col>
-            <v-col cols="6" style="text-align: justify">
-                <div>What I learned</div>
+            <v-col cols="12" style="text-align: justify">
+                <div>{{ topic_what_i_learned }}</div>
             </v-col>
         </v-row>
     </v-container>
@@ -115,10 +114,13 @@ export default {
                 started_at: [-1],
                 ended_at: [-1],
             },
+            topic_description: " ",
+            topic_what_i_learned: " ",
         };
     },
     mounted() {
         this.getSections();
+        this.getSectionContents();
     },
     methods: {
         getSections() {
@@ -130,6 +132,22 @@ export default {
                 })
                 .catch((error) => {
                     console.log(error);
+                });
+        },
+        getSectionContents() {
+            axios
+                .get(
+                    "/api/section-content/" + this.id + "/" + this.$i18n.locale
+                )
+                .then((res) => {
+                    this.topic_description =
+                        res.data.description != "-"
+                            ? res.data.description
+                            : this.topic_description;
+                    this.topic_what_i_learned =
+                        res.data.what_i_learned != "-"
+                            ? res.data.what_i_learned
+                            : this.topic_what_i_learned;
                 });
         },
         changeSection(direction) {
@@ -149,8 +167,6 @@ export default {
             }
         },
         getImageURl(image_path) {
-            console.log(this.topic.title.en);
-            console.log(image_path);
             return new URL(
                 "../../../sass/assets/".concat(
                     ...[this.topic.title.en, "/", image_path]

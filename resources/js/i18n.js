@@ -3,7 +3,7 @@ import fr from './translation/fr';
 import en from './translation/en.json';
 
 const i18n = createI18n({
-      locale: 'en',
+      locale: 'fr',
       messages: {
             en: en,
             fr: fr,

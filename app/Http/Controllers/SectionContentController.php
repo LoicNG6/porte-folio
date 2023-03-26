@@ -13,7 +13,6 @@ class SectionContentController extends Controller
         $contents = Section_content::all();
 
         return [
-            'status' => 200,
             'data' => $contents
         ];
     }
@@ -23,11 +22,9 @@ class SectionContentController extends Controller
         $content = DB::table("section_contents")
             ->where("section_id", $section_id)
             ->where("language", $language)
-            ->get();
-        return [
-            'status' => 200,
-            'data' => $content
-        ];
+            ->get(["description", "what_i_learned"]);
+
+        return $content[0];
     }
 
     public function store(Request $content)
@@ -38,12 +35,12 @@ class SectionContentController extends Controller
         ]);
 
         $new_section_content = DB::table("section_contents")
-        ->create([
-            "section_id" => $content->get("section_id"),
-            "language" => $content->get("language"),
-            "description" => $content->get("description"),
-            "what_i_learned" => $content->get("what_i_learned")
-        ]);
+            ->create([
+                "section_id" => $content->get("section_id"),
+                "language" => $content->get("language"),
+                "description" => $content->get("description"),
+                "what_i_learned" => $content->get("what_i_learned")
+            ]);
 
         return [
             "status" => 200,
