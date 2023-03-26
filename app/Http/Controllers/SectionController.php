@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Section;
 use App\Models\Topic;
+use Attribute;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -38,11 +39,7 @@ class SectionController extends Controller
         }
 
         return [
-            'status' => 200,
-            'data' => [
-                'section' => $section[0],
-                'topic' => $topic[0]
-            ]
+            'topic' => $topic[0]
         ];
     }
 }

@@ -13,47 +13,59 @@
     <v-container class="text">
         <v-row>
             <v-col cols="auto">
-                <span style="font-size: 1.5em">{{ topic }}</span>
+                <span style="font-size: 1.5em">{{
+                    topic.title[$i18n.locale]
+                }}</span>
             </v-col>
         </v-row>
         <v-row justify="start">
             <v-col cols="auto">
                 <v-card
-                    class="card-bg"
+                    class="card-bg text"
                     height="400"
                     width="500"
                     rounded="md"
                     elevation="5"
                 >
-                    <img
+                    <template
+                        v-for="(image_path, index) in topic.image"
+                        :key="index"
+                    >
+                        <img
+                            style="height: 50%; width: 50%"
+                            :src="
+                                './images/' + topic.title.en + '/' + image_path
+                            "
+                        />
+                    </template>
+                    <!-- <img
                         style="height: 50%; width: 50%"
-                        src="images/me/2001.jpg"
+                        src="./images/I. Me/2001.jpg"
                     />
                     <img
                         style="height: 50%; width: 50%"
-                        src="images/me/java_code.png"
+                        src="public/images/I. Me/java_code.png"
                     />
                     <img
                         style="height: 50%; width: 50%"
-                        src="images/me/lecture.jpg"
+                        src="public/images/I. Me/lecture.jpg"
                     />
                     <img
                         style="height: 50%; width: 50%"
-                        src="images/me/travel.jpeg"
-                    />
+                        src="public/images/I. Me/travel.jpeg"
+                    /> -->
                 </v-card>
             </v-col>
             <v-col cols="2">
                 <v-list class="pa-0" bg-color="transparent">
-                    <v-list-item
-                        v-for="information in section"
+                    <!-- <v-list-item
+                        v-for="information in topic"
                         :key="information.title"
                         style="border-left: solid 0.01em #ffffff85"
                         min-height="30px"
                     >
-                        {{ information.title[$i18n.locale] }} :
-                        {{ information.value }}
-                    </v-list-item>
+                    
+                    </v-list-item> -->
                 </v-list>
             </v-col>
         </v-row>
@@ -102,8 +114,12 @@ export default {
     },
     data: () => {
         return {
-            section: null,
-            topic: null,
+            topic: {
+                title: -1,
+                image: [-1],
+                started_at: -1,
+                ended_at: -1,
+            },
         };
     },
     computed: {
@@ -117,22 +133,12 @@ export default {
         this.getSections();
     },
     methods: {
-        // testControllerX() {
-        //     axios
-        //         .get("api/subject_contents/")
-        //         .then((res) => {
-        //             console.log("success" + res);
-        //         })
-        //         .catch((error) => {
-        //             console.log(error);
-        //         });
-        // },
         getSections() {
             axios
                 .get("/api/sections/" + this.id)
                 .then((res) => {
-                    this.section = res.data.data.section;
-                    this.topic = res.data.data.topic;
+                    this.topic = res.data.topic;
+                    this.topic.image = Object.values(this.topic.image);
                 })
                 .catch((error) => {
                     console.log(error);
