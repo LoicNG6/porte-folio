@@ -32,28 +32,14 @@
                         :key="index"
                     >
                         <img
-                            style="height: 50%; width: 50%"
-                            :src="
-                                './images/' + topic.title.en + '/' + image_path
+                            :style="
+                                topic.image.length == 4
+                                    ? 'height: 50%; width: 50%'
+                                    : 'height: 100%; width: 100%'
                             "
+                            :src="getImageURl(image_path)"
                         />
                     </template>
-                    <!-- <img
-                        style="height: 50%; width: 50%"
-                        src="./images/I. Me/2001.jpg"
-                    />
-                    <img
-                        style="height: 50%; width: 50%"
-                        src="public/images/I. Me/java_code.png"
-                    />
-                    <img
-                        style="height: 50%; width: 50%"
-                        src="public/images/I. Me/lecture.jpg"
-                    />
-                    <img
-                        style="height: 50%; width: 50%"
-                        src="public/images/I. Me/travel.jpeg"
-                    /> -->
                 </v-card>
             </v-col>
             <v-col cols="2">
@@ -122,13 +108,6 @@ export default {
             },
         };
     },
-    computed: {
-        active: {
-            get() {
-                return this.dialog;
-            },
-        },
-    },
     mounted() {
         this.getSections();
     },
@@ -159,6 +138,16 @@ export default {
                     document.location.reload();
                 }, 30);
             }
+        },
+        getImageURl(image_path) {
+            console.log(this.topic.title.en);
+            console.log(image_path);
+            return new URL(
+                "../../../sass/assets/".concat(
+                    ...[this.topic.title.en, "/", image_path]
+                ),
+                import.meta.url
+            ).href;
         },
     },
 };
