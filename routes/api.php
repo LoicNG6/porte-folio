@@ -5,7 +5,6 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SubjectContentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TopicController;
-use App\Models\Section_content;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource("topics", TopicController::class);

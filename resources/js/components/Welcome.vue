@@ -123,7 +123,6 @@ export default {
   },
   created() {
     setTimeout(this.typeText, this.newTextDelay + 200);
-    console.log(this.displayTextArray[this.$i18n.locale][0]);
   },
   methods: {
     typeText() {

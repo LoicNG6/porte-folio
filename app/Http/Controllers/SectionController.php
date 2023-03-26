@@ -25,16 +25,24 @@ class SectionController extends Controller
     public function show(int $id)
     {
         $section = Section::where("topic_id", $id)->get();
-        $topicName = Topic::where("id", $id)->get("title");
+        $topic = Topic::where("id", $id)->get(["title", "image", "started_at", "ended_at"]);
 
         foreach ($section as $section_field) {
             $section_field->title = json_decode($section_field->title);
         }
+        foreach ($topic as $field) {
+            $field->title = json_decode($field->title);
+            $field->image = json_decode($field->image);
+            $field->started_at = json_decode($field->started_at);
+            $field->ended_at = json_decode($field->ended_at);
+        }
 
         return [
             'status' => 200,
-            'data' => $section,
-            'topic_name' => $topicName
+            'data' => [
+                'section' => $section,
+                'topic' => $topic
+            ]
         ];
     }
 }
