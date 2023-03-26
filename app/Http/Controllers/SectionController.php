@@ -24,7 +24,7 @@ class SectionController extends Controller
 
     public function show(int $id)
     {
-        $section = Section::where("topic_id", $id)->get();
+        $section = Section::where("topic_id", $id)->get("title");
         $topic = Topic::where("id", $id)->get(["title", "image", "started_at", "ended_at"]);
 
         foreach ($section as $section_field) {
@@ -40,8 +40,8 @@ class SectionController extends Controller
         return [
             'status' => 200,
             'data' => [
-                'section' => $section,
-                'topic' => $topic
+                'section' => $section[0],
+                'topic' => $topic[0]
             ]
         ];
     }

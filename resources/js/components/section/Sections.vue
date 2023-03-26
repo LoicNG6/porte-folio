@@ -13,9 +13,7 @@
     <v-container class="text">
         <v-row>
             <v-col cols="auto">
-                <span style="font-size: 1.5em">{{
-                    topic_name[$i18n.locale]
-                }}</span>
+                <span style="font-size: 1.5em">{{ topic }}</span>
             </v-col>
         </v-row>
         <v-row justify="start">
@@ -48,7 +46,7 @@
             <v-col cols="2">
                 <v-list class="pa-0" bg-color="transparent">
                     <v-list-item
-                        v-for="information in sections_information"
+                        v-for="information in section"
                         :key="information.title"
                         style="border-left: solid 0.01em #ffffff85"
                         min-height="30px"
@@ -104,38 +102,8 @@ export default {
     },
     data: () => {
         return {
-            sections: null,
-            topic_name: {},
-            sections_information: [
-                {
-                    title: {
-                        en: "Date",
-                        fr: "Date",
-                    },
-                    value: null,
-                },
-                {
-                    title: {
-                        en: "Location",
-                        fr: "Lieux",
-                    },
-                    value: null,
-                },
-                {
-                    title: {
-                        en: "Context",
-                        fr: "Contexte",
-                    },
-                    value: null,
-                },
-                {
-                    title: {
-                        en: "Team",
-                        fr: "Equipe",
-                    },
-                    value: null,
-                },
-            ],
+            section: null,
+            topic: null,
         };
     },
     computed: {
@@ -147,25 +115,24 @@ export default {
     },
     mounted() {
         this.getSections();
-        this.testControllerX();
     },
     methods: {
-        testControllerX() {
-            axios
-                .get("api/subject_contents/")
-                .then((res) => {
-                    console.log("success" + res);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        },
+        // testControllerX() {
+        //     axios
+        //         .get("api/subject_contents/")
+        //         .then((res) => {
+        //             console.log("success" + res);
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+        // },
         getSections() {
             axios
                 .get("/api/sections/" + this.id)
                 .then((res) => {
-                    this.topic_name = JSON.parse(res.data.topic_name[0].title);
-                    this.sections = res.data.data;
+                    this.section = res.data.data.section;
+                    this.topic = res.data.data.topic;
                 })
                 .catch((error) => {
                     console.log(error);
