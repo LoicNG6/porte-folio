@@ -42,16 +42,25 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col cols="2">
+            <v-col cols="">
                 <v-list class="pa-0" bg-color="transparent">
-                    <!-- <v-list-item
-                        v-for="information in topic"
-                        :key="information.title"
+                    <v-list-item
                         style="border-left: solid 0.01em #ffffff85"
                         min-height="30px"
                     >
-                    
-                    </v-list-item> -->
+                        <div>
+                            {{ $t("section.information.from") }} :
+                            {{ topic.started_at[$i18n.locale] }}
+                        </div>
+                        <div>
+                            {{ $t("section.information.to") }} :
+                            {{ topic.ended_at[$i18n.locale] }}
+                        </div>
+                        <div>
+                            {{ $t("section.information.location") }} : In the
+                            subject table
+                        </div>
+                    </v-list-item>
                 </v-list>
             </v-col>
         </v-row>
@@ -103,8 +112,8 @@ export default {
             topic: {
                 title: -1,
                 image: [-1],
-                started_at: -1,
-                ended_at: -1,
+                started_at: [-1],
+                ended_at: [-1],
             },
         };
     },

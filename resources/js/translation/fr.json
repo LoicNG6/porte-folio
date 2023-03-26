@@ -1,16 +1,15 @@
 {
-      "home": {
-            "introduction_title": "Introduction",
-            "introduction": "Sur ce portefolio, je vous parlerai de mon parcours universitaire, de mon parcours professionel ainsi que de mes ambitions. La seule particularité de celui-ci, est l'explication de mes choix depuis mes premières ambitions professionnelles.",
-            "tips_title": "Le petit conseil !",
-            "tips": "Petit conseil avant de débuter: Ce portefolio a un ordre bien précis. Je vous recommande alors de commencer par la carte 'I'.Bonne lecture !"
-      },
-      "section": {
-            "description": {
-                  "I": "Issu de la ville de Nanterre, dans le département des Hauts-de-Seine, j'ai un parcours classique. Par 'classique', j'entends ",
-                  "II": "",
-                  "III": "",
-                  "IV": ""
-            }
-      }
+    "home": {
+        "introduction_title": "Introduction",
+        "introduction": "Sur ce portefolio, je vous parlerai de mon parcours universitaire, de mon parcours professionel ainsi que de mes ambitions. La seule particularité de celui-ci, est l'explication de mes choix depuis mes premières ambitions professionnelles.",
+        "tips_title": "Le petit conseil !",
+        "tips": "Petit conseil avant de débuter: Ce portefolio a un ordre bien précis. Je vous recommande alors de commencer par la carte 'I'.Bonne lecture !"
+    },
+    "section": {
+        "information": {
+            "from": "Début",
+            "to": "Fin",
+            "location": "Localisation"
+        }
+    }
 }
