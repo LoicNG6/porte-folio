@@ -57,8 +57,8 @@
                             {{ topic.ended_at[$i18n.locale] }}
                         </div>
                         <div>
-                            {{ $t("section.information.location") }} : In the
-                            subject table
+                            {{ $t("section.information.location") }} : Check
+                            with topics / sections table in db
                         </div>
                     </v-list-item>
                 </v-list>
@@ -114,15 +114,41 @@ export default {
                 started_at: [-1],
                 ended_at: [-1],
             },
-            topic_description: " ",
-            topic_what_i_learned: " ",
+            topic_description: "",
+            topic_what_i_learned: "",
+            subjects: [
+                {
+                    ended_at: {
+                        en: "",
+                        fr: "",
+                    },
+                    id: -1,
+                    location: "",
+                    started_at: {
+                        en: "",
+                        fr: "",
+                    },
+                    team: "",
+                },
+            ],
         };
     },
     mounted() {
         this.getSections();
         this.getSectionContents();
+        this.getSectionSubjects();
     },
     methods: {
+        getSectionSubjects() {
+            axios
+                .get("/api/subjects/" + this.id)
+                .then((res) => {
+                    this.subjects = res.data.data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
         getSections() {
             axios
                 .get("/api/sections/" + this.id)

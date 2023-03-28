@@ -25,7 +25,7 @@ class SubjectController extends Controller
 
     public function show(int $id)
     {
-        $subject = DB::table("subjects")->where("id", $id)->get();
+        $subject = DB::table("subjects")->where("section_id", $id)->get();
 
         foreach ($subject as $subject_field) {
             $subject_field->started_at = json_decode($subject_field->started_at);
