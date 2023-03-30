@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Section;
 use App\Models\Topic;
-use Attribute;
-use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {

@@ -18,16 +18,15 @@ class SubjectContentController extends Controller
         ];
     }
 
-    public function show(int $subject_id, String $language)
+    public function show($subject_ids)
     {
-        $content = DB::table("subject_contents")
-            ->where("subject_id", $subject_id)
-            ->where("language", $language)
+        $contents = DB::table("subject_contents")
+            ->whereIn("subject_id", $subject_ids)
             ->get();
 
         return [
             "status" => 200,
-            "data" => $content
+            "data" => $contents
         ];
     }
 }
