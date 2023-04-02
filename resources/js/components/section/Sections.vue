@@ -1,6 +1,6 @@
 <template>
     <v-btn
-        class="previous-secion"
+        class="previous-secion bs"
         variant="outlined"
         rounded="circle"
         height="63"
@@ -72,6 +72,16 @@
                 <div>{{ topic_what_i_learned }}</div>
             </v-col>
         </v-row>
+        <v-row>
+            <v-col
+                cols="12"
+                style="text-align: justify"
+                v-for="(content, index) in subjects.contents"
+                :key="index"
+            >
+                <div>{{ content.description }}</div>
+            </v-col>
+        </v-row>
     </v-container>
     <v-btn
         class="next-section"
@@ -88,14 +98,14 @@
 <style scoped>
 .previous-secion {
     border: none;
-    position: absolute;
+    position: fixed;
     top: 40%;
     left: 2%;
     float: left;
 }
 .next-section {
     border: none;
-    position: absolute;
+    position: fixed;
     top: 40%;
     float: right;
     right: 2%;
@@ -116,8 +126,15 @@ export default {
             },
             topic_description: "",
             topic_what_i_learned: "",
-            subjects: [
-                {
+            subjects: {
+                contents: [
+                    {
+                        description: "",
+                        language: "",
+                        subject_id: -1,
+                    },
+                ],
+                info: {
                     ended_at: {
                         en: "",
                         fr: "",
@@ -130,7 +147,7 @@ export default {
                     },
                     team: "",
                 },
-            ],
+            },
         };
     },
     mounted() {

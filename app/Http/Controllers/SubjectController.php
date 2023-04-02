@@ -26,23 +26,22 @@ class SubjectController extends Controller
     public function show(int $id)
     {
         $subject = DB::table("subjects")->where("section_id", $id)->get();
-        $subject_contents[] = array();
         $subject_ids = [];
 
         foreach ($subject as $subject_field) {
+            $subject_field->team = json_decode($subject_field->team);
             $subject_field->started_at = json_decode($subject_field->started_at);
             $subject_field->ended_at = json_decode($subject_field->ended_at);
-            $subject_field->team = json_decode($subject_field->team);
             array_push($subject_ids, $subject_field->id);
         }
 
         $subject_contents = (new SubjectContentController)->show($subject_ids);
-
+        
         return [
             "status" => 200,
             "data" => [
-                "subject" => $subject,
-                "subject_contents" => $subject_contents
+                "contents" => $subject_contents["data"],
+                "info" => $subject[0],
             ]
         ];
     }
