@@ -5,8 +5,8 @@ import en from "./translation/en.json";
 const i18n = createI18n({
     locale: "fr",
     messages: {
-        en: "en",
-        fr: "fr",
+        en: en,
+        fr: fr,
     },
 });
 
