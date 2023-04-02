@@ -11,6 +11,7 @@
         <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
     </v-btn>
     <v-container class="text">
+        {{ $i18n.locale }}
         <v-row>
             <v-col cols="auto">
                 <span style="font-size: 1.5em">{{
@@ -62,12 +63,12 @@
                         </div>
                     </v-list-item>
                 </v-list>
+                <v-col style="text-align: justify" class="mt-2">
+                    <div>{{ topic_description }}</div>
+                </v-col>
             </v-col>
         </v-row>
         <v-row justify="center">
-            <v-col cols="12" style="text-align: justify">
-                <div>{{ topic_description }}</div>
-            </v-col>
             <v-col cols="12" style="text-align: justify">
                 <div>{{ topic_what_i_learned }}</div>
             </v-col>
@@ -79,7 +80,9 @@
                 v-for="(content, index) in subjects.contents"
                 :key="index"
             >
-                <div>{{ content.description }}</div>
+                <div v-if="content.language == $i18n.locale">
+                    {{ content.description }}
+                </div>
             </v-col>
         </v-row>
     </v-container>
