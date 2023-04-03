@@ -3,11 +3,11 @@ import fr from "./translation/fr";
 import en from "./translation/en.json";
 
 const i18n = createI18n({
-    locale: "fr",
-    messages: {
-        en: en,
-        fr: fr,
-    },
+      locale: localStorage.getItem("curr_language"),
+      messages: {
+            en: en,
+            fr: fr,
+      },
 });
 
 export default i18n;
