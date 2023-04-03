@@ -3,7 +3,7 @@
         :elevation="0"
         color="#270a04"
         class="px-6"
-        height="75"
+        height="80"
         style="font-family: Gill Sans, sans-serif; color: #fceee5"
     >
         <v-toolbar-title
@@ -103,8 +103,10 @@ export default {
             this.$router.push({ name: route });
         },
         setLanguage() {
-            if (this.$i18n.locale === "en") this.$i18n.locale = "fr";
-            else this.$i18n.locale = "en";
+            if (this.$i18n.locale === "en")
+                this.$i18n.locale = "fr";
+                 else
+                this.$i18n.locale = "en";
 
             localStorage.setItem("curr_language", this.$i18n.locale);
 

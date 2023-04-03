@@ -10,8 +10,7 @@
     >
         <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
     </v-btn>
-    <v-container class="text">
-        {{ $i18n.locale }}
+    <v-container class="text my-6">
         <v-row>
             <v-col cols="auto">
                 <span style="font-size: 1.5em">{{
