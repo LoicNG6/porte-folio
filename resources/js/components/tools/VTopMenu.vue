@@ -106,6 +106,8 @@ export default {
             if (this.$i18n.locale === "en") this.$i18n.locale = "fr";
             else this.$i18n.locale = "en";
 
+            localStorage.setItem("curr_language", this.$i18n.locale);
+
             this.image_trad_path =
                 this.$i18n.locale == "fr"
                     ? "../../../sass/assets/en.svg"
