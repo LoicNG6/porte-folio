@@ -87,7 +87,7 @@
 </style>
 
 <script>
-import VTopMenu from "./tools/VTopMenu.vue";
+import VTopMenu from "./tools/menu/VTopMenu.vue";
 import i18n from "../i18n.js";
 
 export default {

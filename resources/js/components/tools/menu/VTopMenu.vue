@@ -89,8 +89,8 @@ export default {
     mounted() {
         this.image_trad_path =
             this.$i18n.locale == "fr"
-                ? "../../../sass/assets/en.svg"
-                : "../../../sass/assets/fr.svg";
+                ? "../../../../sass/assets/en.svg"
+                : "../../../../sass/assets/fr.svg";
     },
     computed: {
         imageSrc() {
@@ -112,8 +112,8 @@ export default {
 
             this.image_trad_path =
                 this.$i18n.locale == "fr"
-                    ? "../../../sass/assets/en.svg"
-                    : "../../../sass/assets/fr.svg";
+                    ? "../../../../sass/assets/en.svg"
+                    : "../../../../sass/assets/fr.svg";
             this.$forceUpdate();
         },
     },

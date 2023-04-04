@@ -24,66 +24,11 @@
                 :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
                 rounded="lg"
             >
-                <v-row justify="start">
-                    <v-col cols="4">
-                        <v-card
-                            class="card-bg text"
-                            :height="topic.image.length == 4 ? '80%' : '100%'"
-                            width="100%"
-                            rounded="md"
-                        >
-                            <template
-                                v-for="(image_path, index) in topic.image"
-                                :key="index"
-                            >
-                                <img
-                                    :style="
-                                        topic.image.length == 4
-                                            ? 'height: 50%; width: 50%'
-                                            : 'height: 100%; width: 100%'
-                                    "
-                                    :src="getImageURl(image_path)"
-                                    style="filter: brightness(90%)"
-                                />
-                            </template>
-                        </v-card>
-                    </v-col>
-                    <v-col>
-                        <v-list class="pa-0" bg-color="transparent">
-                            <v-list-item
-                                style="
-                                    border-top: solid 0.01em #ffffff35;
-                                    border-left: solid 0.01em #ffffff35;
-                                    border-top-left-radius: 3px;
-                                "
-                                min-height="30px"
-                                max-width="50%"
-                            >
-                                <div>
-                                    {{ $t("section.information.from") }} :
-                                    {{ topic.started_at[$i18n.locale] }}
-                                </div>
-                                <div>
-                                    {{ $t("section.information.to") }} :
-                                    {{ topic.ended_at[$i18n.locale] }}
-                                </div>
-                                <div>
-                                    {{ $t("section.information.location") }} :
-                                    Check with topics / sections table in db
-                                </div>
-                            </v-list-item>
-                        </v-list>
-                        <v-col style="text-align: justify" class="mt-2">
-                            <div>{{ topic_description }}</div>
-                        </v-col>
-                    </v-col>
-                </v-row>
+                <section-left-content
+                    :topic="topic"
+                    :topic_description="topic_description"
+                ></section-left-content>
             </v-card>
-        </v-row>
-        <v-row justify="center" class="my-8">
-            <v-col cols="12" style="text-align: justify">
-                <div>{{ topic_what_i_learned }}</div>
-            </v-col>
         </v-row>
         <v-row>
             <v-col
@@ -95,6 +40,11 @@
                 <div v-if="content.language == $i18n.locale">
                     {{ content.description }}
                 </div>
+            </v-col>
+        </v-row>
+        <v-row justify="center" class="my-8">
+            <v-col cols="12" style="text-align: justify">
+                <div>{{ topic_what_i_learned }}</div>
             </v-col>
         </v-row>
     </v-container>
@@ -110,6 +60,7 @@
         <v-icon class="btn-text" size="28"> mdi-arrow-right </v-icon>
     </v-btn>
 </template>
+
 <style scoped>
 .previous-secion {
     border: none;
@@ -126,8 +77,13 @@
     right: 2%;
 }
 </style>
+
 <script>
+import SectionLeftContent from "../tools/section/SectionLeftContent.vue";
 export default {
+    components: {
+        SectionLeftContent,
+    },
     props: {
         id: [Number, String],
     },
@@ -223,14 +179,6 @@ export default {
                     document.location.reload();
                 }, 30);
             }
-        },
-        getImageURl(image_path) {
-            return new URL(
-                "../../../sass/assets/".concat(
-                    ...[this.topic.title.en, "/", image_path]
-                ),
-                import.meta.url
-            ).href;
         },
     },
 };
