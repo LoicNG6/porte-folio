@@ -31,17 +31,18 @@
             </v-card>
         </v-row>
         <v-row>
-            <v-col
+            <!-- <v-col
                 cols="12"
                 style="text-align: justify"
-                v-for="(content, index) in subjects.contents"
+                v-for="(content, index) in subjects.content"
                 :key="index"
             >
                 <div v-if="content.language == $i18n.locale">
                     {{ content.description }}
                 </div>
-            </v-col>
+            </v-col> -->
         </v-row>
+        <section-right-content :subjects="subjects"></section-right-content>
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
                 <div>{{ topic_what_i_learned }}</div>
@@ -80,9 +81,11 @@
 
 <script>
 import SectionLeftContent from "../tools/section/SectionLeftContent.vue";
+import SectionRightContent from "../tools/section/SectionRightContent.vue";
 export default {
     components: {
         SectionLeftContent,
+        SectionRightContent,
     },
     props: {
         id: [Number, String],
@@ -98,9 +101,10 @@ export default {
             topic_description: "",
             topic_what_i_learned: "",
             subjects: {
-                contents: [
+                content: [
                     {
                         description: "",
+                        image: "",
                         language: "",
                         subject_id: -1,
                     },

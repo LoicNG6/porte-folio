@@ -40,7 +40,7 @@ class SubjectController extends Controller
         return [
             "status" => 200,
             "data" => [
-                "contents" => $subject_contents["data"],
+                "content" => $subject_contents["data"],
                 "info" => $subject[0],
             ]
         ];

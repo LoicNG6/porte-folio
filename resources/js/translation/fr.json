@@ -9,7 +9,8 @@
         "information": {
             "from": "Début",
             "to": "Fin",
-            "location": "Localisation"
+            "location": "Localisation",
+            "team": "Equipe/Département"
         }
     }
 }
