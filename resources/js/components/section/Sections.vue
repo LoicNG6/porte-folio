@@ -12,62 +12,65 @@
     </v-btn>
     <v-container class="text my-6">
         <v-row>
-            <v-col cols="auto">
+            <v-col cols="auto" class="px-0 ">
                 <span style="font-size: 1.5em">{{
                     topic.title[$i18n.locale]
                 }}</span>
             </v-col>
         </v-row>
-        <v-row justify="start">
-            <v-col cols="auto">
-                <v-card
-                    class="card-bg text"
-                    height="400"
-                    width="500"
-                    rounded="md"
-                    elevation="5"
-                >
-                    <template
-                        v-for="(image_path, index) in topic.image"
-                        :key="index"
-                    >
-                        <img
-                            :style="
-                                topic.image.length == 4
-                                    ? 'height: 50%; width: 50%'
-                                    : 'height: 100%; width: 100%'
-                            "
-                            :src="getImageURl(image_path)"
-                        />
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col>
-                <v-list class="pa-0" bg-color="transparent">
-                    <v-list-item
-                        style="border-left: solid 0.01em #ffffff85"
-                        min-height="30px"
-                    >
-                        <div>
-                            {{ $t("section.information.from") }} :
-                            {{ topic.started_at[$i18n.locale] }}
-                        </div>
-                        <div>
-                            {{ $t("section.information.to") }} :
-                            {{ topic.ended_at[$i18n.locale] }}
-                        </div>
-                        <div>
-                            {{ $t("section.information.location") }} : Check
-                            with topics / sections table in db
-                        </div>
-                    </v-list-item>
-                </v-list>
-                <v-col style="text-align: justify" class="mt-2">
-                    <div>{{ topic_description }}</div>
-                </v-col>
-            </v-col>
+        <v-row>
+            <v-card class="card-test-bg text pa-8" rounded="lg">
+                <v-row justify="start">
+                    <v-col cols="4">
+                        <v-card
+                            class="card-bg text"
+                            height="100%"
+                            width="100%"
+                            rounded="md"
+                        >
+                            <template
+                                v-for="(image_path, index) in topic.image"
+                                :key="index"
+                            >
+                                <img
+                                    :style="
+                                        topic.image.length == 4
+                                            ? 'height: 50%; width: 50%'
+                                            : 'height: 100%; width: 100%'
+                                    "
+                                    :src="getImageURl(image_path)"
+                                />
+                            </template>
+                        </v-card>
+                    </v-col>
+                    <v-col>
+                        <v-list class="pa-0" bg-color="transparent">
+                            <v-list-item
+                                style="border-left: solid 0.01em #ffffff85"
+                                min-height="30px"
+                            >
+                                <div>
+                                    {{ $t("section.information.from") }} :
+                                    {{ topic.started_at[$i18n.locale] }}
+                                </div>
+                                <div>
+                                    {{ $t("section.information.to") }} :
+                                    {{ topic.ended_at[$i18n.locale] }}
+                                </div>
+                                <div>
+                                    {{ $t("section.information.location") }} :
+                                    Check with topics / sections table in db
+                                </div>
+                            </v-list-item>
+                        </v-list>
+                        <v-col style="text-align: justify" class="mt-2">
+                            <div>{{ topic_description }}</div>
+                        </v-col>
+                    </v-col>
+                </v-row>
+            </v-card>
         </v-row>
-        <v-row justify="center">
+        <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
                 <div>{{ topic_what_i_learned }}</div>
             </v-col>
