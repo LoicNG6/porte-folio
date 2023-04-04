@@ -39,6 +39,7 @@
                                             : 'height: 100%; width: 100%'
                                     "
                                     :src="getImageURl(image_path)"
+                                    style="filter: brightness(90%);"
                                 />
                             </template>
                         </v-card>
