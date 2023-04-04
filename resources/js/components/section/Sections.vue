@@ -12,19 +12,23 @@
     </v-btn>
     <v-container class="text my-6">
         <v-row>
-            <v-col cols="auto" class="px-0 ">
+            <v-col cols="auto" class="px-0">
                 <span style="font-size: 1.5em">{{
                     topic.title[$i18n.locale]
                 }}</span>
             </v-col>
         </v-row>
         <v-row>
-            <v-card class="card-test-bg text pa-8" rounded="lg">
+            <v-card
+                class="card-test-bg text"
+                :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
+                rounded="lg"
+            >
                 <v-row justify="start">
                     <v-col cols="4">
                         <v-card
                             class="card-bg text"
-                            height="100%"
+                            :height="topic.image.length == 4 ? '80%' : '100%'"
                             width="100%"
                             rounded="md"
                         >
@@ -39,7 +43,7 @@
                                             : 'height: 100%; width: 100%'
                                     "
                                     :src="getImageURl(image_path)"
-                                    style="filter: brightness(90%);"
+                                    style="filter: brightness(90%)"
                                 />
                             </template>
                         </v-card>
@@ -47,8 +51,13 @@
                     <v-col>
                         <v-list class="pa-0" bg-color="transparent">
                             <v-list-item
-                                style="border-left: solid 0.01em #ffffff85"
+                                style="
+                                    border-top: solid 0.01em #ffffff35;
+                                    border-left: solid 0.01em #ffffff35;
+                                    border-top-left-radius: 3px;
+                                "
                                 min-height="30px"
+                                max-width="50%"
                             >
                                 <div>
                                     {{ $t("section.information.from") }} :
