@@ -30,8 +30,8 @@
                 ></section-left-content>
             </v-card>
         </v-row>
-        <v-row>
-            <!-- <v-col
+        <!-- <v-row>
+            <v-col
                 cols="12"
                 style="text-align: justify"
                 v-for="(content, index) in subjects.content"
@@ -40,9 +40,22 @@
                 <div v-if="content.language == $i18n.locale">
                     {{ content.description }}
                 </div>
-            </v-col> -->
+            </v-col>
+        </v-row> -->
+        <v-row>
+            <v-col
+                cols="12"
+                style="text-align: justify"
+                v-for="(subject, index) in subjects"
+                :key="index"
+            >
+                <section-right-content
+                    :info="subject.info"
+                    :contents="subject.contents"
+                ></section-right-content>
+            </v-col>
         </v-row>
-        <section-right-content :subjects="subjects"></section-right-content>
+        <!-- <section-right-content :subjects="subjects"></section-right-content> -->
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
                 <div>{{ topic_what_i_learned }}</div>
@@ -100,29 +113,31 @@ export default {
             },
             topic_description: "",
             topic_what_i_learned: "",
-            subjects: {
-                content: [
-                    {
-                        description: "",
-                        image: "",
-                        language: "",
-                        subject_id: -1,
+            subjects: [
+                {
+                    info: {
+                        ended_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        id: -1,
+                        location: "",
+                        started_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        team: "",
                     },
-                ],
-                info: {
-                    ended_at: {
-                        en: "",
-                        fr: "",
-                    },
-                    id: -1,
-                    location: "",
-                    started_at: {
-                        en: "",
-                        fr: "",
-                    },
-                    team: "",
+                    contents: [
+                        {
+                            subject_id: -1,
+                            language: "",
+                            description: "",
+                            image: "",
+                        },
+                    ],
                 },
-            },
+            ],
         };
     },
     mounted() {

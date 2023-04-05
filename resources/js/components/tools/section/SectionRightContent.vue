@@ -18,11 +18,12 @@
                 >
                     <div>
                         {{ $t("section.information.from") }} :
-                        {{ subjects.info.started_at[$i18n.locale] }}
+                        {{ getContent }}
                     </div>
+                    <!-- 
                     <div>
                         {{ $t("section.information.to") }} :
-                        {{ subjects.info.ended_at[$i18n.locale] }}
+                        {{ subjects.info.ended_at }}
                     </div>
                     <div>
                         {{ $t("section.information.location") }} :
@@ -30,18 +31,18 @@
                     </div>
                     <div>
                         {{ $t("section.information.team") }} :
-                        {{ subjects.info.team[$i18n.locale] }}
-                    </div>
+                        {{ subjects.info.team }}
+                    </div> -->
                 </v-list-item>
             </v-list>
-            <v-col
+            <!-- <v-col
                 class="mt-2"
                 style="text-align: justify"
                 v-for="(content, index) in subjects.content"
                 :key="index"
             >
                 <div>{{ content.description }}</div>
-            </v-col>
+            </v-col> -->
         </v-col>
         <v-col cols="4">
             <v-card
@@ -60,9 +61,26 @@
 export default {
     name: "section-right-content",
     props: {
-        subjects: {
+        info: {
             type: Object,
             required: true,
+        },
+        contents: {
+            type: Object,
+            require: true,
+        },
+    },
+    // data: () => {
+    //     return {
+    //         subject_description: this.contents,
+    //     };
+    // },
+    computed: {
+        getContent() {
+            const subject_description = this.contents.filter(
+                (content) => content.language == this.$i18n.locale
+            );
+            return subject_description;
         },
     },
     methods: {
