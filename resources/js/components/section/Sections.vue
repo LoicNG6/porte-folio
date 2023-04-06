@@ -31,20 +31,8 @@
             </v-card>
         </v-row>
 
-        <v-row class="bs">
-            <v-col
-                cols="12"
-                style="text-align: justify"
-                v-for="(subject, index) in subjects"
-                :key="index"
-                class="bs"
-            >
-                <section-right-content
-                    :info="subject.info"
-                    :contents="getLocaleContent(subject.contents)"
-                ></section-right-content>
-            </v-col>
-        </v-row>
+        <section-right-content :subjects="subjects"></section-right-content>
+        
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
                 <!-- <div>{{ topic_what_i_learned }}</div> -->
@@ -145,11 +133,6 @@ export default {
             return this.section.filter(
                 (section) => section.language == this.$i18n.locale
             );
-        },
-        getLocaleContent($contents) {
-            return $contents.filter(
-                (content) => content.language == this.$i18n.locale
-            )[0];
         },
         getSectionSubjects() {
             axios

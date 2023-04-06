@@ -1,5 +1,10 @@
 <template>
-    <v-row justify="start" class="my-12 py-4">
+    <v-row
+        justify="start"
+        class="my-12 py-4"
+        v-for="(locale_subject, index) in locale_subjects"
+        :key="index"
+    >
         <v-col>
             <v-list
                 class="pa-0"
@@ -19,24 +24,24 @@
                 >
                     <div>
                         {{ $t("section.information.from") }} :
-                        {{ info.started_at[$i18n.locale] }}
+                        {{ locale_subject.info.started_at[$i18n.locale] }}
                     </div>
                     <div>
                         {{ $t("section.information.to") }} :
-                        {{ info.ended_at[$i18n.locale] }}
+                        {{ locale_subject.info.ended_at[$i18n.locale] }}
                     </div>
                     <div>
                         {{ $t("section.information.location") }} :
-                        {{ info.location }}
+                        {{ locale_subject.info.location }}
                     </div>
                     <div>
                         {{ $t("section.information.team") }} :
-                        {{ info.team[$i18n.locale] }}
+                        {{ locale_subject.info.team[$i18n.locale] }}
                     </div>
                 </v-list-item>
             </v-list>
             <v-col class="mt-2" style="text-align: justify">
-                <div>{{ subject_content }}</div>
+                <div>{{ locale_subject.locale_content.description }}</div>
             </v-col>
         </v-col>
         <v-col cols="4">
@@ -56,22 +61,24 @@
 export default {
     name: "section-right-content",
     props: {
-        info: {
+        // info: {
+        //     type: Object,
+        //     required: true,
+        // },
+        // contents: {
+        //     type: Object,
+        //     require: true,
+        // },
+        subjects: {
             type: Object,
             required: true,
-        },
-        contents: {
-            type: Object,
-            require: true,
         },
     },
     data: () => {
         return {
+            locale_subjects: [],
             subject_content: "",
         };
-    },
-    computed: {
-        getContent() {},
     },
     methods: {
         getImageURl(image_path) {
@@ -84,9 +91,17 @@ export default {
         },
     },
     watch: {
-        contents() {
-            if (this.contents.description != "-")
-                this.subject_content = this.contents.description;
+        subjects() {
+            this.subjects.map((subject) => {
+                let array_subject_locale_content = subject.contents.filter(
+                    (content) => content.language == this.$i18n.locale
+                );
+               
+                this.locale_subjects.push({
+                    info: subject.info,
+                    locale_content: array_subject_locale_content[0],
+                });
+            });
         },
     },
 };
