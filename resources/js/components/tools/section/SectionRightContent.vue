@@ -14,35 +14,30 @@
                         justify-content: end;
                     "
                     min-height="30px"
-                    max-width="50%"
+                    max-width="75%"
+                    class="pl-1"
                 >
                     <div>
                         {{ $t("section.information.from") }} :
-                        {{ getContent }}
+                        {{ info.started_at[$i18n.locale] }}
                     </div>
-                    <!-- 
                     <div>
                         {{ $t("section.information.to") }} :
-                        {{ subjects.info.ended_at }}
+                        {{ info.ended_at[$i18n.locale] }}
                     </div>
                     <div>
                         {{ $t("section.information.location") }} :
-                        {{ subjects.info.location }}
+                        {{ info.location }}
                     </div>
                     <div>
                         {{ $t("section.information.team") }} :
-                        {{ subjects.info.team }}
-                    </div> -->
+                        {{ info.team[$i18n.locale] }}
+                    </div>
                 </v-list-item>
             </v-list>
-            <!-- <v-col
-                class="mt-2"
-                style="text-align: justify"
-                v-for="(content, index) in subjects.content"
-                :key="index"
-            >
-                <div>{{ content.description }}</div>
-            </v-col> -->
+            <v-col class="mt-2" style="text-align: justify">
+                <div>{{ subject_content }}</div>
+            </v-col>
         </v-col>
         <v-col cols="4">
             <v-card
@@ -70,18 +65,13 @@ export default {
             require: true,
         },
     },
-    // data: () => {
-    //     return {
-    //         subject_description: this.contents,
-    //     };
-    // },
+    data: () => {
+        return {
+            subject_content: "",
+        };
+    },
     computed: {
-        getContent() {
-            const subject_description = this.contents.filter(
-                (content) => content.language == this.$i18n.locale
-            );
-            return subject_description;
-        },
+        getContent() {},
     },
     methods: {
         getImageURl(image_path) {
@@ -91,6 +81,12 @@ export default {
                 ),
                 import.meta.url
             ).href;
+        },
+    },
+    watch: {
+        contents() {
+            if (this.contents.description != "-")
+                this.subject_content = this.contents.description;
         },
     },
 };

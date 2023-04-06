@@ -49,7 +49,7 @@
                 </v-list-item>
             </v-list>
             <v-col style="text-align: justify" class="mt-2">
-                <div>{{ topic_description }}</div>
+                <div>{{ localeSection.description }}</div>
             </v-col>
         </v-col>
     </v-row>
@@ -63,10 +63,15 @@ export default {
             type: Object,
             required: true,
         },
-        topic_description: {
-            type: String,
+        section: {
+            type: Object,
             required: true,
         },
+    },
+    data: () => {
+        return {
+            localeSection: {},
+        };
     },
     methods: {
         getImageURl(image_path) {
@@ -76,6 +81,11 @@ export default {
                 ),
                 import.meta.url
             ).href;
+        },
+    },
+    watch: {
+        section() {
+            this.localeSection = Object.assign({}, this.section[0]);
         },
     },
 };

@@ -26,39 +26,28 @@
             >
                 <section-left-content
                     :topic="topic"
-                    :topic_description="topic_description"
+                    :section="getLocaleSectionDescription()"
                 ></section-left-content>
             </v-card>
         </v-row>
-        <!-- <v-row>
-            <v-col
-                cols="12"
-                style="text-align: justify"
-                v-for="(content, index) in subjects.content"
-                :key="index"
-            >
-                <div v-if="content.language == $i18n.locale">
-                    {{ content.description }}
-                </div>
-            </v-col>
-        </v-row> -->
-        <v-row>
+
+        <v-row class="bs">
             <v-col
                 cols="12"
                 style="text-align: justify"
                 v-for="(subject, index) in subjects"
                 :key="index"
+                class="bs"
             >
                 <section-right-content
                     :info="subject.info"
-                    :contents="subject.contents"
+                    :contents="getLocaleContent(subject.contents)"
                 ></section-right-content>
             </v-col>
         </v-row>
-        <!-- <section-right-content :subjects="subjects"></section-right-content> -->
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
-                <div>{{ topic_what_i_learned }}</div>
+                <!-- <div>{{ topic_what_i_learned }}</div> -->
             </v-col>
         </v-row>
     </v-container>
@@ -111,8 +100,14 @@ export default {
                 started_at: [-1],
                 ended_at: [-1],
             },
-            topic_description: "",
-            topic_what_i_learned: "",
+            section: [
+                {
+                    section_id: -1,
+                    language: "",
+                    description: "",
+                    what_i_learned: "",
+                },
+            ],
             subjects: [
                 {
                     info: {
@@ -146,6 +141,16 @@ export default {
         this.getSectionSubjects();
     },
     methods: {
+        getLocaleSectionDescription() {
+            return this.section.filter(
+                (section) => section.language == this.$i18n.locale
+            );
+        },
+        getLocaleContent($contents) {
+            return $contents.filter(
+                (content) => content.language == this.$i18n.locale
+            )[0];
+        },
         getSectionSubjects() {
             axios
                 .get("/api/subjects/" + this.id)
@@ -168,20 +173,9 @@ export default {
                 });
         },
         getSectionContents() {
-            axios
-                .get(
-                    "/api/section-content/" + this.id + "/" + this.$i18n.locale
-                )
-                .then((res) => {
-                    this.topic_description =
-                        res.data.description != "-"
-                            ? res.data.description
-                            : this.topic_description;
-                    this.topic_what_i_learned =
-                        res.data.what_i_learned != "-"
-                            ? res.data.what_i_learned
-                            : this.topic_what_i_learned;
-                });
+            axios.get("/api/section-contents/" + this.id).then((res) => {
+                this.section = res.data;
+            });
         },
         changeSection(direction) {
             if (1 < this.id < 4) {

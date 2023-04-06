@@ -17,14 +17,13 @@ class SectionContentController extends Controller
         ];
     }
 
-    public function show(int $section_id, String $language)
+    public function show(int $section_id)
     {
         $content = DB::table("section_contents")
             ->where("section_id", $section_id)
-            ->where("language", $language)
-            ->get(["description", "what_i_learned"]);
+            ->get();
 
-        return $content[0];
+        return $content;
     }
 
     public function store(Request $content)
