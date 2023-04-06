@@ -41,7 +41,7 @@
             </div>
           </v-card>
         </v-col>
-        <v-col cols="auto" class="px-0 title">
+        <v-col cols="1" class="px-0 title">
           <v-btn
             class="mx-4 mt-3 btn-hover"
             :to="{ name: 'home' }"
