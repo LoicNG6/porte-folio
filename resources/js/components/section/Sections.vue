@@ -1,6 +1,6 @@
 <template>
     <v-btn
-        class="previous-secion bs"
+        class="previous-secion"
         variant="outlined"
         rounded="circle"
         height="63"
@@ -24,27 +24,18 @@
                 :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
                 rounded="lg"
             >
-                <section-left-content
+                <section-description
                     :topic="topic"
-                    :topic_description="topic_description"
-                ></section-left-content>
+                    :section="getLocaleSectionDescription()"
+                ></section-description>
             </v-card>
         </v-row>
-        <v-row>
-            <v-col
-                cols="12"
-                style="text-align: justify"
-                v-for="(content, index) in subjects.contents"
-                :key="index"
-            >
-                <div v-if="content.language == $i18n.locale">
-                    {{ content.description }}
-                </div>
-            </v-col>
-        </v-row>
+
+        <section-subjects :subjects="subjects"></section-subjects>
+
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
-                <div>{{ topic_what_i_learned }}</div>
+                <!-- <div>{{ topic_what_i_learned }}</div> -->
             </v-col>
         </v-row>
     </v-container>
@@ -79,10 +70,13 @@
 </style>
 
 <script>
-import SectionLeftContent from "../tools/section/SectionLeftContent.vue";
+import SectionDescription from "../tools/section/SectionDescription.vue";
+import SectionSubjects from "../tools/section/SectionSubjects.vue";
+
 export default {
     components: {
-        SectionLeftContent,
+        SectionDescription,
+        SectionSubjects,
     },
     props: {
         id: [Number, String],
@@ -95,30 +89,39 @@ export default {
                 started_at: [-1],
                 ended_at: [-1],
             },
-            topic_description: "",
-            topic_what_i_learned: "",
-            subjects: {
-                contents: [
-                    {
-                        description: "",
-                        language: "",
-                        subject_id: -1,
-                    },
-                ],
-                info: {
-                    ended_at: {
-                        en: "",
-                        fr: "",
-                    },
-                    id: -1,
-                    location: "",
-                    started_at: {
-                        en: "",
-                        fr: "",
-                    },
-                    team: "",
+            section: [
+                {
+                    section_id: -1,
+                    language: "",
+                    description: "",
+                    what_i_learned: "",
                 },
-            },
+            ],
+            subjects: [
+                {
+                    info: {
+                        ended_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        id: -1,
+                        location: "",
+                        started_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        team: "",
+                    },
+                    contents: [
+                        {
+                            subject_id: -1,
+                            language: "",
+                            description: "",
+                            image: "",
+                        },
+                    ],
+                },
+            ],
         };
     },
     mounted() {
@@ -127,6 +130,11 @@ export default {
         this.getSectionSubjects();
     },
     methods: {
+        getLocaleSectionDescription() {
+            return this.section.filter(
+                (section) => section.language == this.$i18n.locale
+            );
+        },
         getSectionSubjects() {
             axios
                 .get("/api/subjects/" + this.id)
@@ -149,20 +157,9 @@ export default {
                 });
         },
         getSectionContents() {
-            axios
-                .get(
-                    "/api/section-content/" + this.id + "/" + this.$i18n.locale
-                )
-                .then((res) => {
-                    this.topic_description =
-                        res.data.description != "-"
-                            ? res.data.description
-                            : this.topic_description;
-                    this.topic_what_i_learned =
-                        res.data.what_i_learned != "-"
-                            ? res.data.what_i_learned
-                            : this.topic_what_i_learned;
-                });
+            axios.get("/api/section-contents/" + this.id).then((res) => {
+                this.section = res.data;
+            });
         },
         changeSection(direction) {
             if (1 < this.id < 4) {

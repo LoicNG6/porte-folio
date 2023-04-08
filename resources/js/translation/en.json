@@ -9,7 +9,8 @@
         "information": {
             "from": "From",
             "to": "To",
-            "location": "Location"
+            "location": "Location",
+            "team": "Team"
         }
     }
 }
