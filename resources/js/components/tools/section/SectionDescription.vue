@@ -57,7 +57,7 @@
 
 <script>
 export default {
-    name: "section-left-content",
+    name: "section-description",
     props: {
         topic: {
             type: Object,

@@ -1,6 +1,6 @@
 <template>
     <v-btn
-        class="previous-secion bs"
+        class="previous-secion"
         variant="outlined"
         rounded="circle"
         height="63"
@@ -24,15 +24,15 @@
                 :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
                 rounded="lg"
             >
-                <section-left-content
+                <section-description
                     :topic="topic"
                     :section="getLocaleSectionDescription()"
-                ></section-left-content>
+                ></section-description>
             </v-card>
         </v-row>
 
-        <section-right-content :subjects="subjects"></section-right-content>
-        
+        <section-subjects :subjects="subjects"></section-subjects>
+
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">
                 <!-- <div>{{ topic_what_i_learned }}</div> -->
@@ -70,12 +70,13 @@
 </style>
 
 <script>
-import SectionLeftContent from "../tools/section/SectionLeftContent.vue";
-import SectionRightContent from "../tools/section/SectionRightContent.vue";
+import SectionDescription from "../tools/section/SectionDescription.vue";
+import SectionSubjects from "../tools/section/SectionSubjects.vue";
+
 export default {
     components: {
-        SectionLeftContent,
-        SectionRightContent,
+        SectionDescription,
+        SectionSubjects,
     },
     props: {
         id: [Number, String],
