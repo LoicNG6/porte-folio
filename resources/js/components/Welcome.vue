@@ -135,7 +135,7 @@ export default {
     created() {
         setTimeout(this.typeText, this.newTextDelay + 200);
         if (this.$route.name == "Loco")
-            localStorage.setItem("curr_language", "fr");
+            localStorage.setItem("curr_language", "en");
         else localStorage.setItem("curr_language", this.$i18n.locale);
     },
     methods: {
