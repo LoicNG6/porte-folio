@@ -35,11 +35,37 @@ export default {
     },
     data: () => {
         return {
+            subjects2: {},
             locale_subjects: [],
             subject_content: "",
         };
     },
+    getLocalSubjects: {
+        get() {
+            return this.locale_subjects;
+        },
+        set(newVal) {
+            console.log("test = ", this.subjects);
+            this.locale_subjects = newVal;
+            // this.locale_subjects = this.filterSubjects(this.subjects);
+        },
+    },
     methods: {
+        filterSubjects(subjects) {
+            let result = [];
+
+            subjects.map((subject) => {
+                let array_subject_locale_content = subject.contents.filter(
+                    (content) => content.language == this.$i18n.locale
+                );
+
+                result.push({
+                    info: subject.info,
+                    locale_content: array_subject_locale_content[0],
+                });
+            });
+            return result;
+        },
         getImageURl(image_path) {
             return new URL(
                 "../../../../sass/assets/".concat(
@@ -51,16 +77,13 @@ export default {
     },
     watch: {
         subjects() {
-            this.subjects.map((subject) => {
-                let array_subject_locale_content = subject.contents.filter(
-                    (content) => content.language == this.$i18n.locale
-                );
+            this.getLocalSubjects = this.filterSubjects(this.subjects);
+        },
 
-                this.locale_subjects.push({
-                    info: subject.info,
-                    locale_content: array_subject_locale_content[0],
-                });
-            });
+        "$i18n.locale"() {
+            console.log("subjects component test : ", this.$i18n.locale);
+            this.getLocalSubjects = this.filterSubjects(this.subjects);
+            console.log(this.locale_subjects);
         },
     },
 };

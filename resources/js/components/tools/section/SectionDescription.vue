@@ -43,8 +43,8 @@
                         {{ topic.ended_at[$i18n.locale] }}
                     </div>
                     <div>
-                        {{ $t("section.information.location") }} : Check with
-                        topics / sections table in db
+                        {{ $t("section.information.location") }} :
+                        {{ topic.location }}
                     </div>
                 </v-list-item>
             </v-list>
@@ -86,6 +86,7 @@ export default {
     watch: {
         section() {
             this.localeSection = Object.assign({}, this.section[0]);
+            console.log("this.LocaleSection =", this.localeSection);
         },
     },
 };

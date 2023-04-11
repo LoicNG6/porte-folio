@@ -35,14 +35,16 @@
                         <div
                             style="margin: auto; width: 90%"
                             :style="
-                                endTyping == true ? 'text-align:center; padding-top:3px' : ''
+                                endTyping == true
+                                    ? 'text-align:center; padding-top:3px'
+                                    : ''
                             "
                         >
                             <span class="welcome-title">
                                 {{ typeValue }}
                             </span>
                             <span
-                                style="font-size: 2em;"
+                                style="font-size: 2em"
                                 v-show="setTypeStatus"
                                 class="blinking-cursor"
                                 >|</span
@@ -133,10 +135,13 @@ export default {
         },
     },
     created() {
-        setTimeout(this.typeText, this.newTextDelay + 200);
-        if (this.$route.name == "Loco")
+        if (!["Loco", "admin"].includes(this.$route.name)) {
+            console.log("not in the welcome page");
+            // localStorage.setItem("curr_language", this.$i18n.locale);
+        } else {
+            setTimeout(this.typeText, this.newTextDelay + 200);
             localStorage.setItem("curr_language", "en");
-        else localStorage.setItem("curr_language", this.$i18n.locale);
+        }
     },
     methods: {
         typeText() {

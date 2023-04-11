@@ -24,7 +24,7 @@ class SectionController extends Controller
     public function show(int $id)
     {
         $section = Section::where("topic_id", $id)->get("title");
-        $topic = Topic::where("id", $id)->get(["title", "image", "started_at", "ended_at"]);
+        $topic = Topic::where("id", $id)->get();
 
         foreach ($section as $section_field) {
             $section_field->title = json_decode($section_field->title);

@@ -10,6 +10,7 @@
     >
         <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
     </v-btn>
+
     <v-container class="text my-6">
         <v-row>
             <v-col cols="auto" class="px-0">
@@ -26,7 +27,7 @@
             >
                 <section-description
                     :topic="topic"
-                    :section="getLocaleSectionDescription()"
+                    :section="getLocaleSectionDescription"
                 ></section-description>
             </v-card>
         </v-row>
@@ -88,6 +89,7 @@ export default {
                 image: [-1],
                 started_at: [-1],
                 ended_at: [-1],
+                location: "",
             },
             section: [
                 {
@@ -97,6 +99,7 @@ export default {
                     what_i_learned: "",
                 },
             ],
+            localeSections: {},
             subjects: [
                 {
                     info: {
@@ -129,12 +132,19 @@ export default {
         this.getSectionContents();
         this.getSectionSubjects();
     },
-    methods: {
-        getLocaleSectionDescription() {
-            return this.section.filter(
-                (section) => section.language == this.$i18n.locale
-            );
+    computed: {
+        getLocaleSectionDescription: {
+            get() {
+                return this.localeSections;
+            },
+            set() {
+                this.localeSection = this.section.filter(
+                    (section) => section.language == this.$i18n.locale
+                );
+            },
         },
+    },
+    methods: {
         getSectionSubjects() {
             axios
                 .get("/api/subjects/" + this.id)
@@ -159,6 +169,9 @@ export default {
         getSectionContents() {
             axios.get("/api/section-contents/" + this.id).then((res) => {
                 this.section = res.data;
+                this.getLocaleSectionDescription = this.section.filter(
+                    (section) => section.language == this.$i18n.locale
+                );
             });
         },
         changeSection(direction) {
@@ -176,6 +189,13 @@ export default {
                     document.location.reload();
                 }, 30);
             }
+        },
+    },
+    watch: {
+        "$i18n.locale"() {
+            this.getLocaleSectionDescription = this.section.filter(
+                (section) => section.language == this.$i18n.locale
+            );
         },
     },
 };
