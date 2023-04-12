@@ -5,8 +5,7 @@ SET
 As you already know, my name is NGUESSIE Loïc. I am 23 year old and I live in Nanterre (Hauts-de-Seine department). I went to the Paul Eluard high school in Nanterre (city in the Hauts-de-Seine department), and I quickly discovered my interest in mathematics. I've made it a priority in my school path. In parallel with the courses, my passion took an important place in my young life of teenager. It regulated and punctuated my days, my schedule and my interests.
 Unfortunately, not everyone is lucky enough to make his passion for living, especially when it is to soccer, in the Paris area.
 Having quickly become aware of this situation, I decided to focus all my time on my studies. Added to that, my organization, my will to reach my goals and my audacity, I have today the ambition to be at the head of an information system department within an important structure.
-
-Translated with www.DeepL.com/Translator (free version)"
+"
 WHERE
     section_id = 1
     and language = "en";

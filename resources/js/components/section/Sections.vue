@@ -32,7 +32,7 @@
             </v-card>
         </v-row>
 
-        <section-subjects :subjects="subjects"></section-subjects>
+        <section-subjects :subjects="subjects" v-if="id > 1"></section-subjects>
 
         <v-row justify="center" class="my-8">
             <v-col cols="12" style="text-align: justify">

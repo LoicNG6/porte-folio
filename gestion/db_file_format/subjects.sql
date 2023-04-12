@@ -93,7 +93,7 @@ VALUES
             3,
             '{"fr":"Septembre 2021","en":"September 2021"}',
             '{"fr":"Septembre 2022","en":"September 2022}',
-            "6 rue Jean Jaurès,93170",
+            "6 rue Jean Jaurès, 93170",
             '{"fr":"Département technique","en":"Technical department"}'
       ),
       (

@@ -18,26 +18,28 @@
                 class="pl-1"
                 :class="isLeftSubject ? 'left-subject' : 'right-subject'"
             >
-                <div>
+                <div v-if="locale_subject.info.started_at != null">
                     {{ $t("section.information.from") }} :
                     {{ locale_subject.info.started_at[$i18n.locale] }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.ended_at != null">
                     {{ $t("section.information.to") }} :
                     {{ locale_subject.info.ended_at[$i18n.locale] }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.location != null">
                     {{ $t("section.information.location") }} :
                     {{ locale_subject.info.location }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.team != null">
                     {{ $t("section.information.team") }} :
                     {{ locale_subject.info.team[$i18n.locale] }}
                 </div>
             </v-list-item>
         </v-list>
         <v-col class="mt-2" style="text-align: justify">
-            <div>{{ locale_subject.locale_content.description }}</div>
+            <div v-if="locale_subject.locale_content.description != null">
+                {{ locale_subject.locale_content.description }}
+            </div>
         </v-col>
     </v-col>
     <v-col cols="4" v-if="!isLeftSubject">
