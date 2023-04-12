@@ -27,7 +27,7 @@
             >
                 <section-description
                     :topic="topic"
-                    :section="getLocaleSectionDescription"
+                    :section="locale_sections"
                 ></section-description>
             </v-card>
         </v-row>
@@ -99,7 +99,7 @@ export default {
                     what_i_learned: "",
                 },
             ],
-            localeSections: {},
+            locale_sections: {},
             subjects: [
                 {
                     info: {
@@ -132,18 +132,6 @@ export default {
         this.getSectionContents();
         this.getSectionSubjects();
     },
-    computed: {
-        getLocaleSectionDescription: {
-            get() {
-                return this.localeSections;
-            },
-            set() {
-                this.localeSection = this.section.filter(
-                    (section) => section.language == this.$i18n.locale
-                );
-            },
-        },
-    },
     methods: {
         getSectionSubjects() {
             axios
@@ -169,7 +157,7 @@ export default {
         getSectionContents() {
             axios.get("/api/section-contents/" + this.id).then((res) => {
                 this.section = res.data;
-                this.getLocaleSectionDescription = this.section.filter(
+                this.locale_sections = this.section.filter(
                     (section) => section.language == this.$i18n.locale
                 );
             });
@@ -193,7 +181,7 @@ export default {
     },
     watch: {
         "$i18n.locale"() {
-            this.getLocaleSectionDescription = this.section.filter(
+            this.locale_sections = this.section.filter(
                 (section) => section.language == this.$i18n.locale
             );
         },

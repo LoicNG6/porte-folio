@@ -151,7 +151,6 @@ export default {
     },
     watch: {
         "$i18n.locale": function () {
-            console.log("in home this.$i18n.locale = ", this.$i18n.locale);
             this.$forceUpdate();
         },
     },
