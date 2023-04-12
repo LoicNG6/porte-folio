@@ -4,6 +4,7 @@ import App from './components/App.vue';
 import router from '../router';
 import axios from 'axios';
 import i18n from './i18n';
+import "@/sass/app.scss";
 
 //create app
 const app = createApp(App);

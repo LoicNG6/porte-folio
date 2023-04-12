@@ -1,16 +1,16 @@
 {
-      "introduction_title": "Presentation",
-      "introduction": "On this portfolio, I will tell you about my academic background, my professional background and my ambitions. The only particularity of this one, is the explanation of my choices since my first professional ambitions.",
-      "tips_title": "The Advice !",
-      "tips": "A little advice before you start: This portfolio has a very precise order. I recommend that you start with the 'I' card.",
-      
+      "home": {
+            "introduction_title": "Presentation",
+            "introduction": "On this portfolio, I will tell you about my academic background, my professional background and my ambitions. The only particularity of this one, is the explanation of my choices since my first professional ambitions.",
+            "tips_title": "The Advice !",
+            "tips": "A little advice before you start: This portfolio has a very precise order. I recommend that you start with the 'I' card."
+      },
       "section": {
             "description": {
-                  "I":"",
-                  "II":"",
-                  "III":"",
-                  "IV":""
+                  "I": "",
+                  "II": "",
+                  "III": "",
+                  "IV": ""
             }
       }
-
 }

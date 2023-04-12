@@ -32,7 +32,7 @@ const routes = [
             },
             {
                 path: "contact-me",
-                name: "contact-me",
+                name: "contact me",
                 component: ContactMe,
             },
             {

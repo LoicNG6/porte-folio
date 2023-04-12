@@ -1,59 +1,44 @@
 <template>
-  <v-container fluid v-if="$route.name == 'home'">
-    <v-row justify="center" class="my-8 s">
-      <v-col cols="4" class="s">
-        <v-row justify="center" >
-          <v-col cols="auto" >
-            <v-card
-              rounded="md"
-              height="280"
-              class="text"
-              style="width: 320px; background-color: #431e0f; color: white"
-            >
-              <v-card-title>{{ $t("introduction_title") }} </v-card-title>
-              <v-divider color="#c8b4b4"></v-divider>
-              <v-card-text>
-                <v-container>
-                  <v-row class="text" style="text-align: justify">{{
-                    $t("introduction")
-                  }}</v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="auto">
-        <v-card
-          rounded="xl"
-          height="280"
-          variant="outlined"
-          style="width: 320px; border: solid 0.3em; border-color: #52362a"
-        >
+  <v-container fluid v-if="$route.name == 'home'" class="pa-0">
+    <v-row justify="center" class="my-4">
+      <information-card-tool style="color: whitesmoke">
+        <template v-slot:card-content>
+          <v-card-title>{{ $t("home.introduction_title") }}</v-card-title>
+          <v-divider color="#c8b4b4"></v-divider>
+          <v-card-text>
+            <v-container>
+              <v-row class="text" style="text-align: justify">{{
+                $t("home.introduction")
+              }}</v-row>
+            </v-container>
+          </v-card-text>
+        </template>
+      </information-card-tool>
+      <information-card-tool>
+        <template v-slot:card-content>
           <v-card-title>
             <v-row justify="space-between">
               <v-col cols="auto">
-                {{ $t("tips_title") }}
+                {{ $t("home.tips_title") }}
               </v-col>
               <v-col cols="auto">
                 <v-icon light color="yellow"> mdi-lightbulb-on </v-icon>
               </v-col>
             </v-row>
           </v-card-title>
-
           <v-divider color="#c8b4b4"></v-divider>
           <v-card-text>
             <v-container>
               <v-row class="text" style="text-align: justify">{{
-                $t("tips")
+                $t("home.tips")
               }}</v-row>
             </v-container>
           </v-card-text>
-        </v-card>
-      </v-col>
+        </template>
+      </information-card-tool>
     </v-row>
     <v-row align-content="center" justify="center" class="text my-8">
-      <v-sheet class="mx-auto" max-width="970" color="#ffffff00">
+      <v-sheet class="mx-auto" max-width="1100" color="#ffffff00">
         <v-slide-group
           style="color: white"
           v-model="model"
@@ -64,13 +49,10 @@
         >
           <v-slide-group-item v-for="(topic, index) in topics" :key="index">
             <v-card
-              class="mx-4 text"
-              width="250"
-              color="#6f4b3e80"
-              elevation="8"
-              rounded="lg"
+              class="mx-6 text card-bg"
+              width="270"
+              rounded="xl"
               height="250"
-              style="color: rgb(240, 234, 234)"
             >
               <v-container fluid>
                 <v-row justify="center">
@@ -88,10 +70,13 @@
                   <v-col cols="8" justify-center style="text-align: center">
                     <v-btn
                       @click="goToSection(topic.id, topic.title[$i18n.locale])"
-                      width="130"
-                      color="#6f4b3ecd"
+                      width="100"
+                      rounded="pill"
+                      class="btn-bg"
                     >
-                      <v-icon light> mdi-eye-outline </v-icon>
+                      <v-icon class="btn-text" size="x-large">
+                        mdi-eye-outline
+                      </v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -105,7 +90,11 @@
   <router-view v-else />
 </template>
 <script>
+import InformationCardTool from "./InformationCardTool.vue";
 export default {
+  components: {
+    InformationCardTool,
+  },
   data: () => {
     return {
       topics: null,
