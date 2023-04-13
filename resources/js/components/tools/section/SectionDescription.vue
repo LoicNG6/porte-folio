@@ -19,6 +19,8 @@
                         "
                         :src="getImageURl(image_path)"
                         style="filter: brightness(90%)"
+                        :class="topic.image.length == 4
+                                ? 'px-1':''"
                     />
                 </template>
             </v-card>
