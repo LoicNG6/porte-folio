@@ -144,7 +144,7 @@ export default {
         getImageURl() {
             return new URL(
                 "../../../../sass/assets/".concat(
-                    ...[this.topic_name, "/subjects/pp.png"]
+                    ...[this.topic_name, "/subjects/axa-go.png"]
                 ),
                 import.meta.url
             ).href;
