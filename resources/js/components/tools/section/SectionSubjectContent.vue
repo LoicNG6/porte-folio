@@ -74,11 +74,14 @@
         <template v-else>
             <v-card
                 class="card-bg text"
-                height="100%"
                 width="100%"
-                rounded="md"
+                rounded="mg"
+                elevation="0"
             >
-                <template> locale_subject.info.image </template>
+                <img
+                    style="filter: brightness(90%); height: 100%; width: 100%"
+                    :src="getImageURl()"
+                />
             </v-card>
         </template>
     </v-col>
@@ -107,6 +110,10 @@ export default {
             type: Boolean,
             required: true,
         },
+        topic_name: {
+            type: String,
+            required: true,
+        },
     },
     data: () => {
         return {
@@ -122,6 +129,7 @@ export default {
                     "Using of Test domain driven",
                 ],
             },
+            topic_data_name: "",
         };
     },
     computed: {
@@ -130,6 +138,21 @@ export default {
                 "../../../../sass/assets/checked-icon.svg",
                 import.meta.url
             ).href;
+        },
+    },
+    methods: {
+        getImageURl() {
+            return new URL(
+                "../../../../sass/assets/".concat(
+                    ...[this.topic_name, "/subjects/pp.png"]
+                ),
+                import.meta.url
+            ).href;
+        },
+    },
+    watch: {
+        topic_name() {
+            this.topic_data_name = this.topic_name;
         },
     },
 };

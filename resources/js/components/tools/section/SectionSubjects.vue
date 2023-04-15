@@ -9,12 +9,14 @@
             v-if="index % 2 == 0"
             :locale_subject="locale_subject"
             :isLeftSubject="false"
+            :topic_name="topic"
         >
         </section-subject-content>
         <section-subject-content
             v-else
             :locale_subject="locale_subject"
             :isLeftSubject="true"
+            :topic_name="topic"
         >
         </section-subject-content>
     </v-row>
@@ -30,6 +32,10 @@ export default {
     props: {
         subjects: {
             type: Object,
+            required: true,
+        },
+        topic: {
+            type: String,
             required: true,
         },
     },
