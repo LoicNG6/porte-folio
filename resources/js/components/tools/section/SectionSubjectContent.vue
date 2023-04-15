@@ -42,7 +42,7 @@
         </v-col>
     </v-col>
     <v-col cols="4" v-if="!isLeftSubject">
-        <template v-if="(locale_subject.info.id = 13)">
+        <template v-if="locale_subject.locale_content.subject_id == 13">
             <v-card
                 v-for="(skillType, index) in skills"
                 :key="index"
