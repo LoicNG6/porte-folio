@@ -21,7 +21,7 @@
         </v-row>
         <v-row>
             <v-card
-                class="card-test-bg text"
+                class="section-card-bg text"
                 :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
                 rounded="lg"
             >

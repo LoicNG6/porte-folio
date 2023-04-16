@@ -1,6 +1,11 @@
 <template>
     <v-col cols="4" v-if="isLeftSubject">
-        <v-card class="card-bg text" width="100%" rounded="md" elevation="0">
+        <v-card
+            class="section-subject-card-bg text"
+            width="100%"
+            rounded="md"
+            elevation="0"
+        >
             <img
                 style="filter: brightness(90%); height: 100%; width: 100%"
                 :src="getImageURl()"
@@ -50,7 +55,7 @@
             <v-card
                 v-for="(skillType, index) in skills"
                 :key="index"
-                class="card-test-bg text mb-4"
+                class="section-card-bg text mb-4"
                 width="100%"
                 rounded="lg"
             >
@@ -77,7 +82,7 @@
         </template>
         <template v-else>
             <v-card
-                class="card-bg text"
+                class="section-subject-card-bg text"
                 width="100%"
                 rounded="mg"
                 elevation="0"

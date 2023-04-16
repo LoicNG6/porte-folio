@@ -1,4 +1,4 @@
-.card-test-bg {
+.section-card-bg {
     background: #00000025;
 }
 body {
@@ -27,6 +27,10 @@ body {
 }
 
 .card-bg {
+    background: linear-gradient(to right bottom, #270b05, #3c1008);
+}
+
+.section-subject-card-bg{
     background: transparent;
 }
 
