@@ -117,6 +117,7 @@ export default {
                             fr: "",
                         },
                         team: "",
+                        image_path: "",
                     },
                     contents: [
                         {

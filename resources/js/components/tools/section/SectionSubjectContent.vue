@@ -1,6 +1,10 @@
 <template>
     <v-col cols="4" v-if="isLeftSubject">
-        <v-card class="card-bg text" height="100%" width="100%" rounded="md">
+        <v-card class="card-bg text" width="100%" rounded="md" elevation="0">
+            <img
+                style="filter: brightness(90%); height: 100%; width: 100%"
+                :src="getImageURl()"
+            />
         </v-card>
     </v-col>
     <v-col>
@@ -144,7 +148,11 @@ export default {
         getImageURl() {
             return new URL(
                 "../../../../sass/assets/".concat(
-                    ...[this.topic_name, "/subjects/axa-go.png"]
+                    ...[
+                        this.topic_name,
+                        "/subjects/",
+                        this.locale_subject.info.image_path,
+                    ]
                 ),
                 import.meta.url
             ).href;

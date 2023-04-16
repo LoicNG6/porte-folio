@@ -19,8 +19,7 @@
                         "
                         :src="getImageURl(image_path)"
                         style="filter: brightness(90%)"
-                        :class="topic.image.length == 4
-                                ? 'px-1':''"
+                        :class="topic.image.length == 4 ? 'px-1' : ''"
                     />
                 </template>
             </v-card>
@@ -88,7 +87,6 @@ export default {
     watch: {
         section() {
             this.localeSection = Object.assign({}, this.section[0]);
-            console.log("this.LocaleSection =", this.localeSection);
         },
     },
 };
