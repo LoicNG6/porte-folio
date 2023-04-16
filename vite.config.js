@@ -7,7 +7,6 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                // "resources/sass/asset",
                 "resources/sass/app.scss",
                 "resources/js/app.js",
             ],
@@ -36,5 +35,6 @@ export default defineConfig({
     },
     build: {
         chunkSizeWarningLimit: 1600,
+        assetsInlineLimit: 0,
     },
 });
