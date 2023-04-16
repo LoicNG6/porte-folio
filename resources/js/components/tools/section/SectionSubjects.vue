@@ -9,12 +9,14 @@
             v-if="index % 2 == 0"
             :locale_subject="locale_subject"
             :isLeftSubject="false"
+            :topic_name="topic"
         >
         </section-subject-content>
         <section-subject-content
             v-else
             :locale_subject="locale_subject"
             :isLeftSubject="true"
+            :topic_name="topic"
         >
         </section-subject-content>
     </v-row>
@@ -32,14 +34,34 @@ export default {
             type: Object,
             required: true,
         },
+        topic: {
+            type: String,
+            required: true,
+        },
     },
     data: () => {
         return {
+            subjects2: {},
             locale_subjects: [],
             subject_content: "",
         };
     },
+
     methods: {
+        filterSubjects(subjects) {
+            let result = [];
+            subjects.map((subject) => {
+                let array_subject_locale_content = subject.contents.filter(
+                    (content) => content.language == this.$i18n.locale
+                );
+
+                result.push({
+                    info: subject.info,
+                    locale_content: array_subject_locale_content[0],
+                });
+            });
+            return result;
+        },
         getImageURl(image_path) {
             return new URL(
                 "../../../../sass/assets/".concat(
@@ -51,16 +73,11 @@ export default {
     },
     watch: {
         subjects() {
-            this.subjects.map((subject) => {
-                let array_subject_locale_content = subject.contents.filter(
-                    (content) => content.language == this.$i18n.locale
-                );
+            this.locale_subjects = this.filterSubjects(this.subjects);
+        },
 
-                this.locale_subjects.push({
-                    info: subject.info,
-                    locale_content: array_subject_locale_content[0],
-                });
-            });
+        "$i18n.locale"() {
+            this.locale_subjects = this.filterSubjects(this.subjects);
         },
     },
 };

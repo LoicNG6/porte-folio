@@ -19,6 +19,7 @@
                         "
                         :src="getImageURl(image_path)"
                         style="filter: brightness(90%)"
+                        :class="topic.image.length == 4 ? 'px-1' : ''"
                     />
                 </template>
             </v-card>
@@ -43,8 +44,8 @@
                         {{ topic.ended_at[$i18n.locale] }}
                     </div>
                     <div>
-                        {{ $t("section.information.location") }} : Check with
-                        topics / sections table in db
+                        {{ $t("section.information.location") }} :
+                        {{ topic.location }}
                     </div>
                 </v-list-item>
             </v-list>

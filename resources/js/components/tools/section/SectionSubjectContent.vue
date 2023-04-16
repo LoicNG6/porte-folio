@@ -1,7 +1,10 @@
 <template>
     <v-col cols="4" v-if="isLeftSubject">
-        <v-card class="card-bg text" height="100%" width="100%" rounded="md">
-            subject images
+        <v-card class="card-bg text" width="100%" rounded="md" elevation="0">
+            <img
+                style="filter: brightness(90%); height: 100%; width: 100%"
+                :src="getImageURl()"
+            />
         </v-card>
     </v-col>
     <v-col>
@@ -18,32 +21,73 @@
                 class="pl-1"
                 :class="isLeftSubject ? 'left-subject' : 'right-subject'"
             >
-                <div>
+                <div v-if="locale_subject.info.started_at != null">
                     {{ $t("section.information.from") }} :
                     {{ locale_subject.info.started_at[$i18n.locale] }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.ended_at != null">
                     {{ $t("section.information.to") }} :
                     {{ locale_subject.info.ended_at[$i18n.locale] }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.location != null">
                     {{ $t("section.information.location") }} :
                     {{ locale_subject.info.location }}
                 </div>
-                <div>
+                <div v-if="locale_subject.info.team != null">
                     {{ $t("section.information.team") }} :
                     {{ locale_subject.info.team[$i18n.locale] }}
                 </div>
             </v-list-item>
         </v-list>
         <v-col class="mt-2" style="text-align: justify">
-            <div>{{ locale_subject.locale_content.description }}</div>
+            <div v-if="locale_subject.locale_content.description != null">
+                {{ locale_subject.locale_content.description }}
+            </div>
         </v-col>
     </v-col>
     <v-col cols="4" v-if="!isLeftSubject">
-        <v-card class="card-bg text" height="100%" width="100%" rounded="md">
-            subject images
-        </v-card>
+        <template v-if="locale_subject.locale_content.subject_id == 13">
+            <v-card
+                v-for="(skillType, index) in skills"
+                :key="index"
+                class="card-test-bg text mb-4"
+                width="100%"
+                rounded="lg"
+            >
+                <v-card-title>{{ index }}</v-card-title>
+                <v-divider color="#ffffff"></v-divider>
+                <v-list bg-color="transparent" class="px-4">
+                    <v-list-item
+                        v-for="skill in skillType"
+                        :key="skill"
+                        :style="
+                            skill != skillType.slice(-1)
+                                ? 'border-bottom: solid 0.01em #ffffff35'
+                                : ''
+                        "
+                        class="px-0"
+                    >
+                        <span>{{ skill }}</span>
+                        <template v-slot:append>
+                            <img :src="iconPath" />
+                        </template>
+                    </v-list-item>
+                </v-list>
+            </v-card>
+        </template>
+        <template v-else>
+            <v-card
+                class="card-bg text"
+                width="100%"
+                rounded="mg"
+                elevation="0"
+            >
+                <img
+                    style="filter: brightness(90%); height: 100%; width: 100%"
+                    :src="getImageURl()"
+                />
+            </v-card>
+        </template>
     </v-col>
 </template>
 <style scoped>
@@ -69,6 +113,54 @@ export default {
         isLeftSubject: {
             type: Boolean,
             required: true,
+        },
+        topic_name: {
+            type: String,
+            required: true,
+        },
+    },
+    data: () => {
+        return {
+            skills: {
+                "Soft skills": [
+                    "Writing specification documents and documentations",
+                    "Make presentations + Doing formations",
+                    "Being efficient + Being disciplined",
+                ],
+                "Hard skills": [
+                    "Front = Vuejs 3, Vuetify 3",
+                    "Back = Php 8, Mysql 8",
+                    "Using of Test domain driven",
+                ],
+            },
+            topic_data_name: "",
+        };
+    },
+    computed: {
+        iconPath() {
+            return new URL(
+                "../../../../sass/assets/checked-icon.svg",
+                import.meta.url
+            ).href;
+        },
+    },
+    methods: {
+        getImageURl() {
+            return new URL(
+                "../../../../sass/assets/".concat(
+                    ...[
+                        this.topic_name,
+                        "/subjects/",
+                        this.locale_subject.info.image_path,
+                    ]
+                ),
+                import.meta.url
+            ).href;
+        },
+    },
+    watch: {
+        topic_name() {
+            this.topic_data_name = this.topic_name;
         },
     },
 };
