@@ -89,12 +89,34 @@ export default {
     mounted() {
         this.image_trad_path =
             this.$i18n.locale == "fr"
-                ? "../../../../sass/assets/en.svg"
-                : "../../../../sass/assets/fr.svg";
+                ? "/build/assets/en.af254eb9.svg"
+                : "/build/assets/fr.a03772e3.svg";
+        console.log(
+            "bonjour ",
+            "\n",
+            document.URL,
+            "\n",
+            document.baseURI,
+            "\n",
+            window.location.href,
+            "\n",
+            window.location.href.toString().split(window.location.host)[0] +
+                window.location.host,
+            "\n",
+            new URL(
+                this.image_trad_path,
+                window.location.href.toString().split(window.location.host)[0] +
+                    window.location.host
+            ).href
+        );
     },
     computed: {
         imageSrc() {
-            return new URL(this.image_trad_path, import.meta.url).href;
+            return new URL(
+                this.image_trad_path,
+                window.location.href.toString().split(window.location.host)[0] +
+                    window.location.host
+            ).href;
         },
     },
     methods: {
@@ -103,17 +125,15 @@ export default {
             this.$router.push({ name: route });
         },
         setLanguage() {
-            if (this.$i18n.locale === "en")
-                this.$i18n.locale = "fr";
-                 else
-                this.$i18n.locale = "en";
+            if (this.$i18n.locale === "en") this.$i18n.locale = "fr";
+            else this.$i18n.locale = "en";
 
             localStorage.setItem("curr_language", this.$i18n.locale);
 
             this.image_trad_path =
                 this.$i18n.locale == "fr"
-                    ? "../../../../sass/assets/en.svg"
-                    : "../../../../sass/assets/fr.svg";
+                    ? "/build/assets/en.af254eb9.svg"
+                    : "/build/assets/fr.a03772e3.svg";
             this.$forceUpdate();
         },
     },
