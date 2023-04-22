@@ -6,8 +6,6 @@ import axios from "axios";
 import i18n from "./i18n";
 import "@/sass/app.scss";
 
-import.meta.glob(["../images/**"]);
-
 //create app
 const app = createApp(App);
 

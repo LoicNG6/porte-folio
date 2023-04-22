@@ -89,34 +89,12 @@ export default {
     mounted() {
         this.image_trad_path =
             this.$i18n.locale == "fr"
-                ? "/build/assets/en.af254eb9.svg"
-                : "/build/assets/fr.a03772e3.svg";
-        console.log(
-            "bonjour ",
-            "\n",
-            document.URL,
-            "\n",
-            document.baseURI,
-            "\n",
-            window.location.href,
-            "\n",
-            window.location.href.toString().split(window.location.host)[0] +
-                window.location.host,
-            "\n",
-            new URL(
-                this.image_trad_path,
-                window.location.href.toString().split(window.location.host)[0] +
-                    window.location.host
-            ).href
-        );
+                ? "/storage/images/en.svg"
+                : "/storage/images/fr.svg";
     },
     computed: {
         imageSrc() {
-            return new URL(
-                this.image_trad_path,
-                window.location.href.toString().split(window.location.host)[0] +
-                    window.location.host
-            ).href;
+            return this.image_trad_path;
         },
     },
     methods: {
@@ -132,8 +110,8 @@ export default {
 
             this.image_trad_path =
                 this.$i18n.locale == "fr"
-                    ? "/build/assets/en.af254eb9.svg"
-                    : "/build/assets/fr.a03772e3.svg";
+                    ? "/storage/images/en.svg"
+                    : "/storage/images/fr.svg";
             this.$forceUpdate();
         },
     },

@@ -76,12 +76,11 @@ export default {
     },
     methods: {
         getImageURl(image_path) {
-            return new URL(
-                "../../../../sass/assets/".concat(
-                    ...[this.topic.title.en, "/", image_path]
-                ),
-                import.meta.url
-            ).href;
+            if (this.topic.title.en != undefined) {
+                return (
+                    "/storage/images/" + this.topic.title.en + "/" + image_path
+                );
+            }
         },
     },
     watch: {
