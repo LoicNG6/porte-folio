@@ -62,14 +62,6 @@ export default {
             });
             return result;
         },
-        getImageURl(image_path) {
-            return new URL(
-                "../../../../sass/assets/".concat(
-                    ...[this.subjects.content.image, "/", image_path]
-                ),
-                import.meta.url
-            ).href;
-        },
     },
     watch: {
         subjects() {

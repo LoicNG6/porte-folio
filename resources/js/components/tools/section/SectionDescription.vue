@@ -18,8 +18,13 @@
                                 : 'height: 100%; width: 100%'
                         "
                         :src="getImageURl(image_path)"
-                        style="filter: brightness(90%)"
-                        :class="topic.image.length == 4 ? 'px-1' : ''"
+                        style="filter: brightness(90%); border-radius: 0px"
+                        :class="
+                            topic.image.length == 4 &&
+                            (index == 1 || index == 3)
+                                ? 'pl-2'
+                                : ''
+                        "
                     />
                 </template>
             </v-card>

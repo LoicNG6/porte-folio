@@ -143,24 +143,19 @@ export default {
     },
     computed: {
         iconPath() {
-            return new URL(
-                "../../../../sass/assets/checked-icon.svg",
-                import.meta.url
-            ).href;
+            return "/storage/images/checked-icon.svg";
         },
     },
     methods: {
         getImageURl() {
-            return new URL(
-                "../../../../sass/assets/".concat(
-                    ...[
-                        this.topic_name,
-                        "/subjects/",
-                        this.locale_subject.info.image_path,
-                    ]
-                ),
-                import.meta.url
-            ).href;
+            if (this.topic_name != undefined) {
+                return (
+                    "/storage/images/" +
+                    this.topic_name +
+                    "/subjects/" +
+                    this.locale_subject.info.image_path
+                );
+            }
         },
     },
     watch: {

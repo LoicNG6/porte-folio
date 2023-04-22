@@ -99,7 +99,6 @@ export default {
     },
     methods: {
         changeMenu(route) {
-            console.log(route);
             this.$router.push({ name: route });
         },
         setLanguage() {
