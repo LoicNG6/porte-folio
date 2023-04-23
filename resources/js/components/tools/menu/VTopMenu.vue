@@ -10,28 +10,38 @@
                 <img
                     class="my-3"
                     src="/storage/images/logo.png"
-                    width="80"
+                    width="60"
                     height="20"
                     @click="$router.push({ name: 'home' })"
                     style="cursor: pointer"
                 />
             </v-col>
-            <v-col cols="4">
+            <v-col cols="5">
                 <v-tabs
-                    centered
-                    color="grey-darken-2"
-                    height="50"
+                    height="40"
                     style="text-align: center"
-                    align-tabs="center"
+                    align-tabs="title"
                 >
-                    <v-tab
-                        v-for="menu in menu_items"
-                        :key="menu"
-                        class="mx-4"
-                        @click="changeMenu(menu.to)"
-                        >
-                        <span class="menu">{{ menu.title[$i18n.locale] }}</span>
-                    </v-tab>
+                    <v-row>
+                        <v-col>
+                            <v-tab
+                                v-for="menu in menu_items"
+                                :key="menu"
+                                hide-slider
+                                class="mx-4"
+                                @click="changeMenu(menu.to)"
+                                :style="
+                                    menu.title.en == $route.name
+                                        ? 'color: #ada8a8be; pointer-events:none; border-bottom:solid'
+                                        : ''
+                                "
+                            >
+                                <span class="menu">{{
+                                    menu.title[$i18n.locale]
+                                }}</span>
+                            </v-tab>
+                        </v-col>
+                    </v-row>
                 </v-tabs>
             </v-col>
             <v-col cols="1">
