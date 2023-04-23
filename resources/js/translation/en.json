@@ -12,5 +12,19 @@
             "location": "Location",
             "team": "Team"
         }
+    },
+    "about": {
+        "first": "This page are gonna contain all \"technical\" and \"managering\" information of this portefolio.",
+        "second": "For the moment, the only thing you need to know is that this project has been developed from scratch.",
+        "third": "The Management, technologies, work process, all things are gonna expose in the next version."
+    },
+    "contact-me": {
+        "first": "The style of this page is going to be done in the next version of the app.",
+        "second": "Sorry for the disrupting.",
+        "third": "Please find my contact below :",
+        "mail": "Mail: loicnguessie@hotmail.com",
+        "phone": "Phone: +33 7 67 05 98 06",
+        "github": "GitHub : LoicNG6",
+        "linkedIn": "LinkedIn : https://www.linkedin.com/in/loïc-nguessie/"
     }
 }

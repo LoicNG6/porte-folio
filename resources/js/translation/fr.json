@@ -12,5 +12,19 @@
             "location": "Localisation",
             "team": "Equipe/Département"
         }
+    },
+    "about": {
+        "first": "Cette page contiendra toutes les informations techniques et managériales du portefolio.",
+        "second": "Pour le moment, la seule chose que vous devez savoir est que ce projet a été développé \"from scratch\".",
+        "third": "La gestion du projet, les technologies, la méthode de travail seront des aspects dont je vous parlerai dans la prochaine version."
+    },
+    "contact-me": {
+        "first": "Cette page sera terminé lors de la prochaine version de l'application.",
+        "second": "Veuillez nous excuser pour la gêne occasionnée.",
+        "third": "Veuillez trouver mes coordonées ci-dessous :",
+        "mail": "Mail: loicnguessie@hotmail.com",
+        "phone": "Phone: +33 7 67 05 98 06",
+        "github": "GitHub : LoicNG6",
+        "linkedIn": "LinkedIn : https://www.linkedin.com/in/loïc-nguessie/"
     }
 }

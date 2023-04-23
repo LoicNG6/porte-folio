@@ -1,12 +1,23 @@
 <template>
-  <v-app>
-    <main>
-      <h1>In the about page</h1>
-    </main>
-  </v-app>
+    <v-container
+        class="text"
+        style="align-items: center; justify-content: center; display: flex"
+    >
+        <v-row style="text-align: center" justify="center">
+            <v-col cols="12">
+                <span>{{ $t("about.first") }}</span>
+            </v-col>
+            <v-col cols="12">
+                <span>{{ $t("about.second") }}</span>
+            </v-col>
+            <v-col cols="12">
+                <span>{{ $t("about.third") }}</span>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 <script>
-  export default {
+export default {
     name: "v-about",
-  };
+};
 </script>
