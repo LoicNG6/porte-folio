@@ -2,22 +2,63 @@
     <v-app-bar
         :elevation="0"
         color="#270a04"
-        class="px-6"
-        height="80"
+        class="px-14 py-1"
         style="font-family: Gill Sans, sans-serif; color: #fceee5"
     >
-        <v-toolbar-title
-            style="cursor: pointer"
-            class="logo"
-            @click="$router.push({ name: 'home' })"
-            >NGUESSIE Loïc
-        </v-toolbar-title>
+        <v-row align="center" justify="space-between">
+            <v-col cols="auto">
+                <img
+                    class="my-3"
+                    src="/storage/images/logo.png"
+                    width="80"
+                    height="20"
+                    @click="$router.push({ name: 'home' })"
+                    style="cursor: pointer"
+                />
+            </v-col>
+            <v-col cols="4">
+                <v-tabs
+                    centered
+                    color="grey-darken-2"
+                    height="50"
+                    style="text-align: center"
+                    align-tabs="center"
+                >
+                    <v-tab
+                        v-for="menu in menu_items"
+                        :key="menu"
+                        class="mx-4"
+                        @click="changeMenu(menu.to)"
+                        >
+                        <span class="menu">{{ menu.title[$i18n.locale] }}</span>
+                    </v-tab>
+                </v-tabs>
+            </v-col>
+            <v-col cols="1">
+                <v-row justify="space-between">
+                    <v-col class="pa-0" cols="auto">
+                        <img
+                            class="my-3"
+                            :src="imageSrc"
+                            @click="setLanguage()"
+                            style="cursor: pointer"
+                        />
+                    </v-col>
+                    <v-col cols="auto">
+                        <v-icon
+                            dark
+                            xx-large
+                            class="admin-icon"
+                            @click="$router.push({ name: 'admin' })"
+                            style="font-size: 1.9em"
+                            >mdi-account-circle-outline</v-icon
+                        >
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
 
-        <v-spacer
-            :style="$vuetify.display.smAndDown ? 'width: 30%' : 'width: 10%'"
-        ></v-spacer>
-
-        <v-row style="width: 10%" justify="space-around">
+        <!-- <v-row style="width: 10%" justify="space-around">
             <v-col
                 @click="changeMenu(menu.to)"
                 v-for="(menu, m) in menu_items"
@@ -53,7 +94,7 @@
                     >mdi-account-circle-outline</v-icon
                 >
             </v-col>
-        </v-row>
+        </v-row> -->
     </v-app-bar>
 </template>
 <script>
@@ -62,6 +103,7 @@ export default {
     data: () => {
         return {
             image_trad_path: "",
+            links: ["Dashboard", "Messages", "Profile", "Updates"],
             count: 0,
             drawer: false,
             menu_items: [
