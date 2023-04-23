@@ -1,9 +1,12 @@
 <template>
-    <v-app>
-        <v-main>
-            <h1>In the admin page.</h1>
-            <p>In this page, we gonna put a connexion page for the admin.</p>
-            <p>Admin Vues will be in the ressources/js/components/admin</p>
-        </v-main>
-    </v-app>
+    <v-container
+        class="text"
+        style="align-items: center; justify-content: center; display: flex"
+    >
+        <v-row style="text-align: center" justify="center">
+            <v-col cols="12">
+                <span>{{ $t("admin.message") }}</span>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>

@@ -26,5 +26,8 @@
         "phone": "Phone: +33 7 67 05 98 06",
         "github": "GitHub : LoicNG6",
         "linkedIn": "LinkedIn : https://www.linkedin.com/in/loïc-nguessie/"
+    },
+    "admin": {
+        "message": "À l'instar des pages \"Me contacter\" et \"À propos\", les fonctionnalités de cette page sera également développées dans une prochaine version de l'application."
     }
 }
