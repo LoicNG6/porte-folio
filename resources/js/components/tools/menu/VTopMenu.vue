@@ -57,44 +57,6 @@
                 </v-row>
             </v-col>
         </v-row>
-
-        <!-- <v-row style="width: 10%" justify="space-around">
-            <v-col
-                @click="changeMenu(menu.to)"
-                v-for="(menu, m) in menu_items"
-                :key="m"
-                cols="auto"
-                class="mr-4"
-            >
-                <span
-                    :style="
-                        menu.title.en == $route.name
-                            ? 'font-weight:bold; pointer-events: none;'
-                            : ''
-                    "
-                    class="menu"
-                    >{{ menu.title[$i18n.locale] }}</span
-                >
-            </v-col>
-            <v-col class="pa-0 ml-4" cols="auto">
-                <img
-                    class="my-3"
-                    :src="imageSrc"
-                    @click="setLanguage()"
-                    style="cursor: pointer"
-                />
-            </v-col>
-            <v-col cols="auto" class="px-0">
-                <v-icon
-                    dark
-                    xx-large
-                    class="admin-icon"
-                    @click="$router.push({ name: 'admin' })"
-                    style="font-size: 1.9em"
-                    >mdi-account-circle-outline</v-icon
-                >
-            </v-col>
-        </v-row> -->
     </v-app-bar>
 </template>
 <script>
