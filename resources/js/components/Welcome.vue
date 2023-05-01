@@ -1,7 +1,7 @@
 <template>
     <v-main
         :style="$route.name == 'Loco' ? 'align-items: center' : ''"
-        class="app bs"
+        class="app"
     >
         <v-top-menu-sm-and-down
             v-if="$vuetify.display.smAndDown"
@@ -29,7 +29,7 @@
                             style="width: 80px"
                             justify="center"
                             align-content="center"
-                            :class="$vuetify.display.xs ? 'px-2':'bs'"
+                            :class="$vuetify.display.xs ? 'px-2':''"
                         >
                             <v-col
                                 justify-center

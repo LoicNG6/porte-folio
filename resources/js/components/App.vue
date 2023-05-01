@@ -1,7 +1,6 @@
 <template>
     <v-app
         style="
-            border: solid blue;
             justify-content: center;
             align-items: center;
             display: flex;
