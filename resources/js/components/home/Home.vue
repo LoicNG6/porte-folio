@@ -1,15 +1,15 @@
 <template>
-    <v-container fluid v-if="$route.name == 'home'" class="pa-0">
-        <v-row justify="center" class="my-4">
+    <v-container fluid v-if="$route.name == 'home'">
+        <v-row justify="center" class="my-8">
             <information-card-tool style="color: whitesmoke">
                 <template v-slot:card-content>
-                    <v-card-title>{{
+                    <v-card-title class="text">{{
                         $t("home.introduction_title")
                     }}</v-card-title>
                     <v-divider color="#c8b4b4"></v-divider>
                     <v-card-text>
                         <v-container>
-                            <v-row class="text" style="text-align: justify">{{
+                            <v-row style="text-align: justify">{{
                                 $t("home.introduction")
                             }}</v-row>
                         </v-container>
@@ -18,7 +18,7 @@
             </information-card-tool>
             <information-card-tool>
                 <template v-slot:card-content>
-                    <v-card-title>
+                    <v-card-title class="text">
                         <v-row justify="space-between">
                             <v-col cols="auto">
                                 {{ $t("home.tips_title") }}
@@ -33,7 +33,7 @@
                     <v-divider color="#c8b4b4"></v-divider>
                     <v-card-text>
                         <v-container>
-                            <v-row class="text" style="text-align: justify">{{
+                            <v-row style="text-align: justify">{{
                                 $t("home.tips")
                             }}</v-row>
                         </v-container>
@@ -41,12 +41,23 @@
                 </template>
             </information-card-tool>
         </v-row>
-        <v-row align-content="center" justify="center" class="text my-8">
-            <v-sheet class="mx-auto" max-width="1100" color="#ffffff00">
+        <v-row align-content="center" justify="center" class="my-8">
+            <v-sheet
+                color="#ffffff00"
+                :max-width="
+                    $vuetify.display.md
+                        ? '730'
+                        : $vuetify.display.sm
+                        ? '590'
+                        : $vuetify.display.xs
+                        ? '320'
+                        : '1050'
+                "
+            >
                 <v-slide-group
                     style="color: white"
                     v-model="model"
-                    class="pa-4"
+                    class="py-4"
                     prev-icon="mdi-arrow-left-bold"
                     next-icon="mdi-arrow-right-bold"
                     show-arrows
@@ -54,12 +65,26 @@
                     <v-slide-group-item
                         v-for="(topic, index) in topics"
                         :key="index"
+                        class="bs"
                     >
                         <v-card
-                            class="mx-6 text card-bg"
-                            width="270"
+                            class="text card-bg"
+                            :class="
+                                $vuetify.display.sm
+                                    ? 'mx-3'
+                                    : $vuetify.display.xs
+                                    ? 'mx-2'
+                                    : 'mx-6'
+                            "
+                            :max-width="
+                                $vuetify.display.sm
+                                    ? '220'
+                                    : $vuetify.display.xs
+                                    ? '200'
+                                    : '260'
+                            "
                             rounded="xl"
-                            height="250"
+                            height="240"
                         >
                             <v-container fluid>
                                 <v-row justify="center">
@@ -73,9 +98,11 @@
                                 <v-row
                                     justify="center"
                                     style="height: 100px"
-                                    class="my-4"
+                                    :class="
+                                        $vuetify.display.xs ? 'mt-3' : 'my-4'
+                                    "
                                 >
-                                    <v-col cols="12">
+                                    <v-col cols="12" style="font-size: 0.9em">
                                         {{ topic.teaser[$i18n.locale] }}
                                     </v-col>
                                 </v-row>
