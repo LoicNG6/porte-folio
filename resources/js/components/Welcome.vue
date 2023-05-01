@@ -29,7 +29,7 @@
                             style="width: 80px"
                             justify="center"
                             align-content="center"
-                            :class="$vuetify.display.xs ? 'px-2':''"
+                            :class="$vuetify.display.xs ? 'px-2' : ''"
                         >
                             <v-col
                                 justify-center
@@ -104,8 +104,8 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-container v-else></v-container>
-        <!-- <router-view v-else /> -->
+        <!-- <v-container v-else></v-container> -->
+        <router-view v-else />
     </v-main>
 </template>
 
