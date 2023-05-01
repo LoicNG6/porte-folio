@@ -3,7 +3,7 @@
         <v-row justify="center" class="my-8">
             <information-card-tool style="color: whitesmoke">
                 <template v-slot:card-content>
-                    <v-card-title class="text">{{
+                    <v-card-title class="text">{{ 
                         $t("home.introduction_title")
                     }}</v-card-title>
                     <v-divider color="#c8b4b4"></v-divider>
