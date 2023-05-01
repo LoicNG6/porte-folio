@@ -3,17 +3,10 @@
         :style="$route.name == 'Loco' ? 'align-items: center' : ''"
         class="app bs"
     >
-<<<<<<< HEAD
         <v-top-menu-sm-and-down
             v-if="$vuetify.display.smAndDown"
         ></v-top-menu-sm-and-down>
         <v-top-menu v-else></v-top-menu>
-=======
-        <v-top-menu
-            v-if="!['Loco', 'admin'].includes($route.name)"
-        ></v-top-menu>
-
->>>>>>> 0519ff3 (welcome responsive : done)
         <v-container v-if="$route.name == 'Loco'" class="text">
             <v-row justify="center" align-content="center">
                 <v-col
@@ -36,10 +29,7 @@
                             style="width: 80px"
                             justify="center"
                             align-content="center"
-<<<<<<< HEAD
                             :class="$vuetify.display.xs ? 'px-2':'bs'"
-=======
->>>>>>> 0519ff3 (welcome responsive : done)
                         >
                             <v-col
                                 justify-center
@@ -57,29 +47,18 @@
                             </v-col>
                             <v-col
                                 class="py-0"
-<<<<<<< HEAD
                                 :class="endTyping ? '' : ''"
                                 align-self="center"
                                 :cols="$vuetify.display.smAndDown ? '12' : '9'"
-=======
-                                :class="endTyping ? '' : 'pb-3'"
-                                align-self="center"
-                                :cols="$vuetify.display.smAndDown ? '12' : '10'"
->>>>>>> 0519ff3 (welcome responsive : done)
                                 :style="
                                     $vuetify.display.xs
                                         ? 'font-size: 0.49em;'
                                         : $vuetify.display.sm
                                         ? 'font-size: 0.50em;'
-<<<<<<< HEAD
                                         : 'font-size: 0.75em'
-=======
-                                        : 'font-size: 0.74em'
->>>>>>> 0519ff3 (welcome responsive : done)
                                 "
                                 justify-center
                             >
-<<<<<<< HEAD
                                 <span>
                                     {{ typeValue }}
                                 </span>
@@ -88,20 +67,6 @@
                                     v-show="setTypeStatus"
                                     class="blinking-cursor ml-1"
                                 ></span>
-=======
-                                {{ typeValue }}
-                                <span
-                                    :style="
-                                        $vuetify.display.smAndDown
-                                            ? 'font-size: 1.4em;'
-                                            : 'font-size: 1.4em'
-                                    "
-                                    v-show="setTypeStatus"
-                                    class="blinking-cursor"
-                                >
-                                    |
-                                </span>
->>>>>>> 0519ff3 (welcome responsive : done)
                             </v-col>
                             <v-col
                                 justify-center
@@ -120,15 +85,11 @@
                         </v-row>
                     </v-sheet>
                 </v-col>
-<<<<<<< HEAD
                 <v-col
                     :cols="$vuetify.display.xs ? 'auto' : '1'"
                     class="px-0 title"
                     align-self="center"
                 >
-=======
-                <v-col cols="auto" class="px-0 title" align-self="center">
->>>>>>> 0519ff3 (welcome responsive : done)
                     <v-btn
                         class="mx-4 btn-hover"
                         :to="{ name: 'home' }"
@@ -143,12 +104,8 @@
                 </v-col>
             </v-row>
         </v-container>
-<<<<<<< HEAD
         <v-container v-else></v-container>
         <!-- <router-view v-else /> -->
-=======
-        <router-view v-else />
->>>>>>> 0519ff3 (welcome responsive : done)
     </v-main>
 </template>
 
