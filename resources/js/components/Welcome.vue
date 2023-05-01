@@ -3,58 +3,90 @@
         :style="$route.name == 'Loco' ? 'align-items: center' : ''"
         class="app"
     >
-        <v-top-menu
-            v-if="!['Loco', 'admin'].includes($route.name)"
-        ></v-top-menu>
-        <v-container v-if="$route.name == 'Loco'" class="welcome-input">
+        <v-top-menu-sm-and-down
+            v-if="$vuetify.display.smAndDown"
+        ></v-top-menu-sm-and-down>
+        <v-top-menu v-else></v-top-menu>
+        <v-container v-if="$route.name == 'Loco'" class="text">
             <v-row justify="center" align-content="center">
-                <v-col :cols="$i18n.locale == 'fr' ? 7 : 6">
-                    <v-card
+                <v-col
+                    align-self="center"
+                    :cols="$vuetify.display.xs ? '12' : '7'"
+                    class="title"
+                >
+                    <v-sheet
                         color="#fef0d8"
-                        height="73"
+                        :height="$vuetify.display.smAndDown ? '50' : '70'"
                         rounded="xl"
-                        class="pt-3 px-2"
-                        style="width: 100%; color: #48140b"
+                        :style="endTyping ? 'text-align:center' : ''"
+                        style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        "
                     >
-                        <v-sheet
-                            color="#48140b"
-                            style="position: relative; float: left; top: 28%"
-                            height="15"
-                            width="15"
-                            rounded="circle"
+                        <v-row
+                            style="width: 80px"
+                            justify="center"
+                            align-content="center"
                         >
-                        </v-sheet>
-                        <v-sheet
-                            color="#48140b"
-                            style="position: relative; float: right; top: 28%"
-                            height="15"
-                            width="15"
-                            rounded="circle"
-                        >
-                        </v-sheet>
-                        <div
-                            style="margin: auto; width: 90%"
-                            :style="
-                                endTyping == true
-                                    ? 'text-align:center; padding-top:3px'
-                                    : ''
-                            "
-                        >
-                            <span class="welcome-title">
-                                {{ typeValue }}
-                            </span>
-                            <span
-                                style="font-size: 2em"
-                                v-show="setTypeStatus"
-                                class="blinking-cursor"
-                                >|</span
+                            <v-col
+                                justify-center
+                                align-self="center"
+                                cols="auto"
                             >
-                        </div>
-                    </v-card>
+                                <v-sheet
+                                    v-if="!$vuetify.display.smAndDown"
+                                    color="#48140b"
+                                    height="15"
+                                    width="15"
+                                    rounded="circle"
+                                >
+                                </v-sheet>
+                            </v-col>
+                            <v-col
+                                class="py-0"
+                                :class="endTyping ? '' : ''"
+                                align-self="center"
+                                :cols="$vuetify.display.smAndDown ? '12' : '9'"
+                                :style="
+                                    $vuetify.display.xs
+                                        ? 'font-size: 0.49em;'
+                                        : $vuetify.display.sm
+                                        ? 'font-size: 0.50em;'
+                                        : 'font-size: 0.75em'
+                                "
+                                justify-center
+                            >
+                                <span>
+                                    {{ typeValue }}
+                                </span>
+                                <span
+                                    style="border-left: solid 0.12em"
+                                    v-show="setTypeStatus"
+                                    class="blinking-cursor ml-1"
+                                ></span>
+                            </v-col>
+                            <v-col
+                                justify-center
+                                align-self="center"
+                                cols="auto"
+                            >
+                                <v-sheet
+                                    v-if="!$vuetify.display.smAndDown"
+                                    color="#48140b"
+                                    height="15"
+                                    width="15"
+                                    rounded="circle"
+                                >
+                                </v-sheet>
+                            </v-col>
+                        </v-row>
+                    </v-sheet>
                 </v-col>
-                <v-col cols="1" class="px-0 title">
+                <v-col cols="1" class="px-0 title" align-self="center">
                     <v-btn
-                        class="mx-4 mt-3 btn-hover"
+                        class="mx-4 btn-hover"
                         :to="{ name: 'home' }"
                         icon
                         v-show="endTyping"
@@ -73,7 +105,7 @@
 
 <style scoped>
 .blinking-cursor {
-    -webkit-animation: 1s blink step-end infinite;
+    -webkit-animation: 1.1s blink step-end infinite;
     color: #48140b;
 }
 @keyframes blink {
@@ -102,10 +134,12 @@
 <script>
 import VTopMenu from "./tools/menu/VTopMenu.vue";
 import i18n from "../i18n.js";
+import VTopMenuSmAndDown from "./tools/menu/VTopMenuSmAndDown.vue";
 
 export default {
     components: {
         VTopMenu,
+        VTopMenuSmAndDown,
     },
     data: () => {
         return {
