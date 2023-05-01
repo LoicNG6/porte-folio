@@ -13,7 +13,7 @@
                     height="30"
                     :src="computedDrawerImage"
                     @click="activeMenu()"
-                    style="cursor: pointer"
+                    style="cursor: pointer; color: red;"
                 />
             </v-col>
             <v-col cols="auto" class="py-0">
