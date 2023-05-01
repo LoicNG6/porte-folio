@@ -1,12 +1,36 @@
-// body {
-//     background: #260a06;
-// }
+.app {
+    background: linear-gradient(0.5turn, #260a06, #321008) 100%;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    color: rgb(240, 234, 234);
+}
+
+.text {
+    font-size: 1em;
+    font-family: "Inter", sans-serif;
+    color: #f3f3f2c7;
+
+    .title {
+        font-size: 1.5em;
+        color: #fceee5;
+    }
+
+    .middle-title {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .paragraph {
+        text-align: justify;
+    }
+}
 
 .section-card-bg {
     background: #00000025;
 }
 .bs {
-    border: solid;
+    border: solid yellow;
 }
 
 .btn-bg {
@@ -40,34 +64,6 @@
 
 .section-subject-card-bg {
     background: transparent;
-}
-
-.app {
-    background: linear-gradient(0.5turn, #260a06, #321008) 100%;
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    color: rgb(240, 234, 234);
-}
-
-.text {
-    font-size: 1em;
-    font-family: "Inter", sans-serif;
-    color: #f3f3f2c7;
-
-    .title {
-        font-size: 1.5em;
-        color: #fceee5;
-    }
-
-    .middle-title {
-        font-size: 1em;
-        font-weight: bold;
-    }
-
-    .paragraph {
-        text-align: justify;
-    }
 }
 .welcome-input {
     font-family: "Inter", sans-serif;

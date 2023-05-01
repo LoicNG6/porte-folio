@@ -1,7 +1,7 @@
 <template>
     <v-main
         :style="$route.name == 'Loco' ? 'align-items: center' : ''"
-        class="app"
+        class="app bs"
     >
         <v-top-menu-sm-and-down
             v-if="$vuetify.display.smAndDown"
@@ -29,6 +29,7 @@
                             style="width: 80px"
                             justify="center"
                             align-content="center"
+                            :class="$vuetify.display.xs ? 'px-2':'bs'"
                         >
                             <v-col
                                 justify-center
@@ -84,7 +85,11 @@
                         </v-row>
                     </v-sheet>
                 </v-col>
-                <v-col cols="1" class="px-0 title" align-self="center">
+                <v-col
+                    :cols="$vuetify.display.xs ? 'auto' : '1'"
+                    class="px-0 title"
+                    align-self="center"
+                >
                     <v-btn
                         class="mx-4 btn-hover"
                         :to="{ name: 'home' }"
@@ -99,7 +104,8 @@
                 </v-col>
             </v-row>
         </v-container>
-        <router-view v-else />
+        <v-container v-else></v-container>
+        <!-- <router-view v-else /> -->
     </v-main>
 </template>
 

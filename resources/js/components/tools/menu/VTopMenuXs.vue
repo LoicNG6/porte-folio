@@ -45,13 +45,8 @@
         v-model="drawer"
         temporary
         class="text pt-2 pb-14"
-        :width="$vuetify.display.xs ? '600' : '250'"
     >
-        <v-list
-            lines="one"
-            class="my-4"
-            :style="$vuetify.display.xs ? 'text-align: center;' : ''"
-        >
+        <v-list lines="one" class="my-4">
             <v-list-item
                 class="menuSmAndDown my-2 px-6 text"
                 v-for="menu in menu_items"
@@ -81,7 +76,7 @@
 </template>
 <script>
 export default {
-    name: "v-top-menu-smAndDown",
+    name: "v-top-menu-xs",
     data: () => {
         return {
             image_trad_path: "",
