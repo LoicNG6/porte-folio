@@ -1,6 +1,7 @@
-body {
-    background: #260a06;
-}
+// body {
+//     background: #260a06;
+// }
+
 .section-card-bg {
     background: #00000025;
 }
@@ -45,6 +46,7 @@ body {
     background: linear-gradient(0.5turn, #260a06, #321008) 100%;
     justify-content: center;
     display: flex;
+    width: 100%;
     color: rgb(240, 234, 234);
 }
 
@@ -54,7 +56,7 @@ body {
     color: #f3f3f2c7;
 
     .title {
-        font-size: 1.8em;
+        font-size: 1.5em;
         color: #fceee5;
     }
 
@@ -94,7 +96,6 @@ body {
 
 .admin-icon {
     color: #fceee5;
-    // color: #ffffff55;
 }
 .admin-icon:hover {
     cursor: pointer;
@@ -106,5 +107,4 @@ body {
 
 .menuSmAndDown:hover {
     background-color: #91909025;
-    // color: #ffffff25;
 }

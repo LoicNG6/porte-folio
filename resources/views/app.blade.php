@@ -9,10 +9,10 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body>
-    <div id="app">
-        <app />
-    </div>
+<body class="app" id="app">
+
+    <app />
+
     @vite('resources/js/app.js')
 </body>
 
