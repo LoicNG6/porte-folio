@@ -16,7 +16,7 @@
                     style="cursor: pointer"
                 />
             </v-col>
-            <v-col cols="5">
+            <v-col cols="6">
                 <v-tabs
                     height="40"
                     style="text-align: center"
