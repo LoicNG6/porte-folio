@@ -1,24 +1,40 @@
 <template>
     <v-row
         justify="start"
-        class="my-12 py-4"
+        class="my-12"
+        :class="$vuetify.display.smAndDown ? 'py-4 px-12' : 'pa-4'"
         v-for="(locale_subject, index) in locale_subjects"
         :key="index"
     >
-        <section-subject-content
-            v-if="index % 2 == 0"
-            :locale_subject="locale_subject"
-            :isLeftSubject="false"
-            :topic_name="topic"
-        >
-        </section-subject-content>
-        <section-subject-content
-            v-else
-            :locale_subject="locale_subject"
-            :isLeftSubject="true"
-            :topic_name="topic"
-        >
-        </section-subject-content>
+        <template v-if="locale_subject.info.id == 1">
+            <div style="text-align: justify">
+                {{ locale_subject.locale_content.description }}
+            </div>
+        </template>
+        <template v-else-if="$vuetify.display.xs">
+            <section-subject-content
+                :locale_subject="locale_subject"
+                :isLeftSubject="true"
+                :topic_name="topic"
+            >
+            </section-subject-content>
+        </template>
+        <template v-else>
+            <section-subject-content
+                v-if="index % 2 == 0"
+                :locale_subject="locale_subject"
+                :isLeftSubject="false"
+                :topic_name="topic"
+            >
+            </section-subject-content>
+            <section-subject-content
+                v-else
+                :locale_subject="locale_subject"
+                :isLeftSubject="true"
+                :topic_name="topic"
+            >
+            </section-subject-content>
+        </template>
     </v-row>
 </template>
 

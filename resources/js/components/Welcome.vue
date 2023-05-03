@@ -3,15 +3,17 @@
         :style="$route.name == 'Loco' ? 'align-items: center' : ''"
         class="app"
     >
-        <v-top-menu-sm-and-down
-            v-if="$vuetify.display.smAndDown"
-        ></v-top-menu-sm-and-down>
-        <v-top-menu v-else></v-top-menu>
+        <template v-if="$route.name != 'Loco'">
+            <v-top-menu-sm-and-down
+                v-if="$vuetify.display.smAndDown"
+            ></v-top-menu-sm-and-down>
+            <v-top-menu v-else></v-top-menu>
+        </template>
         <v-container v-if="$route.name == 'Loco'" class="text">
             <v-row justify="center" align-content="center">
                 <v-col
                     align-self="center"
-                    :cols="$vuetify.display.xs ? '12' : '7'"
+                    :cols="$vuetify.display.xs ? '12' : '6'"
                     class="title"
                 >
                     <v-sheet

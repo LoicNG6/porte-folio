@@ -1,5 +1,8 @@
 <template>
-    <v-col cols="4" v-if="isLeftSubject">
+    <v-col
+        :cols="$vuetify.display.xs ? '12' : '4'"
+        v-if="isLeftSubject && locale_subject.locale_content.subject_id != 13"
+    >
         <v-card
             class="section-subject-card-bg text"
             width="100%"
@@ -12,7 +15,7 @@
             />
         </v-card>
     </v-col>
-    <v-col>
+    <v-col :cols="$vuetify.display.xs ? '12':''">
         <v-list
             class="pa-0"
             bg-color="transparent"
@@ -20,9 +23,13 @@
             :style="!isLeftSubject ? 'justify-content: end' : ''"
         >
             <v-list-item
-                style="border-top: solid 0.01em #ffffff35"
+                :style="
+                    $vuetify.display.xs
+                        ? 'border: solid 0.01em #ffffff35'
+                        : 'border-top: solid 0.01em #ffffff35'
+                "
                 min-height="30px"
-                max-width="75%"
+                :max-width="$vuetify.display.smAndDown ? '100%' : '75%'"
                 class="pl-1"
                 :class="isLeftSubject ? 'left-subject' : 'right-subject'"
             >
@@ -44,13 +51,25 @@
                 </div>
             </v-list-item>
         </v-list>
-        <v-col class="mt-2" style="text-align: justify">
+        <v-col
+            v-if="$vuetify.display.mdAndUp"
+            class="mt-2"
+            style="text-align: justify"
+        >
             <div v-if="locale_subject.locale_content.description != null">
                 {{ locale_subject.locale_content.description }}
             </div>
         </v-col>
     </v-col>
-    <v-col cols="4" v-if="!isLeftSubject">
+    <v-col
+        :cols="
+            locale_subject.locale_content.subject_id == 13 &&
+            $vuetify.display.smAndDown
+                ? '12'
+                : '4'
+        "
+        v-if="!isLeftSubject || locale_subject.locale_content.subject_id == 13"
+    >
         <template v-if="locale_subject.locale_content.subject_id == 13">
             <v-card
                 v-for="(skillType, index) in skills"
@@ -93,6 +112,20 @@
                 />
             </v-card>
         </template>
+    </v-col>
+    <v-col
+        cols="12"
+        v-if="
+            $vuetify.display.smAndDown ||
+            (locale_subject.locale_content.subject_id == 13 &&
+                $vuetify.display.xs)
+        "
+        class="mt-2"
+        style="text-align: justify"
+    >
+        <div v-if="locale_subject.locale_content.description != null">
+            {{ locale_subject.locale_content.description }}
+        </div>
     </v-col>
 </template>
 <style scoped>

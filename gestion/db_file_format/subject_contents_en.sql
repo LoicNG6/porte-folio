@@ -1,30 +1,32 @@
 UPDATE
-    section_contents
-SET
-    description = "In the beginning, it's the story of a young teenager who wants to live by his passion: soccer. He gives himself the means, grows at all levels and becomes aware of the real feasibility of this project. 
-As you already know, my name is NGUESSIE Loïc. I am 23 year old and I live in Nanterre (Hauts-de-Seine department). I went to the Paul Eluard high school in Nanterre (city in the Hauts-de-Seine department), and I quickly discovered my interest in mathematics. I've made it a priority in my school path. In parallel with the courses, my passion took an important place in my young life of teenager. It regulated and punctuated my days, my schedule and my interests.
+    subject_contents
+set
+    description = "As you known, I am Loïc NGUESSIE, 23 year old and I live in Nanterre (Hauts-de-Seine department). I went to the Paul Eluard high school in Nanterre (city in the Hauts-de-Seine department), and I quickly discovered my interest in mathematics. I've made it a priority in my school path. In parallel with the courses, my passion took an important place in my young life of teenager. It regulated and punctuated my days, my schedule and my interests.
 Unfortunately, not everyone is lucky enough to make his passion for living, especially when it is to soccer, in the Paris area.
 Having quickly become aware of this situation, I decided to focus all my time on my studies. Added to that, my organization, my will to reach my goals and my audacity, I have today the ambition to be at the head of an information system department within an important structure.
-"
-WHERE
-    section_id = 1
-    and language = "en";
 
-UPDATE
-    subject_contents
-set
-    description = ""
-where
-    subject_id = 1
-    AND language = "fr";
-
-UPDATE
-    subject_contents
-set
-    description = ""
+About my hobbies, as you can see I love music especially rap, one of my favorite albums is: chronic 2001, by Dr DRE, one of the biggest producers in the music industry.
+My free time is also very often filled by personal projects in software or web languages on which I train.
+Moreover, one of my favorite activities is reading. Indeed, being vice-president of the student association ESMA (Etudiants de la Sorbonne pour les Mondes Africains), I have the opportunity to co-lead a book club for 2 years now.
+As it goes along, I also like to travel. I had the opportunity to travel very early to Africa, to my country of origin, but also to many French cities, thanks to my first passion: soccer. But also in Europe.
+As stated on the home page, I will detail my journey. It might be long but I hope you will like it, so before starting, I wish you a nice experience ! ✌🏿"
 where
     subject_id = 1
     AND language = "en";
+
+UPDATE
+    subject_contents
+set
+    description = "Comme vous le savez, je suis Loïc NGUESSIE, j’ai 23 ans et vis en Île de France à Nanterre (Département des Hauts-de-Seine).
+Passé par le collège Paul Eluard à Nanterre (ville du département des Hauts-de-Seine), je découvre assez rapidement mon appétence pour les mathématiques. J’en ai fait par la suite une priorité dans mon parcours scolaire.
+En parallèle avec les cours, ma passion prenait une place importante dans ma jeune vie d’adolescent. Elle régulait et rythmait mes journées, mon emploi du temps ainsi que mes centres d’intérêts. Malheureusement, tout le monde n’a pas la chance d’en faire son “gagne-pain”, qui-plus-est lorsqu’il s’agit du football, en région parisienne. Ayant rapidement pris conscience de cette situation, j’ai décidé de concentrer l’entièreté de mon temps à mes études. Ajouté à cela, mon organisation, ma volonté d’atteindre mes objectifs ainsi que mon audace, j’ai aujourd’hui l’ambition d’être à la tête d’une direction de service de système d’information au sein d'une grande structure.
+
+À propos de mes hobbies, comme vous pouvez le voir j’aime la musique surtout le rap, l’un des mes albums favoris est : chronic 2001, de Dr DRE, l’un des plus grands producteurs de l’industrie musicale. Mes temps libres sont aussi très souvent comblés, par des projets personnels dans des langages logiciels ou web sur lesquels je me forme.
+De plus, l’une de mes activités favorites est la lecture. En effet, étant vice-président de l’association étudiante ESMA (Etudiants de la Sorbonne pour les Mondes Africains), j’ai l’opportunité de co-diriger un club de lecture depuis 2 ans maintenant. Comme cela va de pair, j’aime aussi les voyages. J’ai eu l’opportunité de voyager très tôt en direction de l’Afrique, vers mon pays d’Origine, mais aussi dans de nombreuses villes françaises, grâce à ma première passion: le football. Mais aussi dans l’Europe.
+Comme précisé en page d’accueil, je vous détaillerai mon parcours. Ça risque peut-être d’être long mais j’espère que ça vous plaira, alors avant de commencer madame, monsieur, je vous souhaite une belle expérience ! ✌🏿"
+where
+    subject_id = 1
+    AND language = "fr";
 
 UPDATE
     subject_contents

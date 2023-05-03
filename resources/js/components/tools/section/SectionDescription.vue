@@ -1,9 +1,33 @@
 <template>
     <v-row justify="start">
-        <v-col cols="4">
+        <v-col v-if="$vuetify.display.xs" cols="auto">
+            <v-list class="pa-0" bg-color="transparent">
+                <v-list-item
+                    style="border: solid 0.01em #ffffff35; border-radius: 3px"
+                    min-height="30px"
+                    :max-width="$vuetify.display.smAndDown ? '' : '65%'"
+                >
+                    <div>
+                        {{ $t("section.information.from") }} :
+                        {{ topic.started_at[$i18n.locale] }}
+                    </div>
+                    <div>
+                        {{ $t("section.information.to") }} :
+                        {{ topic.ended_at[$i18n.locale] }}
+                    </div>
+                    <div>
+                        {{ $t("section.information.location") }} :
+                        {{ topic.location }}
+                    </div>
+                </v-list-item>
+            </v-list>
+        </v-col>
+        <v-col
+            :cols="$vuetify.display.sm ? '6' : $vuetify.display.xs ? '10' : '4'"
+        >
             <v-card
                 class="card-bg text"
-                :height="topic.image.length == 4 ? '80%' : '100%'"
+                :height="$vuetify.display.smAndDown ? '100%' : '80%'"
                 width="100%"
                 rounded="md"
             >
@@ -29,7 +53,10 @@
                 </template>
             </v-card>
         </v-col>
-        <v-col>
+        <v-col
+            v-if="$vuetify.display.smAndUp"
+            :cols="$vuetify.display.sm ? '6' : $vuetify.display.xs ? '12' : '8'"
+        >
             <v-list class="pa-0" bg-color="transparent">
                 <v-list-item
                     style="
@@ -38,7 +65,7 @@
                         border-top-left-radius: 3px;
                     "
                     min-height="30px"
-                    max-width="50%"
+                    :max-width="$vuetify.display.smAndDown ? '' : '65%'"
                 >
                     <div>
                         {{ $t("section.information.from") }} :
@@ -54,9 +81,21 @@
                     </div>
                 </v-list-item>
             </v-list>
-            <v-col style="text-align: justify" class="mt-2">
+            <v-col
+                v-if="$vuetify.display.mdAndUp"
+                style="text-align: justify"
+                class="mt-2"
+            >
                 <div>{{ localeSection.description }}</div>
             </v-col>
+        </v-col>
+        <v-col
+            v-if="$vuetify.display.smAndDown"
+            :cols="$vuetify.display.smAndDown ? '12' : 'auto'"
+            style="text-align: justify"
+            :class="$vuetify.display.smAndDown ? '' : ''"
+        >
+            <div>{{ localeSection.description }}</div>
         </v-col>
     </v-row>
 </template>

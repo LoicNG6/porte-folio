@@ -3,45 +3,45 @@
         class="previous-secion"
         variant="outlined"
         rounded="circle"
-        height="63"
-        width="30"
+        height="60"
+        width="10"
         @click="changeSection('previous')"
         v-if="1 < id"
     >
-        <v-icon class="btn-text" size="28"> mdi-arrow-left </v-icon>
+        <v-icon
+            class="btn-text"
+            :size="$vuetify.display.smAndDonw ? '25' : '28'"
+        >
+            mdi-arrow-left
+        </v-icon>
     </v-btn>
 
-    <v-container class="text my-6">
-        <v-row>
-            <v-col cols="auto" class="px-0">
+    <v-container class="text my-6 px-8">
+        <v-row justify="center">
+            <v-col cols="11">
                 <span style="font-size: 1.5em">{{
                     topic.title[$i18n.locale]
                 }}</span>
             </v-col>
         </v-row>
-        <v-row>
-            <v-card
-                class="section-card-bg text"
-                :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
-                rounded="lg"
-            >
-                <section-description
-                    :topic="topic"
-                    :section="locale_sections"
-                ></section-description>
-            </v-card>
+        <v-row justify="center">
+            <v-col cols="11">
+                <v-card
+                    class="section-card-bg text"
+                    :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
+                    rounded="lg"
+                >
+                    <section-description
+                        :topic="topic"
+                        :section="locale_sections"
+                    ></section-description>
+                </v-card>
+            </v-col>
         </v-row>
         <section-subjects
             :subjects="subjects"
             :topic="topic.title.en"
-            v-if="id > 1"
         ></section-subjects>
-
-        <v-row justify="center" class="my-8">
-            <v-col cols="12" style="text-align: justify">
-                <!-- <div>{{ topic_what_i_learned }}</div> -->
-            </v-col>
-        </v-row>
     </v-container>
     <v-btn
         class="next-section"
@@ -52,7 +52,12 @@
         @click="changeSection()"
         v-if="id < 4"
     >
-        <v-icon class="btn-text" size="28"> mdi-arrow-right </v-icon>
+        <v-icon
+            class="btn-text"
+            :size="$vuetify.display.smAndDonw ? '25' : '28'"
+        >
+            mdi-arrow-right
+        </v-icon>
     </v-btn>
 </template>
 
@@ -60,16 +65,16 @@
 .previous-secion {
     border: none;
     position: fixed;
-    top: 40%;
-    left: 2%;
+    top: 50%;
+    left: 1%;
     float: left;
 }
 .next-section {
     border: none;
     position: fixed;
-    top: 40%;
+    top: 50%;
     float: right;
-    right: 2%;
+    right: 1%;
 }
 </style>
 

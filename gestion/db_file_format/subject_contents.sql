@@ -1,20 +1,51 @@
 INSERT INTO
     subject_contents (subject_id, language, description)
 VALUES
-    (1, "fr", "-"),
-    (1, "en", "-"),
+    (
+        1,
+        "en",
+        "As you known, I am Loïc NGUESSIE, 23 year old and I live in Nanterre (Hauts-de-Seine department). I went to the Paul Eluard high school in Nanterre (city in the Hauts-de-Seine department), and I quickly discovered my interest in mathematics. I've made it a priority in my school path. In parallel with the courses, my passion took an important place in my young life of teenager. It regulated and punctuated my days, my schedule and my interests.
+Unfortunately, not everyone is lucky enough to make his passion for living, especially when it is to soccer, in the Paris area.
+Having quickly become aware of this situation, I decided to focus all my time on my studies. Added to that, my organization, my will to reach my goals and my audacity, I have today the ambition to be at the head of an information system department within an important structure.
+
+About my hobbies, as you can see I love music especially rap, one of my favorite albums is: chronic 2001, by Dr DRE, one of the biggest producers in the music industry.
+My free time is also very often filled by personal projects in software or web languages on which I train.
+Moreover, one of my favorite activities is reading. Indeed, being vice-president of the student association ESMA (Etudiants de la Sorbonne pour les Mondes Africains), I have the opportunity to co-lead a book club for 2 years now.
+As it goes along, I also like to travel. I had the opportunity to travel very early to Africa, to my country of origin, but also to many French cities, thanks to my first passion: soccer. But also in Europe.
+As stated on the home page, I will detail my journey. It might be long but I hope you will like it, so before starting, I wish you a nice experience ! ✌🏿"
+    ),
+    (
+        1,
+        "fr",
+        "
+    Comme vous le savez, je suis Loïc NGUESSIE, j’ai 23 ans et vis en Île de France à Nanterre (Département des Hauts-de-Seine).
+Passé par le collège Paul Eluard à Nanterre (ville du département des Hauts-de-Seine), je découvre assez rapidement mon appétence pour les mathématiques. J’en ai fait par la suite une priorité dans mon parcours scolaire.
+En parallèle avec les cours, ma passion prenait une place importante dans ma jeune vie d’adolescent. Elle régulait et rythmait mes journées, mon emploi du temps ainsi que mes centres d’intérêts. Malheureusement, tout le monde n’a pas la chance d’en faire son “gagne-pain”, qui-plus-est lorsqu’il s’agit du football, en région parisienne. Ayant rapidement pris conscience de cette situation, j’ai décidé de concentrer l’entièreté de mon temps à mes études. Ajouté à cela, mon organisation, ma volonté d’atteindre mes objectifs ainsi que mon audace, j’ai aujourd’hui l’ambition d’être à la tête d’une direction de service de système d’information au sein d'une grande structure.
+
+À propos de mes hobbies, comme vous pouvez le voir j’aime la musique surtout le rap, l’un des mes albums favoris est : chronic 2001, de Dr DRE, l’un des plus grands producteurs de l’industrie musicale. Mes temps libres sont aussi très souvent comblés, par des projets personnels dans des langages logiciels ou web sur lesquels je me forme.
+De plus, l’une de mes activités favorites est la lecture. En effet, étant vice-président de l’association étudiante ESMA (Etudiants de la Sorbonne pour les Mondes Africains), j’ai l’opportunité de co-diriger un club de lecture depuis 2 ans maintenant. Comme cela va de pair, j’aime aussi les voyages. J’ai eu l’opportunité de voyager très tôt en direction de l’Afrique, vers mon pays d’Origine, mais aussi dans de nombreuses villes françaises, grâce à ma première passion: le football. Mais aussi dans l’Europe.
+Comme précisé en page d’accueil, je vous détaillerai mon parcours. Ça risque peut-être d’être long mais j’espère que ça vous plaira, alors avant de commencer madame, monsieur, je vous souhaite une belle expérience ! ✌🏿"
+    ),
     (
         2,
         "fr",
         "Au vu de mes résultats, du travail fourni et du temps consacré aux mathématiques, je savais que je voulais poursuivre mon parcours scolaire en faisant de cette discipline une priorité. Je pense que j’aimais la particularité de cette matière à chercher tester et trouver la solution pour ne plus jamais oublier le processus par lequel on est passé pour trouver le résultat au problème. Alors la répétition devenait simple car je décortique simplement ma pensée."
     ),
-    (2, "en", "-"),
+    (
+        2,
+        "en",
+        "Based on my results and the amount of time I spent on math, I knew I wanted to continue my education by making math a priority. I think I liked the particularity of this subject to look for test and find the solution to never forget the process to find the solution to the problem. So repetition became simple because I simply unpack my ideas."
+    ),
     (
         3,
         "fr",
         "J’ai tout de même essayé d’intégrer un peu plus le football dans mon parcours. En effet, ce sport restait ma seule passion. Étant déjà signé au Racing Club de France en catégorie -15 ans, j’ai intégré le cursus scolaire sport étude de Moulin Joly à Colombes pour avoir plus d’entraînement la semaine pour perfectionner et potiner le milieu de terrain que j’étais. Je passe alors le diplôme national du brevet avec la mention “assez bien”."
     ),
-    (3, "en", "-"),
+    (
+        3,
+        "en",
+        "I still tried to integrate soccer a little more in my career. Indeed, this sport remained my only passion. Already signed with the Racing Club de France in the -15 years category, I joined the sport-study school of Moulin Joly in Colombes to have more training during the week to improve and groom the midfielder that I was. I passed the national diploma of the patent with the mention \'assez bien\'."
+    ),
     (
         4,
         "fr",
