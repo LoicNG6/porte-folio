@@ -56,7 +56,9 @@
                                 :style="
                                     $vuetify.display.sm
                                         ? 'font-size: 0.8em;'
-                                        : 'font-size: 1em'
+                                        : $vuetify.display.md
+                                        ? 'font-size: 1.1em'
+                                        : 'font-size: 1.4em'
                                 "
                                 justify-center
                             >
@@ -152,7 +154,7 @@ export default {
             typeStatus: true,
             language: null,
             displayTextArray: {
-                fr: ["Salut, ", "je suis Loïc, ", "bienvenue sur ma page !"],
+                fr: ["Hi, ", "I am Loïc, ", "welcome to my page !"],
                 en: ["Hi, ", "I am Loïc, ", "welcome to my page !"],
             },
             displayTextArrayIndex: 0,
