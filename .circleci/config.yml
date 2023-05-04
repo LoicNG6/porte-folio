@@ -16,6 +16,9 @@ jobs:
           name: "Install Dependencies"
           # command: composer install -n --prefer-dist
           command: composer update
+          command: npm i
+          command: npm run build
+
           # command: composer install
 
       - save_cache:
