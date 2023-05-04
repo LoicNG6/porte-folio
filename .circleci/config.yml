@@ -14,9 +14,10 @@ jobs:
             - v1-dependencies-{{ checksum "composer.json" }}
       - run:
           name: "Install Dependencies"
-          command: composer update
-          command: npm i
-          command: npm run build
+          command: >-
+            composer update &&
+            npm i &&
+            npm run build
 
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
