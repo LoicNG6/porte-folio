@@ -54,11 +54,9 @@
                                 align-self="center"
                                 :cols="$vuetify.display.smAndDown ? '12' : '9'"
                                 :style="
-                                    $vuetify.display.xs
-                                        ? 'font-size: 0.49em;'
-                                        : $vuetify.display.sm
-                                        ? 'font-size: 0.50em;'
-                                        : 'font-size: 0.75em'
+                                    $vuetify.display.sm
+                                        ? 'font-size: 0.8em;'
+                                        : 'font-size: 1em'
                                 "
                                 justify-center
                             >
