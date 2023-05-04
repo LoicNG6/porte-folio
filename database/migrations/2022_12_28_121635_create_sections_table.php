@@ -14,10 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sections', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger("id", false);
+            $table->foreignId('topic_id')
+                ->constrained('topics')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('title');
-            $table->string('contain');
+
+            $table->primary("id","topic_id");
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('section');
+        Schema::dropIfExists('sections');
     }
 };

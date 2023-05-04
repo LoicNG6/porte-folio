@@ -1,16 +1,33 @@
 {
-      "home": {
-            "introduction_title": "Presentation",
-            "introduction": "On this portfolio, I will tell you about my academic background, my professional background and my ambitions. The only particularity of this one, is the explanation of my choices since my first professional ambitions.",
-            "tips_title": "The Advice !",
-            "tips": "A little advice before you start: This portfolio has a very precise order. I recommend that you start with the 'I' card."
-      },
-      "section": {
-            "description": {
-                  "I": "",
-                  "II": "",
-                  "III": "",
-                  "IV": ""
-            }
-      }
+    "home": {
+        "introduction_title": "Presentation",
+        "introduction": "On this portfolio, I will tell you about my academic background, my professional background and my ambitions. The only particularity of this one, is the explanation of my choices since my first professional ambitions.",
+        "tips_title": "The Advice !",
+        "tips": "A little advice before you start: This portfolio has a very precise order. I recommend that you start with the 'I' card."
+    },
+    "section": {
+        "information": {
+            "from": "From",
+            "to": "To",
+            "location": "Location",
+            "team": "Team"
+        }
+    },
+    "about": {
+        "first": "This page are gonna contain all \"technical\" and \"managering\" information of this portefolio.",
+        "second": "For the moment, the only thing you need to know is that this project has been developed from scratch.",
+        "third": "The Management, technologies, work process, all things are gonna expose in the next version."
+    },
+    "contact-me": {
+        "first": "The style of this page is going to be done in the next version of the app.",
+        "second": "Sorry for the disrupting.",
+        "third": "Please find my contact below :",
+        "mail": "Mail: loicnguessie@hotmail.com",
+        "phone": "Phone: +33 7 67 05 98 06",
+        "github": "GitHub : LoicNG6",
+        "linkedIn": "LinkedIn : https://www.linkedin.com/in/loïc-nguessie/"
+    },
+    "admin": {
+        "message": "Like \"Contact-me\" or \"About\" pages, features of this page are going to be implemented during one of the next version of the application."
+    }
 }

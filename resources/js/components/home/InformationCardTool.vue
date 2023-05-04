@@ -1,21 +1,25 @@
 <template>
-  <v-col cols="3" class="mt-4">
-    <v-row justify="center">
-      <v-col cols="auto">
+    <v-col
+        :style="
+            $vuetify.display.sm ? 'display: flex; justify-content: center' : ''
+        "
+        :cols="$vuetify.display.sm ? '5' : 'auto'"
+    >
         <v-card
-          rounded="xl"
-          height="280"
-          class="card-bg text"
-          style="width: 320px;"
+            rounded="xl"
+            class="card-bg text"
+            :max-width="$vuetify.display.sm ? '300' : '300'"
+            :height="$vuetify.display.sm ? '280' : '280'"
         >
-          <slot name="card-content"></slot>
+            <slot name="card-content"></slot>
         </v-card>
-      </v-col>
-    </v-row>
-  </v-col>
+    </v-col>
 </template>
+<style lang="scss" scoped>
+@import url("../../../css/app.scss");
+</style>
 <script>
 export default {
-  name: "InformationCardTool",
+    name: "InformationCardTool",
 };
 </script>

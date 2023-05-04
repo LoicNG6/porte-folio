@@ -1,8 +1,8 @@
 <template>
-  <v-app class="app" style=" width: 100%" full-height>
-    <router-view></router-view>
-  </v-app>
+    <v-app style="justify-content: center; align-items: center; display: flex">
+        <router-view></router-view>
+    </v-app>
 </template>
-<style lang="scss">
-@import "@/sass/app.scss";
+<style scoped>
+@import url("../../css/app.scss");
 </style>

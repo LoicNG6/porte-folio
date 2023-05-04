@@ -1,127 +1,200 @@
 <template>
-  <v-container class="text">
-    <!-- title of the page -->
-    <v-row>
-      <v-col cols="auto">
-        <span style="font-size: 1.5em"> {{ $route.query.topic_title }}</span>
-        <!-- for the traduction -->
-        <!-- {{
-            $t(
-              "section.description." +
-                $route.query.topic_title.substring(
-                  0,
-                  $route.query.topic_title.indexOf(".")
-                )
-            )
-          }}
-          élément 0 =
-          {{
-            $route.query.topic_title.substring(
-              0,
-              $route.query.topic_title.indexOf(".")
-            )
-          }} -->
-      </v-col>
-    </v-row>
-
-    <!-- Contain of the page -->
-    <v-row justify="start">
-      <v-col cols="auto">
-        <v-card
-          class="card-bg"
-          height="400"
-          width="500"
-          rounded="md"
-          elevation="5"
+    <v-btn
+        class="previous-secion"
+        variant="outlined"
+        rounded="circle"
+        height="60"
+        width="10"
+        @click="changeSection('previous')"
+        v-if="1 < id"
+    >
+        <v-icon
+            class="btn-text"
+            :size="$vuetify.display.smAndDonw ? '25' : '28'"
         >
-          <img style="height: 50%; width: 50%" src="images/me/2001.jpg" />
-          <img style="height: 50%; width: 50%" src="images/me/java_code.png" />
-          <img style="height: 50%; width: 50%" src="images/me/lecture.jpg" />
-          <img style="height: 50%; width: 50%" src="images/me/travel.jpeg" />
-        </v-card>
-      </v-col>
-      <v-col cols="2">
-        <v-list class="pa-0" bg-color="transparent">
-          <v-list-item
-            v-for="information in sections_information"
-            :key="information.title"
-            style="border-left: solid 0.01em #ffffff85"
-            min-height="40px"
-          >
-            {{ information.title }} : {{ information.value }}
-          </v-list-item>
-        </v-list>
-      </v-col>
-    </v-row>
+            mdi-arrow-left
+        </v-icon>
+    </v-btn>
 
-    <v-row justify="center" >
-      <v-col cols="7">
-        <div style="text-align: justify">
-          Section description (to delete after) Passé par le collège Paul Eluard
-          à Nanterre (ville du département des Hauts-de-Seine), je découvre
-          assez rapidement mon appétence pour les mathématiques. J’en ai fait
-          par la suite une priorité dans mon parcours scolaire. En parallèle
-          avec les cours, ma passion prenait une place importante dans ma jeune
-          vie d’adolescent. Elle régulait et rythmait mes journées, mon emploi
-          du temps ainsi que mes centres d’intérêts. Malheureusement, tout le
-          monde n’a pas la chance d’en faire son “gagne-pain”, qui-plus-est
-          lorsqu’il s’agit du football, en région parisienne. Ayant rapidement
-          pris conscience de cette situation, j’ai décidé de concentrer
-          l’entièreté de mon temps à mes études. Ajouté à cela, mon
-          organisation, ma volonté d’atteindre mes objectifs ainsi que mon
-          audace, j’ai aujourd’hui l’ambition d’être à la tête d’une direction
-          de service de système d’information au sein ma propre structure.
-        </div>
-      </v-col>
-      <v-col cols="5" style="text-align: justify">
-        <div>
-          Comme précisé en page d’accueil, je vous détaillerai mon parcours. Ça
-          risque peut-être d’être long mais j’espère que ça vous plaira, alors
-          avant de commencer madame, monsieur, je vous souhaite une belle
-          expérience ! ✌🏿
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+    <v-container class="text my-6 px-8">
+        <v-row justify="center">
+            <v-col cols="11">
+                <span style="font-size: 1.5em">{{
+                    topic.title[$i18n.locale]
+                }}</span>
+            </v-col>
+        </v-row>
+        <v-row justify="center">
+            <v-col cols="11">
+                <v-card
+                    class="section-card-bg text"
+                    :class="topic.image.length == 4 ? 'pt-8 pb-4 px-8' : 'pa-8'"
+                    rounded="lg"
+                >
+                    <section-description
+                        :topic="topic"
+                        :section="locale_sections"
+                    ></section-description>
+                </v-card>
+            </v-col>
+        </v-row>
+        <section-subjects
+            :subjects="subjects"
+            :topic="topic.title.en"
+        ></section-subjects>
+    </v-container>
+    <v-btn
+        class="next-section"
+        variant="outlined"
+        rounded="circle"
+        height="63"
+        width="30"
+        @click="changeSection()"
+        v-if="id < 4"
+    >
+        <v-icon
+            class="btn-text"
+            :size="$vuetify.display.smAndDonw ? '25' : '28'"
+        >
+            mdi-arrow-right
+        </v-icon>
+    </v-btn>
 </template>
+
+<style lang="scss" scoped>
+@import url("../../../css/app.scss");
+.previous-secion {
+    border: none;
+    position: fixed;
+    top: 50%;
+    left: 1%;
+    float: left;
+}
+.next-section {
+    border: none;
+    position: fixed;
+    top: 50%;
+    float: right;
+    right: 1%;
+}
+</style>
+
 <script>
+import SectionDescription from "../tools/section/SectionDescription.vue";
+import SectionSubjects from "../tools/section/SectionSubjects.vue";
+
 export default {
-  props: {
-    id: [Number, String],
-    dialog: Boolean,
-  },
-  data: () => {
-    return {
-      sections: null,
-      sections_information: [
-        { title: "Date", value: null },
-        { title: "Location", value: null },
-        { title: "Context", value: null },
-        { title: "Team", value: null },
-      ],
-    };
-  },
-  computed: {
-    active: {
-      get() {
-        return this.dialog;
-      },
+    components: {
+        SectionDescription,
+        SectionSubjects,
     },
-  },
-  mounted() {
-    this.getSections();
-  },
-  methods: {
-    getSections() {
-      axios
-        .get("/api/sections/" + this.id)
-        .then((res) => {
-          this.sections = res.data.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    props: {
+        id: [Number, String],
     },
-  },
+    data: () => {
+        return {
+            topic: {
+                title: -1,
+                image: [-1],
+                started_at: [-1],
+                ended_at: [-1],
+                location: "",
+            },
+            section: [
+                {
+                    section_id: -1,
+                    language: "",
+                    description: "",
+                    what_i_learned: "",
+                },
+            ],
+            locale_sections: {},
+            subjects: [
+                {
+                    info: {
+                        ended_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        id: -1,
+                        location: "",
+                        started_at: {
+                            en: "",
+                            fr: "",
+                        },
+                        team: "",
+                        image_path: "",
+                    },
+                    contents: [
+                        {
+                            subject_id: -1,
+                            language: "",
+                            description: "",
+                            image: "",
+                        },
+                    ],
+                },
+            ],
+        };
+    },
+    mounted() {
+        this.getSections();
+        this.getSectionContents();
+        this.getSectionSubjects();
+    },
+    methods: {
+        getSectionSubjects() {
+            axios
+                .get("/api/subjects/" + this.id)
+                .then((res) => {
+                    this.subjects = res.data.data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        getSections() {
+            axios
+                .get("/api/sections/" + this.id)
+                .then((res) => {
+                    this.topic = res.data.topic;
+                    this.topic.image = Object.values(this.topic.image);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        getSectionContents() {
+            axios.get("/api/section-contents/" + this.id).then((res) => {
+                this.section = res.data;
+                this.locale_sections = this.section.filter(
+                    (section) => section.language == this.$i18n.locale
+                );
+            });
+        },
+        changeSection(direction) {
+            if (1 < this.id < 4) {
+                var new_topic_id =
+                    direction == "previous"
+                        ? parseInt(this.id) - 1
+                        : parseInt(this.id) + 1;
+
+                this.$router.push({
+                    name: "section",
+                    params: { id: new_topic_id },
+                });
+                setTimeout(() => {
+                    document.location.reload();
+                }, 30);
+            }
+        },
+    },
+    watch: {
+        "$i18n.locale"() {
+            this.locale_sections = this.section.filter(
+                (section) => section.language == this.$i18n.locale
+            );
+        },
+    },
 };
 </script>

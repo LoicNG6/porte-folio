@@ -1,0 +1,106 @@
+.app {
+    background: linear-gradient(0.5turn, #260a06, #321008) 100%;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    color: rgb(240, 234, 234);
+}
+
+.text {
+    font-size: 1em;
+    font-family: "Inter", sans-serif;
+    color: #f3f3f2c7;
+
+    title {
+        font-size: 1.5em;
+        color: #fceee5;
+    }
+
+    .middle-title {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .paragraph {
+        text-align: justify;
+    }
+}
+
+.section-card-bg {
+    background: #00000025;
+}
+.bs {
+    border: solid yellow;
+}
+
+.btn-bg {
+    background: #f7e1d4e2;
+
+    .btn-text {
+        color: #50251c;
+    }
+}
+
+.btn-bg:hover {
+    background: linear-gradient(to right, #2e0e07, #42130b);
+
+    .btn-text {
+        color: #fceee5;
+    }
+}
+
+.menu-btn {
+    background: linear-gradient(to right, #2e0e07, #42130b);
+}
+
+.menu-btn:hover {
+    background: #f7e1d4e2;
+    color: #50251c;
+}
+
+.card-bg {
+    background: linear-gradient(to right bottom, #270b05, #3c1008);
+}
+
+.section-subject-card-bg {
+    background: transparent;
+}
+.welcome-input {
+    font-family: "Inter", sans-serif;
+    welcome-title {
+        font-size: 1.7em;
+    }
+}
+
+.section {
+    subject {
+        background-color: rgb(64, 31, 19);
+        background-color: #967468;
+        color: #80594a;
+    }
+}
+
+.menu {
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.menu:hover {
+    cursor: pointer;
+}
+
+.admin-icon {
+    color: #fceee5;
+}
+.admin-icon:hover {
+    cursor: pointer;
+}
+
+.menuSmAndDown {
+    cursor: pointer;
+}
+
+.menuSmAndDown:hover {
+    background-color: #91909025;
+}

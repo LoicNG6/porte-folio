@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import vue from '@vitejs/plugin-vue';
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+import vue from "@vitejs/plugin-vue";
+import vuetify from "vite-plugin-vuetify";
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: [
-                'resources/sass/app.scss',
-                'resources/js/app.js',
-            ],
+            input: ["resources/css/app.scss", "resources/js/app.js"],
             refresh: true,
         }),
         vue({
@@ -20,14 +17,14 @@ export default defineConfig({
                 },
             },
             compilerOptions: {
-                isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+                isCustomElement: (tag) => ["md-linedivider"].includes(tag),
             },
         }),
         vuetify(),
     ],
     resolve: {
         alias: {
-            '@': '/resources',
+            "@": "/resources",
         },
     },
     commonjsOptions: {
@@ -35,5 +32,6 @@ export default defineConfig({
     },
     build: {
         chunkSizeWarningLimit: 1600,
+        assetsInlineLimit: 0,
     },
 });

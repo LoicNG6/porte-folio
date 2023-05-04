@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
-    protected $fillable = ['title_fr', 'description_fr', 'title_en', 'description_en'];
+    protected $fillable = ['title', 'teaser', 'image', 'started_at', 'ended_at'];
 
     public function section()
     {

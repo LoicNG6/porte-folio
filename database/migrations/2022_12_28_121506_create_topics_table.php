@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
-            $table->string('description');
+            $table->string('teaser')->nullable();
+            $table->string('image')->nullable();
+            $table->string("started_at")->nullable();
+            $table->string("ended_at")->nullable();
         });
     }
 
