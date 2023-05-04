@@ -8,8 +8,9 @@
                 v-if="$vuetify.display.smAndDown"
             ></v-top-menu-sm-and-down>
             <v-top-menu v-else></v-top-menu>
+            <router-view />
         </template>
-        <v-container v-if="$route.name == 'Loco'" class="text">
+        <v-container v-else class="text">
             <v-row justify="center" align-content="center">
                 <v-col
                     align-self="center"
@@ -89,8 +90,8 @@
                 </v-col>
                 <v-col
                     :cols="$vuetify.display.xs ? 'auto' : '1'"
-                    class="px-0 title"
                     align-self="center"
+                    class="px-0 title"
                 >
                     <v-btn
                         class="mx-4 btn-hover"
@@ -106,8 +107,6 @@
                 </v-col>
             </v-row>
         </v-container>
-        <!-- <v-container v-else></v-container> -->
-        <router-view v-else />
     </v-main>
 </template>
 

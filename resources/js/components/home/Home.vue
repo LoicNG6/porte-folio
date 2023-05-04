@@ -141,6 +141,9 @@
     </v-container>
     <router-view v-else />
 </template>
+<style lang="scss" scoped>
+@import url("../../../css/app.scss");
+</style>
 <script>
 import InformationCardTool from "./InformationCardTool.vue";
 export default {

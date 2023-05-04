@@ -1,12 +1,13 @@
 <template>
     <v-row
         justify="start"
-        class="my-12 py-4 px-12"
+        class="my-12"
+        :class="$vuetify.display.smAndDown ? 'py-4 px-12' : 'pa-4'"
         v-for="(locale_subject, index) in locale_subjects"
         :key="index"
     >
         <template v-if="locale_subject.info.id == 1">
-            <div style="text-align: justify" class="px-4">
+            <div style="text-align: justify">
                 {{ locale_subject.locale_content.description }}
             </div>
         </template>

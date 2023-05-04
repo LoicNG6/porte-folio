@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.1",
+        "ramsey/uuid": "^4.7",
         "tanthammar/livewire-window-size": "^1.2"
     },
     "require-dev": {

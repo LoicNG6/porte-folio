@@ -15,6 +15,9 @@
         </v-card>
     </v-col>
 </template>
+<style lang="scss" scoped>
+@import url("../../../css/app.scss");
+</style>
 <script>
 export default {
     name: "InformationCardTool",

@@ -30,6 +30,7 @@
                                 hide-slider
                                 class="mx-4"
                                 @click="changeMenu(menu.to)"
+                                rounded="0"
                                 :style="
                                     menu.title.en == $route.name
                                         ? 'color: #ada8a8be; pointer-events:none; border-bottom:solid'
@@ -72,16 +73,6 @@
 <script>
 export default {
     name: "v-top-menu",
-    props: {
-        menu: {
-            type: Object,
-            required: true,
-        },
-        image_path: {
-            type: Object,
-            required: true,
-        },
-    },
     data: () => {
         return {
             image_trad_path: "",

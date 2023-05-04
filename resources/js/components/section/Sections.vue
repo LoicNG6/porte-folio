@@ -61,7 +61,8 @@
     </v-btn>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import url("../../../css/app.scss");
 .previous-secion {
     border: none;
     position: fixed;

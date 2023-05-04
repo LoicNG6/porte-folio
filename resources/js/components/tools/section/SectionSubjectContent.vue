@@ -129,6 +129,8 @@
     </v-col>
 </template>
 <style scoped>
+@import url("../../../../css/app.scss");
+
 .left-subject {
     border-left: solid 0.01em #ffffff35;
     border-top-left-radius: 3px;

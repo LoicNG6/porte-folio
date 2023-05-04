@@ -12,7 +12,7 @@ class Section extends Model
 
     public function subjects()
     {
-        return $this->hasMany(Subjects::class);
+        return $this->hasMany(Subject::class);
     }
 
     public function section_content()

@@ -13,7 +13,7 @@
                     height="30"
                     :src="computedDrawerImage"
                     @click="activeMenu()"
-                    style="cursor: pointer"
+                    style="cursor: pointer; color: red;"
                 />
             </v-col>
             <v-col cols="auto" class="py-0">
@@ -43,10 +43,12 @@
     <v-navigation-drawer
         color="#270a04"
         v-model="drawer"
+        temporary
         class="text pt-2 pb-14"
         :width="$vuetify.display.xs ? '600' : '250'"
     >
         <v-list
+            lines="one"
             class="my-4"
             :style="$vuetify.display.xs ? 'text-align: center;' : ''"
         >
