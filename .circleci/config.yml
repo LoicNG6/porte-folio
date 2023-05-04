@@ -15,7 +15,6 @@ jobs:
       - run:
           name: "Install Dependencies"
           command: composer update
-
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
@@ -30,8 +29,6 @@ jobs:
       - run:
           command: |
             heroku run --app=${HEROKU_APP_NAME} php artisan migrate --force
-      -run: 
-        command: npm install && npm run build
 workflows:
   deploy:
     jobs:
