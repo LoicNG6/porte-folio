@@ -16,8 +16,11 @@ jobs:
           name: "Install Dependencies"
           command: composer update
       - run:
-          name: "project building"
-          command: vite build
+          name: "node installing"
+          command: npm install
+      - run:
+          name: "build app"
+          command: npm run build
       - run:
           name: "Run project"
           command: php artisan serve
