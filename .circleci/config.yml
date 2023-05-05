@@ -17,7 +17,7 @@ jobs:
           command: composer update
       - run:
           name: "project building"
-          command: npm run build
+          command: vite build
       - run:
           name: "Run project"
           command: php artisan serve
