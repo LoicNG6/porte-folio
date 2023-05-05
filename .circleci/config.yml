@@ -14,16 +14,16 @@ jobs:
             - v1-dependencies-{{ checksum "composer.json" }}
       - run:
           name: "Install Dependencies"
-          command: composer update
+          command: composer install -n --prefer-dist
       - run:
-          name: "node installing"
-          command: npm install
+          name: "setting of environment"
+          command: cp .env.example .env
       - run:
           name: "build app"
-          command: npm run build
+          command: run php artisan key:generate
       - run:
-          name: "Run project"
-          command: php artisan serve
+          name: "run test"
+          command: ./vendor/bin/phpunit
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
