@@ -15,6 +15,12 @@ jobs:
       - run:
           name: "Install Dependencies"
           command: composer update
+      - run:
+          name: "project building"
+          command: npm run build
+      - run:
+          name: "Run project"
+          command: php artisan serve
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
