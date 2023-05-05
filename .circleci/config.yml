@@ -18,9 +18,9 @@ jobs:
       - run:
           name: "setting of environment"
           command: cp .env.example .env
-      - run:
-          name: "build app"
-          command: run php artisan key:generate
+      # - run:
+      #     name: "build app"
+      #     command: run php artisan key:generate
       - run:
           name: "run test"
           command: ./vendor/bin/phpunit
