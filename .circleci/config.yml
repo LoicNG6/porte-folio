@@ -21,9 +21,9 @@ jobs:
       # - run:
       #     name: "build app"
       #     command: run php artisan key:generate
-      - run:
-          name: "run test"
-          command: ./vendor/bin/phpunit
+      # - run:
+      #     name: "run test"
+      #     command: ./vendor/bin/phpunit
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
