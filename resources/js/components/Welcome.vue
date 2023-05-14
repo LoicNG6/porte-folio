@@ -111,6 +111,7 @@
 </template>
 
 <style scoped>
+@import url("../../css/app.scss");
 .blinking-cursor {
     -webkit-animation: 1.1s blink step-end infinite;
     color: #48140b;

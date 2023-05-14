@@ -77,6 +77,9 @@
         </template>
     </v-navigation-drawer>
 </template>
+<style lang="scss" scoped>
+@import url("../../../../css/app.scss");
+</style>
 <script>
 export default {
     name: "v-top-menu-smAndDown",
